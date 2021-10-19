@@ -1,36 +1,40 @@
 package ASTTreeGenerator;
 
 import java.util.ArrayList;
+import MyExeptions.ASTNotGeneratedExeption;
 
 public class ASTGenerator {
-
-    private class TokenWithDepth {
-    
-        private String token;
-        private int depth;
-        
-        private TokenWithDepth(String token, int depth){
-            this.token = token;
-            this.depth = depth;
-        }
-
-        @Override
-        public String toString() {
-            return "{" + this.token + ", " + this.depth +
-                "}";
-        }
-    }
+    Node root;
 
     public ASTGenerator() {
-    
+        this.root = null;
     }
-    public void getASTTree(ArrayList<String> astList){
+
+    public Node generateAST(ArrayList<String> astList){
+        Node previous = null;
         for (String line : astList) {
             String token = line.replace(".", "");
             int depth = line.length() - token.length();
-            TokenWithDepth tokenWithDepth = new TokenWithDepth(token, depth);
-            System.out.println(tokenWithDepth);
+            if (depth == 0) {
+                this.root = new Node(token, previous, depth);
+                previous = this.root;
+                continue;
+            }
+            previous = this.root.getNextToAppend(depth);
+            previous.addChild(new Node(token, previous, depth));
         }
-        return;
+        return this.root;
+    }
+
+    public void printTree() {
+        try {
+            if (this.root == null) {
+                throw new ASTNotGeneratedExeption("AST need to be generated first");
+            }
+            this.root.printNode();
+        } catch (ASTNotGeneratedExeption e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 }

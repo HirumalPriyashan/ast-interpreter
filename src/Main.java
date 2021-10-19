@@ -3,6 +3,7 @@ import FileReader.TextFileReader;
 import java.util.ArrayList;
 
 import ASTTreeGenerator.ASTGenerator;
+import ASTTreeGenerator.Node;
 
 public class Main {
 
@@ -18,6 +19,7 @@ public class Main {
 
         // generate AST as a tree
         ASTGenerator astGenerator = new ASTGenerator();
-        astGenerator.getASTTree(fileContent);
+        Node root = astGenerator.generateAST(fileContent);
+        astGenerator.printTree();
     }
 }
