@@ -1,9 +1,10 @@
 import FileReader.FileReader;
 import FileReader.TextFileReader;
+import Node.Node;
+
 import java.util.ArrayList;
 
 import ASTTreeGenerator.ASTGenerator;
-import ASTTreeGenerator.Node;
 
 public class Main {
 
@@ -17,9 +18,11 @@ public class Main {
         FileReader fileReader = new TextFileReader("input.txt");
         ArrayList<String> fileContent= fileReader.getData();
 
-        // generate AST as a tree
+        // generate AST
         ASTGenerator astGenerator = new ASTGenerator();
         Node root = astGenerator.generateAST(fileContent);
-        astGenerator.printTree();
+
+        // standardize
+        root.standardizeNode();
     }
 }

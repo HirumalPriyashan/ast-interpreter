@@ -2,6 +2,7 @@ package ASTTreeGenerator;
 
 import java.util.ArrayList;
 import MyExeptions.ASTNotGeneratedExeption;
+import Node.Node;
 
 public class ASTGenerator {
     Node root;

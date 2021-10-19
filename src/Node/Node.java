@@ -1,4 +1,4 @@
-package ASTTreeGenerator;
+package Node;
 
 import java.util.ArrayList;
 
@@ -7,12 +7,14 @@ public class Node {
     private ArrayList<Node> children;
     private Node parent;
     private int depth;
+    private boolean isStandardized;
 
     public Node(String value,  Node parent, int depth) {
         this.value = value;
         this.children = new ArrayList<Node>();
         this.parent = parent;
         this.depth = depth;
+        this.isStandardized = false;
     }
 
     public ArrayList<Node> getChildren() {
@@ -40,5 +42,14 @@ public class Node {
         for (Node node : this.children) {
             node.printNode();
         }
+    }
+
+    public void standardizeNode() {
+        if (!isStandardized) {
+            this.standardize();
+        }
+    }
+
+    private void standardize() {
     }
 }
