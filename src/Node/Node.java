@@ -1,6 +1,7 @@
 package Node;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Node {
     private String token;
@@ -22,6 +23,7 @@ public class Node {
     }
 
     public void addChild(Node child) {
+        child.setParent(this);
         this.children.add(child);
     }
 
@@ -105,13 +107,10 @@ public class Node {
             // restructure
             this.token = "gamma";
             Node lamda = new Node("lamda", this, this.depth + 1);
-            lamda.addChild(X);
             P.increaseDepthBy(1);
-            lamda.addChild(P);
+            lamda.setChildren(new ArrayList<Node>(Arrays.asList(X, P)));
             E.increaseDepthBy(-1);
-            this.setChildren(new ArrayList<Node>());
-            this.addChild(lamda);
-            this.addChild(E);
+            this.setChildren(new ArrayList<Node>(Arrays.asList(lamda, E)));
         }
         else if (this.token.equals("where")) {
             Node equal = this.children.get(1);
@@ -121,13 +120,10 @@ public class Node {
             // restructure
             this.token = "gamma";
             Node lamda = new Node("lamda", this, this.depth + 1);
-            lamda.addChild(X);
             P.increaseDepthBy(1);
-            lamda.addChild(P);
+            lamda.setChildren(new ArrayList<Node>(Arrays.asList(X, P)));
             E.increaseDepthBy(-1);
-            this.setChildren(new ArrayList<Node>());
-            this.addChild(lamda);
-            this.addChild(E);
+            this.setChildren(new ArrayList<Node>(Arrays.asList(lamda, E)));
         }
         this.setIsStandardized(true);
     }
