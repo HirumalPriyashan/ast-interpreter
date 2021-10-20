@@ -1,0 +1,11 @@
+gamma
+.lamda
+..<ID:x>
+..gamma
+...lamda
+....<ID:y>
+....+
+.....<ID:x>
+.....<ID:y>
+...<INT:4>
+.<INT:3>

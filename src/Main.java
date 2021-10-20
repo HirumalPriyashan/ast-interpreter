@@ -15,7 +15,7 @@ public class Main {
     // print(check (-8), check 8)
     public static void main(String[] args) {
         // get ast content from file
-        FileReader fileReader = new TextFileReader("input.txt");
+        FileReader fileReader = new TextFileReader("input-let.txt");
         ArrayList<String> fileContent= fileReader.getData();
 
         // generate AST
@@ -24,5 +24,6 @@ public class Main {
 
         // standardize
         root.standardizeNode();
+        root.printNode();
     }
 }
