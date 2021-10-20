@@ -15,7 +15,7 @@ public class Main {
     // print(check (-8), check 8)
     public static void main(String[] args) {
         // get ast content from file
-        FileReader fileReader = new TextFileReader("input-let.txt");
+        FileReader fileReader = new TextFileReader("input-where.txt");
         ArrayList<String> fileContent= fileReader.getData();
 
         // generate AST
