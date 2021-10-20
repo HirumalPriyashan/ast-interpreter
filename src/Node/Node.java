@@ -113,6 +113,22 @@ public class Node {
             this.addChild(lamda);
             this.addChild(E);
         }
+        else if (this.token.equals("where")) {
+            Node equal = this.children.get(1);
+            Node P = this.children.get(0).standardizeNode();
+            Node X = equal.getChildren().get(0).standardizeNode();
+            Node E = equal.getChildren().get(1).standardizeNode();
+            // restructure
+            this.token = "gamma";
+            Node lamda = new Node("lamda", this, this.depth + 1);
+            lamda.addChild(X);
+            P.increaseDepthBy(1);
+            lamda.addChild(P);
+            E.increaseDepthBy(-1);
+            this.setChildren(new ArrayList<Node>());
+            this.addChild(lamda);
+            this.addChild(E);
+        }
         this.setIsStandardized(true);
     }
 }
