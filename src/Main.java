@@ -15,12 +15,13 @@ public class Main {
     // print(check (-8), check 8)
     public static void main(String[] args) {
         // get ast content from file
-        FileReader fileReader = new TextFileReader("input-where.txt");
+        FileReader fileReader = new TextFileReader("input-fnfrm.txt");
         ArrayList<String> fileContent= fileReader.getData();
 
         // generate AST
         ASTGenerator astGenerator = new ASTGenerator();
         Node root = astGenerator.generateAST(fileContent);
+        // root.printNode();
 
         // standardize
         root.standardizeNode();
