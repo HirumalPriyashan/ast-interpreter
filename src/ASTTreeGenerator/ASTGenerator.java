@@ -1,6 +1,7 @@
 package ASTTreeGenerator;
 
-import java.util.ArrayList;
+import java.util.List;
+
 import MyExeptions.ASTNotGeneratedExeption;
 import Node.Node;
 
@@ -11,7 +12,7 @@ public class ASTGenerator {
         this.root = null;
     }
 
-    public Node generateAST(ArrayList<String> astList){
+    public Node generateAST(List<String> astList){
         Node previous = null;
         for (String line : astList) {
             String token = line.replace(".", "");

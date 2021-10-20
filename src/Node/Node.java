@@ -1,7 +1,6 @@
 package Node;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Node {
@@ -19,24 +18,25 @@ public class Node {
         this.isStandardized = false;
     }
 
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     public List<Node> getChildren() {
         return this.children;
+    }
+
+    public void setChildren(List<Node> children) {
+        this.children = children;
     }
 
     public void addChild(Node child) {
         child.setParent(this);
         this.children.add(child);
-    }
-
-    public String gettoken() {
-        return this.token;
-    }
-
-    public void settoken(String token) {
-        this.token = token;
-    }
-    public void setChildren(ArrayList<Node> children) {
-        this.children = children;
     }
 
     public Node getParent() {
@@ -92,68 +92,4 @@ public class Node {
         }
     }
 
-    public Node standardizeNode() {
-        if (!getIsStandardized()) {
-            for (Node node : this.children) {
-                node.standardizeNode();
-            }
-            this.standardize();
-        }
-        return this;
-    }
-
-    private void standardize() {
-        if (this.token.equals("let")) {
-            Node equal = this.children.get(0);
-            Node P = this.children.get(1);
-            Node X = equal.getChildren().get(0);
-            Node E = equal.getChildren().get(1);
-            // restructure
-            this.token = "gamma";
-            Node lambda = new Node("lambda", this, this.depth + 1);
-            P.increaseDepthBy(1);
-            lambda.setChildren(new ArrayList<Node>(Arrays.asList(X, P)));
-            E.increaseDepthBy(-1);
-            this.setChildren(new ArrayList<Node>(Arrays.asList(lambda, E)));
-            this.setIsStandardized(true);
-        }
-        else if (this.token.equals("where")) {
-            Node equal = this.children.get(1);
-            Node P = this.children.get(0);
-            Node X = equal.getChildren().get(0);
-            Node E = equal.getChildren().get(1);
-            // restructure
-            this.token = "gamma";
-            Node lambda = new Node("lambda", this, this.depth + 1);
-            P.increaseDepthBy(1);
-            lambda.setChildren(new ArrayList<Node>(Arrays.asList(X, P)));
-            E.increaseDepthBy(-1);
-            this.setChildren(new ArrayList<Node>(Arrays.asList(lambda, E)));
-            this.setIsStandardized(true);
-        }
-        else if (this.token.equals("function_form")) {
-            Node P = this.children.get(0);
-            List<Node> Vs = this.children.subList(1, this.children.size() - 1);
-            Node E = this.children.get(this.children.size() - 1);
-            // restructure
-            this.token = "=";
-            Node rootLambda = new Node("lambda", this, this.depth + 1);
-            Node currentLambda = rootLambda;
-            for (Node v : Vs) {
-                currentLambda.addChild(v);
-                v.setDepth(currentLambda.getDepth() + 1);
-                if (Vs.indexOf(v) == Vs.size() - 1) {
-                    E.increaseDepthBy(Vs.size());
-                    currentLambda.addChild(E);
-                } else {
-                    Node nextLamda = new Node("lambda", currentLambda, currentLambda.getDepth() + 1);
-                    currentLambda.addChild(nextLamda);
-                    currentLambda = nextLamda;
-                }
-            }
-            this.setChildren(new ArrayList<Node>(Arrays.asList(P,rootLambda)));
-            this.setIsStandardized(true);
-        }
-        this.setIsStandardized(true);
-    }
 }

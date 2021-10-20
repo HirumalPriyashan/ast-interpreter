@@ -1,6 +1,7 @@
 import FileReader.FileReader;
 import FileReader.TextFileReader;
 import Node.Node;
+import Standardizer.Standardizer;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ public class Main {
     // print(check (-8), check 8)
     public static void main(String[] args) {
         // get ast content from file
-        FileReader fileReader = new TextFileReader("input-fnfrm.txt");
+        FileReader fileReader = new TextFileReader("input-where.txt");
         ArrayList<String> fileContent= fileReader.getData();
 
         // generate AST
@@ -24,7 +25,8 @@ public class Main {
         // root.printNode();
 
         // standardize
-        root.standardizeNode();
+        Standardizer standardizer = new Standardizer();
+        standardizer.standardize(root);
         root.printNode();
     }
 }
