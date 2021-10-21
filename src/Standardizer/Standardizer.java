@@ -13,6 +13,7 @@ public class Standardizer {
         .setSuccessor(new TupleStandardizer())
         .setSuccessor(new MultiParameterStandardizer())
         .setSuccessor(new WithinStandardizer())
+        .setSuccessor(new OpStandardizer())
         .setSuccessor(new AtStandardizer());
     }
 
