@@ -50,6 +50,11 @@ class ASTInterpreterTest {
         RunTest("within");
     }
 
+    @Test
+    void testAt() {
+        RunTest("at");
+    }
+
     private void RunTest(String testName) {
         String absolutePath = "D:/Semester 05/06 - Programming Languages/Labs/ast-interpreter/";
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();

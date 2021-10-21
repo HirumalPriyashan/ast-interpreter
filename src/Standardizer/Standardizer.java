@@ -12,7 +12,8 @@ public class Standardizer {
         .setSuccessor(new FnFrmStandardizer())
         .setSuccessor(new TupleStandardizer())
         .setSuccessor(new MultiParameterStandardizer())
-        .setSuccessor(new WithinStandardizer());
+        .setSuccessor(new WithinStandardizer())
+        .setSuccessor(new AtStandardizer());
     }
 
     public void standardize(Node node) {
