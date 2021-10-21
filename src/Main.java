@@ -1,12 +1,3 @@
-import FileReader.FileReader;
-import FileReader.TextFileReader;
-import Node.Node;
-import Standardizer.Standardizer;
-
-import java.util.ArrayList;
-
-import ASTTreeGenerator.ASTGenerator;
-
 public class Main {
 
     // let check x = 

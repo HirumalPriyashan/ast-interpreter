@@ -1,12 +1,12 @@
-import FileReader.FileReader;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import FileReader.TextFileReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,50 +22,49 @@ class ASTInterpreterTest {
 
     @Test
     void testLet() {
-        RunTest("inputs/input-let.txt","outputs/output-let.txt");
+        RunTest("let");
     }
 
     @Test
     void testWhere() {
-        RunTest("inputs/input-where.txt","outputs/output-where.txt");
+        RunTest("where");
     }
 
     @Test
     void testFnFrm() {
-        RunTest("inputs/input-fnfrm.txt","outputs/output-fnfrm.txt");
+        RunTest("fnfrm");
     }
 
     @Test
     void testTuple() {
-        RunTest("inputs/input-tuple.txt","outputs/output-tuple.txt");
+        RunTest("tuple");
     }
 
     @Test
     void testMultiParameter() {
-        RunTest("inputs/input-multi-parameter.txt","outputs/output-multi-parameter.txt");
+        RunTest("multi-parameter");
     }
 
     @Test
     void testWithIn() {
-        RunTest("inputs/input-within.txt","outputs/output-within.txt");
+        RunTest("within");
     }
 
-    private void RunTest(String inputFile, String outputFile) {
+    private void RunTest(String testName) {
+        String absolutePath = "D:/Semester 05/06 - Programming Languages/Labs/ast-interpreter/";
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        String expectedOutput = getExpectedOutput(outputFile);
-        ASTInterpreter.interprete(inputFile);
+        String expectedOutput = getExpectedOutput(absolutePath + "outputs/output-" + testName + ".txt");
+        ASTInterpreter.interprete(absolutePath + "inputs/input-" + testName + ".txt");
         assertEquals(expectedOutput, outContent.toString());
     }
 
     private String getExpectedOutput(String filename) {
-        FileReader fileReader = new TextFileReader(filename);
-        ArrayList<String> fileContent= fileReader.getData();
-        StringBuilder str = new StringBuilder("");
-        for (String w : fileContent) {
-            str.append(w).append("\r\n");
+        try {
+            return Files.readString(Paths.get(filename));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        String expectedOutput = str.toString();
-        return expectedOutput;
+        return "";
     }
 }
