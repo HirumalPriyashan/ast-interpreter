@@ -1,0 +1,15 @@
+gamma
+.lambda
+..<ID:f>
+..gamma
+...<ID:f>
+...<INT:2>
+.gamma
+..lambda
+...<ID:c>
+...lambda
+....<ID:x>
+....+
+.....<ID:x>
+.....<ID:c>
+..<INT:3>
