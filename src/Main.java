@@ -16,7 +16,7 @@ public class Main {
     // print(check (-8), check 8)
     public static void main(String[] args) {
         // get ast content from file
-        FileReader fileReader = new TextFileReader("inputs/input-tuple.txt");
+        FileReader fileReader = new TextFileReader("inputs/input-multi-parameter.txt");
         ArrayList<String> fileContent= fileReader.getData();
 
         // generate AST

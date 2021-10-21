@@ -1,0 +1,15 @@
+gamma
+.gamma
+..gamma
+...lambda
+....<ID:x>
+....<ID:y>
+....<ID:z>
+....+
+.....+
+......<ID:x>
+......<ID:y>
+.....<ID:z>
+...<INT:2>
+..<INT:3>
+.<INT:4>

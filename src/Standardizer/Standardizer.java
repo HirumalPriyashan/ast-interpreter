@@ -10,7 +10,8 @@ public class Standardizer {
         this.standardizer
         .setSuccessor(new WhereStandatdizer())
         .setSuccessor(new FnFrmStandardizer())
-        .setSuccessor(new TupleStandardizer());
+        .setSuccessor(new TupleStandardizer())
+        .setSuccessor(new MultiParameterStandardizer());
     }
 
     public void standardize(Node node) {
