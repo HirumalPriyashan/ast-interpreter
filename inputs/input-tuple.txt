@@ -1,0 +1,8 @@
+gamma
+.<ID:print>
+.tau
+..<INT:1>
+..tau
+...<INT:2>
+...<INT:3>
+..<INT:4>

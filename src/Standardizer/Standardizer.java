@@ -9,13 +9,14 @@ public class Standardizer {
         this.standardizer = new LetStandardizer();
         this.standardizer
         .setSuccessor(new WhereStandatdizer())
-        .setSuccessor(new FnFrmStandardizer());
+        .setSuccessor(new FnFrmStandardizer())
+        .setSuccessor(new TupleStandardizer());
     }
 
     public void standardize(Node node) {
         if (!node.getIsStandardized()) {
             for (Node child : node.getChildren()) {
-                this.standardizer.standardize(child);
+                this.standardize(child);
             }
             this.standardizer.standardize(node);
             node.setIsStandardized(true);
