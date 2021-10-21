@@ -13,5 +13,5 @@ gamma
 ...gamma
 ....gamma
 .....+
-.....<INT:x>
-....<INT:y>
+.....<ID:x>
+....<ID:y>

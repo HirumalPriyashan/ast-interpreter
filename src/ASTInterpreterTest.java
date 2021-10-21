@@ -51,6 +51,11 @@ class ASTInterpreterTest {
     }
 
     @Test
+    void testOps() {
+        RunTest("unary-and-binary");
+    }
+
+    @Test
     void testAt() {
         RunTest("at");
     }
