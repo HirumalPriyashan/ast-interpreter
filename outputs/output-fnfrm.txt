@@ -1,5 +1,5 @@
 gamma
-.lamda
+.lambda
 ..<ID:f>
 ..gamma
 ...gamma
@@ -8,14 +8,14 @@ gamma
 .....<INT:1>
 ....<INT:2>
 ...<INT:3>
-.lamda
+.lambda
 ..<ID:x>
-..lamda
+..lambda
 ...<ID:y>
-...lamda
+...lambda
 ....<ID:z>
 ....+
 .....+
 ......<ID:x>
 ......<ID:y>
-.....<ID:2>
+.....<INT:2>

@@ -1,8 +1,8 @@
 gamma
-.lamda
+.lambda
 ..<ID:x>
 ..gamma
-...lamda
+...lambda
 ....<ID:y>
 ....+
 .....<ID:x>

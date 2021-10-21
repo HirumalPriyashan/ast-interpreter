@@ -15,18 +15,13 @@ public class Main {
     // in
     // print(check (-8), check 8)
     public static void main(String[] args) {
-        // get ast content from file
-        FileReader fileReader = new TextFileReader("inputs/input-within.txt");
-        ArrayList<String> fileContent= fileReader.getData();
-
-        // generate AST
-        ASTGenerator astGenerator = new ASTGenerator();
-        Node root = astGenerator.generateAST(fileContent);
-        // root.printNode();
-
-        // standardize
-        Standardizer standardizer = new Standardizer();
-        standardizer.standardize(root);
-        root.printNode();
+        String filename = "";
+        if (args.length > 0){
+            filename = args[0];
+        }
+        else{
+            filename = "inputs/input.txt";
+        }
+        ASTInterpreter.interprete(filename);
     }
 }
