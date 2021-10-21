@@ -1,0 +1,17 @@
+gamma
+.not
+.gamma
+..gamma
+...gr
+...gamma
+....gamma
+.....+
+.....gamma
+......neg
+......<ID:x>
+....gamma
+.....gamma
+....../
+......<ID:y>
+.....<INT:3>
+..<ID:z>
