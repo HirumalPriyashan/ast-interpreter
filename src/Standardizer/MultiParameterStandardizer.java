@@ -17,17 +17,13 @@ public class MultiParameterStandardizer extends AbstractStandardizer {
                 Node currentLambda = node;
                 for (Node child : children.subList(0, numberOfChildren - 1)) {
                     currentLambda.addChild(child);
-                    child.setDepth(currentLambda.getDepth() + 1);
-                    child.setParent(currentLambda);
                     if (children.indexOf(child) != numberOfChildren - 2) {
-                        Node lambda = new Node("lambda", currentLambda, currentLambda.getDepth() + 1);
+                        Node lambda = new Node("lambda");
                         currentLambda.addChild(lambda);
                         currentLambda = lambda;
                     }
                 }
                 currentLambda.addChild(E);
-                E.increaseDepthBy(currentLambda.getDepth() + 1 - E.getDepth());
-                E.setParent(currentLambda);
             }
             return true;
         } else {
