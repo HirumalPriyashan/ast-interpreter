@@ -20,6 +20,7 @@ public class LetStandardizer extends AbstractStandardizer {
             X.setParent(lambda);
             P.setParent(lambda);
             lambda.setChildren(new ArrayList<Node>(Arrays.asList(X, P)));
+            new Standardizer().standardize(lambda);
             E.increaseDepthBy(-1);
             E.setParent(node);
             node.setChildren(new ArrayList<Node>(Arrays.asList(lambda, E)));
