@@ -8,7 +8,7 @@ let
 ...+
 ....<ID:x>
 ....<ID:y>
-...<INT:2>
+...<INT:z>
 .gamma
 ..gamma
 ...gamma

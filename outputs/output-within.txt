@@ -9,7 +9,9 @@ gamma
 ...<ID:c>
 ...lambda
 ....<ID:x>
-....+
-.....<ID:x>
+....gamma
+.....gamma
+......+
+......<ID:x>
 .....<ID:c>
 ..<INT:3>
