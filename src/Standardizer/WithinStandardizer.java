@@ -15,9 +15,9 @@ public class WithinStandardizer extends AbstractStandardizer {
             Node equal2 = node.getChildren().get(1);
             Node X2 = equal2.getChildren().get(0);
             Node E2 = equal2.getChildren().get(1);
-            node.setToken("=");
             Node gamma = new Node("gamma");
             Node lambda = new Node("lambda");
+            node.setToken("=");
             node.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(X2, gamma)));
             gamma.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(lambda, E1)));
             lambda.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(X1, E2)));

@@ -22,9 +22,6 @@ public class OpStandardizer extends AbstractStandardizer{
             Node Op = new Node(node.getToken());
             gamma1.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(gamma2, E2)));
             gamma2.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(Op, E1)));
-            // if (node.getParent() != null) {
-            //     node.getParent().getChildren().set(node.getParent().getChildren().indexOf(node), gamma1);
-            // }
             node.setToken(gamma1.getToken());
             node.setDepth(gamma1.getDepth());
             node.setChildren(gamma1.getChildren());
@@ -35,9 +32,6 @@ public class OpStandardizer extends AbstractStandardizer{
             Node Uop = new Node(node.getToken());
             Node E = node.getChildren().get(0);
             gamma.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(Uop, E)));
-            // if (node.getParent() != null) {
-            //     node.getParent().getChildren().set(node.getParent().getChildren().indexOf(node), gamma);
-            // }
             node.setToken(gamma.getToken());
             node.setDepth(gamma.getDepth());
             node.setChildren(gamma.getChildren());

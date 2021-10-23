@@ -8,12 +8,6 @@ import java.util.ArrayList;
 import ASTTreeGenerator.ASTGenerator;
 
 public class ASTInterpreter {
-
-    // let check x =
-    //     not Isinteger x -> 'error' |
-    //     (x ls 0 -> 'negative' | 'positive')
-    // in
-    // print(check (-8), check 8)
     public static void interprete(String filename) {
         // get ast content from file
         FileReader fileReader = new TextFileReader(filename);
