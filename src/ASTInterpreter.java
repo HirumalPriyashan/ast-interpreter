@@ -22,7 +22,6 @@ public class ASTInterpreter {
         // generate AST
         ASTGenerator astGenerator = new ASTGenerator();
         Node root = astGenerator.generateAST(fileContent);
-        // root.printNode();
 
         // standardize
         Standardizer standardizer = new Standardizer();

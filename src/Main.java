@@ -11,7 +11,7 @@ public class Main {
             filename = args[0];
         }
         else{
-            filename = "inputs/input.txt";
+            filename = "inputs/input-let.txt";
         }
         ASTInterpreter.interprete(filename);
     }

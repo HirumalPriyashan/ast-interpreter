@@ -18,12 +18,11 @@ public class ASTGenerator {
             String token = line.replace(".", "");
             int depth = line.length() - token.length();
             if (depth == 0) {
-                this.root = new Node(token, previous, depth);
-                previous = this.root;
+                this.root = new Node(token);
                 continue;
             }
             previous = this.root.getNextToAppend(depth);
-            previous.addChild(new Node(token, previous, depth));
+            previous.addChildWithDepth(new Node(token));
         }
         return this.root;
     }

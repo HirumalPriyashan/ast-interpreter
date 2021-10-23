@@ -15,14 +15,9 @@ public class WhereStandatdizer extends AbstractStandardizer {
             Node E = equal.getChildren().get(1);
             // restructure
             node.setToken("gamma");
-            Node lambda = new Node("lambda", node, node.getDepth() + 1);
-            P.increaseDepthBy(1);
-            X.setParent(lambda);
-            P.setParent(lambda);
-            lambda.setChildren(new ArrayList<Node>(Arrays.asList(X, P)));
-            E.increaseDepthBy(-1);
-            E.setParent(node);
-            node.setChildren(new ArrayList<Node>(Arrays.asList(lambda, E)));
+            Node lambda = new Node("lambda");
+            lambda.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(X, P)));
+            node.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(lambda, E)));
             return true;
         } else {
             return false;

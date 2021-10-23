@@ -10,11 +10,11 @@ public class Node {
     private int depth;
     private boolean isStandardized;
 
-    public Node(String token,  Node parent, int depth) {
+    public Node(String token) {
         this.token = token;
         this.children = new ArrayList<Node>();
-        this.parent = parent;
-        this.depth = depth;
+        this.parent = null;
+        this.depth = 0;
         this.isStandardized = false;
     }
 
@@ -31,12 +31,33 @@ public class Node {
     }
 
     public void setChildren(List<Node> children) {
-        this.children = children;
+        this.removeChildren();
+        for (Node node : children) {
+            this.addChild(node);
+        }
+    }
+
+    public void setChildrenWithDepth(List<Node> children) {
+        this.removeChildren();
+        for (Node node : children) {
+            this.addChildWithDepth(node);
+        }
     }
 
     public void addChild(Node child) {
         child.setParent(this);
         this.children.add(child);
+    }
+
+    public void addChildWithDepth(Node child) {
+        child.setParent(this);
+        child.increaseDepthBy(this.getDepth() - child.getDepth() + 1);
+        this.children.add(child);
+    }
+
+    public void removeChildren() {
+        this.children = new ArrayList<Node>();
+        return;
     }
 
     public Node getParent() {

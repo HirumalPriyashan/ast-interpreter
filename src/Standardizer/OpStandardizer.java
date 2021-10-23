@@ -16,13 +16,12 @@ public class OpStandardizer extends AbstractStandardizer{
             List<Node> children = node.getChildren();
             Node E1 = children.get(0);
             Node E2 = children.get(1);
-            Node gamma1 = new Node("gamma", node.getParent(), node.getDepth());
-            Node gamma2 = new Node("gamma", gamma1, gamma1.getDepth() + 1);
-            Node Op = new Node(node.getToken(), gamma2, gamma2.getDepth() + 1);
-            E1.setParent(gamma2);
-            E1.increaseDepthBy(gamma2.getDepth() + 1 - E1.getDepth());
-            gamma2.setChildren(new ArrayList<Node>(Arrays.asList(Op, E1)));
-            gamma1.setChildren(new ArrayList<Node>(Arrays.asList(gamma2, E2)));
+            Node gamma1 = new Node("gamma");
+            gamma1.setDepth(node.getDepth());
+            Node gamma2 = new Node("gamma");
+            Node Op = new Node(node.getToken());
+            gamma1.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(gamma2, E2)));
+            gamma2.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(Op, E1)));
             // if (node.getParent() != null) {
             //     node.getParent().getChildren().set(node.getParent().getChildren().indexOf(node), gamma1);
             // }
@@ -31,12 +30,11 @@ public class OpStandardizer extends AbstractStandardizer{
             node.setChildren(gamma1.getChildren());
             return true;
         } else if(Uops.contains(node.getToken())) {
-            Node gamma = new Node("gamma", node.getParent(), node.getDepth());
-            Node Uop = new Node(node.getToken(), gamma, gamma.getDepth() + 1);
+            Node gamma = new Node("gamma");
+            gamma.setDepth(node.getDepth());
+            Node Uop = new Node(node.getToken());
             Node E = node.getChildren().get(0);
-            E.increaseDepthBy(gamma.getDepth() + 1 - E.getDepth());
-            E.setParent(gamma);
-            gamma.setChildren(new ArrayList<Node>(Arrays.asList(Uop, E)));
+            gamma.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(Uop, E)));
             // if (node.getParent() != null) {
             //     node.getParent().getChildren().set(node.getParent().getChildren().indexOf(node), gamma);
             // }

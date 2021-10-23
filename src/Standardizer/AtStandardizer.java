@@ -16,13 +16,9 @@ public class AtStandardizer extends AbstractStandardizer{
             Node N = children.get(1);
             Node E2 = children.get(2);
             node.setToken("gamma");
-            Node gamma = new Node("gamma", node, node.getDepth() + 1);
-            N.setDepth(gamma.getDepth() + 1);
-            N.setParent(gamma);
-            E1.setDepth(gamma.getDepth() + 1);
-            E1.setParent(gamma);
-            gamma.setChildren(new ArrayList<Node>(Arrays.asList(N, E1)));
-            node.setChildren(new ArrayList<Node>(Arrays.asList(gamma, E2)));
+            Node gamma = new Node("gamma");
+            node.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(gamma, E2)));
+            gamma.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(N, E1)));
             return true;
         } else {
             return false;

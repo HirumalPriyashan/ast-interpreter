@@ -13,18 +13,17 @@ public class TupleStandardizer extends AbstractStandardizer {
             int curretDepth = node.getDepth();
             List<Node> Es = node.getChildren();
             // restructure
-            Node nil = new Node("nil", null, Es.size()*2 + curretDepth);
+            Node nil = new Node("nil");
+            nil.setDepth(Es.size()*2 + curretDepth);
             Node appendiNode = nil;
             for (Node e : Es) {
-                Node gamma = new Node("gamma", null, appendiNode.getDepth() - 1);
-                Node aug = new Node("aug", gamma, appendiNode.getDepth());
-                gamma.setChildren(new ArrayList<Node>(Arrays.asList(aug,appendiNode)));
-                appendiNode.setParent(gamma);
-                Node upperGamma = new Node("gamma", null, appendiNode.getDepth() - 2);
-                upperGamma.setChildren(new ArrayList<Node>(Arrays.asList(gamma,e)));
-                e.setParent(upperGamma);
-                e.increaseDepthBy(upperGamma.getDepth() + 1 - e.getDepth());
-                gamma.setParent(upperGamma);
+                Node gamma = new Node("gamma");
+                Node upperGamma = new Node("gamma");
+                upperGamma.setDepth(appendiNode.getDepth() - 2);
+                upperGamma.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(gamma,e)));
+                Node aug = new Node("aug");
+                gamma.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(aug)));
+                gamma.addChild(appendiNode);
                 appendiNode = upperGamma;
             }
             node.setToken("gamma");
@@ -36,11 +35,22 @@ public class TupleStandardizer extends AbstractStandardizer {
     }
     
 }
-// gamma
-// .<ID:print>
-// .tau
-// ..<INT:1>
-// ..tau
-// ...<INT:2>
-// ...<INT:3>
-// ..<INT:4>
+// int curretDepth = node.getDepth();
+//             List<Node> Es = node.getChildren();
+//             // restructure
+//             Node nil = new Node("nil", null, Es.size()*2 + curretDepth);
+//             Node appendiNode = nil;
+//             for (Node e : Es) {
+//                 Node gamma = new Node("gamma");
+//                 gamma.setDepth(appendiNode.getDepth() - 1);
+//                 Node aug = new Node("aug", gamma, appendiNode.getDepth());
+//                 gamma.setChildren(new ArrayList<Node>(Arrays.asList(aug,appendiNode)));
+//                 Node upperGamma = new Node("gamma");
+//                 upperGamma.setDepth(appendiNode.getDepth() - 2);
+//                 upperGamma.setChildren(new ArrayList<Node>(Arrays.asList(gamma,e)));
+//                 e.increaseDepthBy(upperGamma.getDepth() + 1 - e.getDepth());
+//                 appendiNode = upperGamma;
+//             }
+//             node.setToken("gamma");
+//             node.setChildren(appendiNode.getChildren());
+//             return true;

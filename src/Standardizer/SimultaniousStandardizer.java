@@ -2,6 +2,7 @@ package Standardizer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import Node.Node;
 
@@ -10,20 +11,19 @@ public class SimultaniousStandardizer extends AbstractStandardizer{
     protected boolean standardizeImplementation(Node node) {
         if (node.getToken().equals("and")) {
             // TODO: number of children > 2, each children must be = nodes
-            Node comma = new Node(",", node, node.getDepth() + 1);
-            Node tau = new Node("tau", node, node.getDepth() + 1);
+            List<Node> children = node.getChildren();
+            Node comma = new Node(",");
+            Node tau = new Node("tau");
             node.setToken("=");
-            for (Node child : node.getChildren()) {
+            node.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(comma, tau)));
+            for (Node child : children) {
                 // TODO: check each child got two children
                 Node X = child.getChildren().get(0);
                 Node E = child.getChildren().get(1);
-                comma.addChild(X);
-                X.increaseDepthBy(comma.getDepth() + 1 - X.getDepth());
-                tau.addChild(E);
-                E.increaseDepthBy(tau.getDepth() + 1 - E.getDepth());
+                comma.addChildWithDepth(X);
+                tau.addChildWithDepth(E);
             }
             new Standardizer().standardize(tau);
-            node.setChildren(new ArrayList<Node>(Arrays.asList(comma, tau)));
         }
         return false;
     }

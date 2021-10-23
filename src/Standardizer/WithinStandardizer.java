@@ -16,19 +16,11 @@ public class WithinStandardizer extends AbstractStandardizer {
             Node X2 = equal2.getChildren().get(0);
             Node E2 = equal2.getChildren().get(1);
             node.setToken("=");
-            Node gamma = new Node("gamma", node, node.getDepth() + 1);
-            Node lambda = new Node("lambda", gamma, gamma.getDepth() + 1);
-            lambda.setChildren(new ArrayList<Node>(Arrays.asList(X1, E2)));
-            X1.setParent(lambda);
-            X1.increaseDepthBy(lambda.getDepth() - X1.getDepth() + 1);
-            E2.setParent(lambda);
-            E2.increaseDepthBy(lambda.getDepth() - E2.getDepth() + 1);
-            gamma.setChildren(new ArrayList<Node>(Arrays.asList(lambda, E1)));
-            E1.setParent(gamma);
-            E1.increaseDepthBy(gamma.getDepth() - E1.getDepth() + 1);
-            node.setChildren(new ArrayList<Node>(Arrays.asList(X2, gamma)));
-            X2.setParent(node);
-            X2.increaseDepthBy(node.getDepth() - X2.getDepth() + 1);
+            Node gamma = new Node("gamma");
+            Node lambda = new Node("lambda");
+            node.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(X2, gamma)));
+            gamma.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(lambda, E1)));
+            lambda.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(X1, E2)));
             return true;
         } else {
             return false;

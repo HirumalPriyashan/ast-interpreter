@@ -15,15 +15,10 @@ public class LetStandardizer extends AbstractStandardizer {
             Node E = equal.getChildren().get(1);
             // restructure
             node.setToken("gamma");
-            Node lambda = new Node("lambda", node, node.getDepth() + 1);
-            P.increaseDepthBy(1);
-            X.setParent(lambda);
-            P.setParent(lambda);
-            lambda.setChildren(new ArrayList<Node>(Arrays.asList(X, P)));
+            Node lambda = new Node("lambda");
+            node.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(lambda, E)));
+            lambda.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(X, P)));
             new Standardizer().standardize(lambda);
-            E.increaseDepthBy(-1);
-            E.setParent(node);
-            node.setChildren(new ArrayList<Node>(Arrays.asList(lambda, E)));
             return true;
         } else {
             return false;

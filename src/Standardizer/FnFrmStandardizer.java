@@ -15,23 +15,19 @@ public class FnFrmStandardizer extends AbstractStandardizer {
             Node E = node.getChildren().get(node.getChildren().size() - 1);
             // restructure
             node.setToken("=");
-            Node rootLambda = new Node("lambda", node, node.getDepth() + 1);
+            Node rootLambda = new Node("lambda");
+            node.setChildren(new ArrayList<Node>(Arrays.asList(P, rootLambda)));
             Node currentLambda = rootLambda;
             for (Node v : Vs) {
-                currentLambda.addChild(v);
-                v.setParent(currentLambda);
-                v.setDepth(currentLambda.getDepth() + 1);
+                currentLambda.addChildWithDepth(v);
                 if (Vs.indexOf(v) == Vs.size() - 1) {
-                    E.increaseDepthBy(Vs.size());
-                    currentLambda.addChild(E);
-                    E.setParent(currentLambda);
+                    currentLambda.addChildWithDepth(E);
                 } else {
-                    Node nextLamda = new Node("lambda", currentLambda, currentLambda.getDepth() + 1);
-                    currentLambda.addChild(nextLamda);
+                    Node nextLamda = new Node("lambda");
+                    currentLambda.addChildWithDepth(nextLamda);
                     currentLambda = nextLamda;
                 }
             }
-            node.setChildren(new ArrayList<Node>(Arrays.asList(P,rootLambda)));
             return true;            
         } else {
             return false;
