@@ -16,7 +16,8 @@ public class Standardizer {
         .setSuccessor(new OpStandardizer())
         .setSuccessor(new AtStandardizer())
         .setSuccessor(new SimultaniousStandardizer())
-        .setSuccessor(new ConditionalStandardizer());
+        .setSuccessor(new ConditionalStandardizer())
+        .setSuccessor(new RecStandardizer());
     }
 
     public void standardize(Node node) {
