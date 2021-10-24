@@ -16,7 +16,7 @@ public class FnFrmStandardizer extends AbstractStandardizer {
             // restructure
             node.setToken("=");
             Node rootLambda = new Node("lambda");
-            node.setChildren(new ArrayList<Node>(Arrays.asList(P, rootLambda)));
+            node.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(P, rootLambda)));
             Node currentLambda = rootLambda;
             for (Node v : Vs) {
                 currentLambda.addChildWithDepth(v);
@@ -29,9 +29,8 @@ public class FnFrmStandardizer extends AbstractStandardizer {
                 }
             }
             return true;            
-        } else {
-            return false;
         }
+        return false;
     }
     
 }

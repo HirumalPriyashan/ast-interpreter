@@ -12,6 +12,7 @@ public class MultiParameterStandardizer extends AbstractStandardizer {
         if (node.getToken().equals("lambda")) {
             if (node.getChildren().size() > 2) {
                 List<Node> children = node.getChildren();
+                // restructure
                 node.removeChildren();
                 int numberOfChildren = children.size();
                 Node E  = children.get(numberOfChildren - 1);
@@ -30,6 +31,7 @@ public class MultiParameterStandardizer extends AbstractStandardizer {
                 Node comma = node.getChildren().get(0);
                 List<Node> commasChildrenList = comma.getChildren();
                 Node E = node.getChildren().get(1);
+                // restructure
                 Node appendieNode = E;
                 for (Node child : commasChildrenList) {
                     int childIndex = commasChildrenList.indexOf(child);
@@ -51,9 +53,8 @@ public class MultiParameterStandardizer extends AbstractStandardizer {
                 )));
             }
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
     
 }

@@ -29,9 +29,8 @@ public class TupleStandardizer extends AbstractStandardizer {
             node.setToken("gamma");
             node.setChildren(appendiNode.getChildren());
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
     
 }

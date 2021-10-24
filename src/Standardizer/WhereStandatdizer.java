@@ -19,8 +19,7 @@ public class WhereStandatdizer extends AbstractStandardizer {
             lambda.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(X, P)));
             node.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(lambda, E)));
             return true;
-        } else {
-            return false;
         }
+        return false;
     } 
 }

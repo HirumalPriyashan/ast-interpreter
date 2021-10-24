@@ -65,12 +65,17 @@ class ASTInterpreterTest {
         RunTest("simultanious");
     }
 
+    @Test
+    void testRec() {
+        RunTest("rec");
+    }
+
     private void RunTest(String testName) {
         String absolutePath = "D:/Semester 05/06 - Programming Languages/Labs/ast-interpreter/";
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        String expectedOutput = getExpectedOutput(absolutePath + "outputs/output-" + testName + ".txt");
-        ASTInterpreter.interprete(absolutePath + "inputs/input-" + testName + ".txt");
+        String expectedOutput = getExpectedOutput(absolutePath + "outputs/outputs-ast/output-" + testName + ".txt");
+        ASTInterpreter.interprete(absolutePath + "inputs/inputs-ast/input-" + testName + ".txt");
         assertEquals(expectedOutput, outContent.toString());
     }
 

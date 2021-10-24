@@ -15,14 +15,14 @@ public class AtStandardizer extends AbstractStandardizer{
             Node E1 = children.get(0);
             Node N = children.get(1);
             Node E2 = children.get(2);
+            // restructure
             node.setToken("gamma");
             Node gamma = new Node("gamma");
             node.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(gamma, E2)));
             gamma.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(N, E1)));
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
     
 }

@@ -11,11 +11,12 @@ public class OpStandardizer extends AbstractStandardizer{
     protected boolean standardizeImplementation(Node node) {
         List<String> Uops = new ArrayList<String>(Arrays.asList("not", "neg"));
         // TODO:add other operations
-        List<String> Ops = new ArrayList<String>(Arrays.asList("aug", "or", "&", "+", "-", "/", "**", "gr"));
+        List<String> Ops = new ArrayList<String>(Arrays.asList("aug", "or", "&", "+", "-", "/", "**", "gr", "eq"));
         if (Ops.contains(node.getToken())) {
             List<Node> children = node.getChildren();
             Node E1 = children.get(0);
             Node E2 = children.get(1);
+            // restructure
             Node gamma1 = new Node("gamma");
             gamma1.setDepth(node.getDepth());
             Node gamma2 = new Node("gamma");

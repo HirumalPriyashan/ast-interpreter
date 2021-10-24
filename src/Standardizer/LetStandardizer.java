@@ -20,8 +20,7 @@ public class LetStandardizer extends AbstractStandardizer {
             lambda.setChildrenWithDepth(new ArrayList<Node>(Arrays.asList(X, P)));
             new Standardizer().standardize(lambda);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 }
