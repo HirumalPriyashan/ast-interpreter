@@ -1,3 +1,4 @@
+package ASTInterpreter;
 import FileReader.FileReader;
 import FileReader.TextFileReader;
 import Node.Node;
