@@ -9,6 +9,6 @@ public class Main {
         else{
             filename = "inputs/input.txt";
         }
-        ASTInterpreter.interprete(filename);
+        ASTInterpreter.interpret(filename);
     }
 }

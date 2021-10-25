@@ -1,8 +1,8 @@
 package MyExeptions;
 
-public class ASTNotGeneratedExeption extends Exception {
+public class ASTNotGeneratedException extends Exception {
 
-    public ASTNotGeneratedExeption(String str) {
+    public ASTNotGeneratedException(String str) {
         super(str);
     }
     

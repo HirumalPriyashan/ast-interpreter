@@ -2,7 +2,7 @@ package ASTTreeGenerator;
 
 import java.util.List;
 
-import MyExeptions.ASTNotGeneratedExeption;
+import MyExeptions.ASTNotGeneratedException;
 import Node.Node;
 
 public class ASTGenerator {
@@ -30,10 +30,10 @@ public class ASTGenerator {
     public void printTree() {
         try {
             if (this.root == null) {
-                throw new ASTNotGeneratedExeption("AST need to be generated first");
+                throw new ASTNotGeneratedException("AST need to be generated first");
             }
             this.root.printNode();
-        } catch (ASTNotGeneratedExeption e) {
+        } catch (ASTNotGeneratedException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }

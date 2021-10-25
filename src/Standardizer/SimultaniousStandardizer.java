@@ -7,6 +7,11 @@ import java.util.List;
 import Node.Node;
 
 public class SimultaniousStandardizer extends AbstractStandardizer{
+    Standardizer standardizer;
+
+    public SimultaniousStandardizer(Standardizer standardizer){
+        this.standardizer = standardizer;
+    }
     @Override
     protected boolean standardizeImplementation(Node node) {
         if (node.getToken().equals("and")) {
@@ -23,7 +28,7 @@ public class SimultaniousStandardizer extends AbstractStandardizer{
                 comma.addChildWithDepth(X);
                 tau.addChildWithDepth(E);
             }
-            new Standardizer().standardize(tau);
+            this.standardizer.standardize(tau);
         }
         return false;
     }

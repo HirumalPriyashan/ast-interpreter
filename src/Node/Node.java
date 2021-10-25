@@ -113,4 +113,12 @@ public class Node {
         }
     }
 
+    public List<String> preOrderTraverse(List<String> nodes) {
+        nodes.add(this.getToken());
+        for (Node node : this.children) {
+            nodes = node.preOrderTraverse(nodes);
+        }
+        return nodes;
+    }
+
 }
