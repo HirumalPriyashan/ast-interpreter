@@ -1,1 +1,2 @@
-gamma neg gamma gamma ** <INT:2> gamma gamma - <ID:a> <ID:b> 
+gamma gamma * gamma lambda <INT:4> <INT:2>
+gamma gamma - <ID:x> <INT:1>

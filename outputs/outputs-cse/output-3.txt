@@ -1,0 +1,4 @@
+gamma lambda gamma lambda <INT:7>
+gamma gamma + <INT:1> gamma lambda <ID:x>
+gamma gamma * <INT:2> <ID:z>
+gamma neg <ID:w>

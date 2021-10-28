@@ -1,0 +1,3 @@
+gamma gamma lambda <INT:5> <INT:6>
+lambda
+gamma gamma + <ID:x> <ID:w>
