@@ -1,9 +1,13 @@
 package Node;
 
+import Visitor.IVisitable;
+import Visitor.IVisitor;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Node {
+public class Node implements IVisitable {
     private String token;
     private List<Node> children;
     private Node parent;
@@ -121,4 +125,12 @@ public class Node {
         return nodes;
     }
 
+    @Override
+    public void accept(IVisitor visitor) {
+        visitor.visit(this);
+        if (!this.getToken().equals("lambda")) {
+            for (Iterator<Node> it = this.children.iterator(); it.hasNext(); )
+                ((Node) it.next()).accept(visitor);
+        }
+    }
 }
