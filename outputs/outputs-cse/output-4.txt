@@ -1,0 +1,2 @@
+e0 gamma gamma * gamma lambda<ID:x>1 4 2
+gamma gamma - x 1
