@@ -12,7 +12,7 @@ public class SymbolFactory {
         List<String> UOps = new ArrayList<String>(Arrays.asList("not", "neg"));
         List<String> Ops = new ArrayList<String>(Arrays.asList("aug", "or", "&", "+", "-", "*", "/", "**", "eq","ne", "ls", "le","gr", "ge"));
         if (token.equals("lambda")){
-            return new Lambda(token, lambdaIndex, node.getChildren().get(0), node.getChildren().get(1));
+            return new Lambda(token, lambdaIndex, new Id(node.getChildren().get(0).getToken().substring(4, token.length() - 1)) , node.getChildren().get(1));
         } else if (token.equals("gamma")){
             return new Gamma(token);
         } else if (Ops.contains(token)){

@@ -18,7 +18,18 @@ public class CSERule5 extends AbstractRule{
     * @param environment
     */
     @Override
-    protected boolean applyRuleImplementation(List<Symbol> control, List<Symbol> stack, List<Environment> environments) {
+    protected boolean applyRuleImplementation(
+        List<Symbol> control, 
+        List<Symbol> stack, 
+        List<Environment> environments, 
+        List<List<Symbol>> deltas
+    ) {
+        if (control.get(control.size() - 1)  instanceof Environment) {
+            System.out.println("Appling Rule 5");              
+            environments.get(((Environment) control.get(control.size() - 1)).getIndex()).setIsRemoved(true);
+            stack.remove(1);
+            control.remove(control.size() - 1);
+        }            
         return false;
     }
 }

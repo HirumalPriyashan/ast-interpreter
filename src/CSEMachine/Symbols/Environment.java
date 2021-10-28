@@ -38,18 +38,22 @@ public class Environment extends Symbol {
         return this.isRemoved;
     }
 
-     public Symbol lookup(String token){
-         for (String key: this.values.keySet()) {
-             if (key.equals(token)){
-                 return this.values.get(key);
-             }
-         }
-         if (this.parent != null) {
-             return this.parent.lookup(token);
-         } else {
-             return new Symbol(token);
-         }
-     }
+    public void addValue(String id, Symbol symbol) {
+        this.values.put(id, symbol);
+    }
+
+    public Symbol lookup(String token){
+        for (String key: this.values.keySet()) {
+            if (key.equals(token)){
+                return this.values.get(key);
+            }
+        }
+        if (this.parent != null) {
+            return this.parent.lookup(token);
+        } else {
+            return new Symbol(token);
+        }
+    }
 
      @Override
      public String toString() {

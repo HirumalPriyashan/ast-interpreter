@@ -7,6 +7,7 @@ import Node.Node;
 import java.util.ArrayList;
 
 import ASTTreeGenerator.ASTGenerator;
+import Standardizer.Standardizer;
 
 public class CSEMachineWrapper {
     public static void flatten(String filename) {
@@ -17,8 +18,12 @@ public class CSEMachineWrapper {
         // generate AST
         ASTGenerator astGenerator = new ASTGenerator();
         Node root = astGenerator.generateAST(fileContent);
+        // standardize
+        Standardizer standardizer = new CSEStandardizer();
+        standardizer.standardize(root);
 
         CSEMachine cseMachine =  new CSEMachine(root);
-        cseMachine.printControl();
+        cseMachine.printDeltas();
+        cseMachine.run();
     }
 }

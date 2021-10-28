@@ -1,6 +1,9 @@
 package CSEMachine.CSERules;
 
 import CSEMachine.Symbols.Environment;
+import CSEMachine.Symbols.Id;
+import CSEMachine.Symbols.Rand;
+import CSEMachine.Symbols.Rator;
 import CSEMachine.Symbols.Symbol;
 
 import java.util.List;
@@ -18,12 +21,28 @@ public class CSERule1 extends AbstractRule{
     * @param environment
     */
     @Override
-    protected boolean applyRuleImplementation(List<Symbol> control, List<Symbol> stack, List<Environment> environments) {
+    protected boolean applyRuleImplementation(
+        List<Symbol> control, 
+        List<Symbol> stack, 
+        List<Environment> environments, 
+        List<List<Symbol>> deltas
+    ) {
         if (
-            control.get(control.size() - 1).getToken().startsWith("<ID:")  //check last symbol is a name
+            control.get(control.size() - 1) instanceof Id //check last symbol is a id
         ){
-            // Symbol Ob = environment.lookup(control.get(control.size() - 1).getToken());
-            // stack.add(Ob);
+            System.out.println("Appling Rule 1");
+            Symbol Ob = environments.get(0).lookup(control.get(control.size() - 1).getToken());
+            control.remove(control.size()-1);
+            stack.add(0, Ob);
+            return true;
+        } else if (
+            control.get(control.size() - 1 ) instanceof Rand
+            || control.get(control.size() - 1 ) instanceof Rator
+        ){
+            System.out.println("Appling Rule 1");
+            stack.add(0, control.get(control.size() - 1));
+            control.remove(control.size()-1);
+            return true;
         }
         return false;
     }

@@ -22,8 +22,23 @@ public class CSEMachineWrapperTest {
     }
 
     @Test
-    void testLet() {
+    void test1() {
         RunTest("1");
+    }
+
+    @Test
+    void test2() {
+        RunTest("2");
+    }
+
+    @Test
+    void test3() {
+        RunTest("3");
+    }
+
+    @Test
+    void test4() {
+        RunTest("4");
     }
 
     private void RunTest(String testName) {

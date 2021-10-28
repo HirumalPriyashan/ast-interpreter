@@ -3,6 +3,7 @@ package CSEMachine.CSERules;
 import java.util.List;
 
 import CSEMachine.Symbols.Environment;
+import CSEMachine.Symbols.Lambda;
 import CSEMachine.Symbols.Symbol;
 
 public class CSERule2 extends AbstractRule{
@@ -18,7 +19,22 @@ public class CSERule2 extends AbstractRule{
     * @param environment
     */
     @Override
-    protected boolean applyRuleImplementation(List<Symbol> control, List<Symbol> stack, List<Environment> environments) {
+    protected boolean applyRuleImplementation(
+        List<Symbol> control, 
+        List<Symbol> stack, 
+        List<Environment> environments, 
+        List<List<Symbol>> deltas
+    ) {
+        if (
+            control.get(control.size() - 1) instanceof Lambda //check last symbol is a lambda
+        ){
+            System.out.println("Appling Rule 2");
+            Lambda lambda = (Lambda) control.get(control.size() - 1);
+            control.remove(control.size()-1);
+            lambda.setEnvironment(environments.get(0).getIndex());
+            stack.add(0, lambda);
+            return true;
+        }
         return false;
     }
 }
