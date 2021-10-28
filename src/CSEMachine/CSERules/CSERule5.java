@@ -9,16 +9,16 @@ public class CSERule5 extends AbstractRule{
     /**
     * Modify the control and stack according to CSE Rule 5
     *                  Control                Stack      Env
-    *                 ├------------------------------├╴
+    *                 ├------------------------------├
     * CSE Rule 5      │....En            value En....│ 
     * (exit env)      │....                 value....│     
-    *                 └╴-----------------------------├╴
+    *                 └╴-----------------------------├
     * @param control
     * @param stack
     * @param environment
     */
     @Override
-    protected boolean standardizeImplementation(List<Symbol> control, List<Symbol> stack, Environment environment) {
+    protected boolean applyRuleImplementation(List<Symbol> control, List<Symbol> stack, List<Environment> environments) {
         return false;
     }
 }

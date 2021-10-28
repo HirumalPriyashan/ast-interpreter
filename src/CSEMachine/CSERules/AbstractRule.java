@@ -13,12 +13,12 @@ public abstract class AbstractRule {
         return this.successor;
     }
 
-    protected abstract boolean standardizeImplementation(List<Symbol> control, List<Symbol> stack, Environment environment);
+    protected abstract boolean applyRuleImplementation(List<Symbol> control, List<Symbol> stack, List<Environment> environments);
 
-    public final void standardize(List<Symbol> control, List<Symbol> stack, Environment environment) {
-        boolean handledByThis = this.standardizeImplementation(control, stack, environment);
+    public final void applyRule(List<Symbol> control, List<Symbol> stack, List<Environment> environments) {
+        boolean handledByThis = this.applyRuleImplementation(control, stack, environments);
         if (successor != null && !handledByThis) {
-            successor.standardize(control, stack, environment);
+            successor.applyRule(control, stack, environments);
         }
     }
 }

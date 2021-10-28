@@ -9,16 +9,16 @@ public class CSERule2 extends AbstractRule{
     /**
     * Modify the control and stack according to CSE Rule 2
     *                  Control                Stack      Env
-    *                 ├------------------------------├╴
+    *                 ├------------------------------├
     * CSE Rule 2      │....lambda x k            ....│ 
     * (Stack lambda)  │....          c lambda x k....│ Ec : current environment    
-    *                 └╴-----------------------------├╴
+    *                 └╴-----------------------------├
     * @param control
     * @param stack
     * @param environment
     */
     @Override
-    protected boolean standardizeImplementation(List<Symbol> control, List<Symbol> stack, Environment environment) {
+    protected boolean applyRuleImplementation(List<Symbol> control, List<Symbol> stack, List<Environment> environments) {
         return false;
     }
 }
