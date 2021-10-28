@@ -21,29 +21,19 @@ public class CSEMachineWrapperTest {
     void tearDown() {
     }
 
-    // @Test
-    // void test1() {
-    //     RunTest("1");
-    // }
-
-    // @Test
-    // void test2() {
-    //     RunTest("2");
-    // }
-
-    // @Test
-    // void test3() {
-    //     RunTest("3");
-    // }
-
     @Test
-    void test4() {
-        RunTest("4");
+    void test1() {
+        RunTest("1");
     }
 
     @Test
-    void test5() {
-        RunTest("5");
+    void test2() {
+        RunTest("2");
+    }
+
+    @Test
+    void test3() {
+        RunTest("3");
     }
 
     private void RunTest(String testName) {

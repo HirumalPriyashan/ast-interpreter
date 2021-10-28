@@ -1,4 +1,103 @@
-gamma lambda gamma lambda <INT:7>
-gamma gamma + <INT:1> gamma lambda <ID:x>
-gamma gamma * <INT:2> <ID:z>
-gamma neg <ID:w>
+e0 gamma lambda|x|1 gamma lambda|z|2 7
+gamma gamma + 1 gamma lambda|w|3 x
+gamma gamma * 2 z
+gamma neg w
+Control: e0 gamma lambda|x|1 gamma lambda|z|2 7
+Stack: e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma lambda|x|1 gamma lambda|z|2
+Stack: 7 e0
+-----------------------------------------------------
+Appling Rule 2
+Control: e0 gamma lambda|x|1 gamma
+Stack: lambda|z|2 7 e0
+-----------------------------------------------------
+Appling Rule 4
+Control: e0 gamma lambda|x|1 e1 gamma gamma * 2 z
+Stack: e1 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma lambda|x|1 e1 gamma gamma * 2
+Stack: 7 e1 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma lambda|x|1 e1 gamma gamma *
+Stack: 2 7 e1 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma lambda|x|1 e1 gamma gamma
+Stack: * 2 7 e1 e0
+-----------------------------------------------------
+Appling Rule 3
+Control: e0 gamma lambda|x|1 e1 gamma
+Stack: (*2) 7 e1 e0
+-----------------------------------------------------
+Appling Rule 3
+Control: e0 gamma lambda|x|1 e1
+Stack: 14 e1 e0
+-----------------------------------------------------
+Appling Rule 5
+Control: e0 gamma lambda|x|1
+Stack: 14 e0
+-----------------------------------------------------
+Appling Rule 2
+Control: e0 gamma
+Stack: lambda|x|1 14 e0
+-----------------------------------------------------
+Appling Rule 4
+Control: e0 e2 gamma gamma + 1 gamma lambda|w|3 x
+Stack: e2 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 e2 gamma gamma + 1 gamma lambda|w|3
+Stack: 14 e2 e0
+-----------------------------------------------------
+Appling Rule 2
+Control: e0 e2 gamma gamma + 1 gamma
+Stack: lambda|w|3 14 e2 e0
+-----------------------------------------------------
+Appling Rule 4
+Control: e0 e2 gamma gamma + 1 e3 gamma neg w
+Stack: e3 e2 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 e2 gamma gamma + 1 e3 gamma neg
+Stack: 14 e3 e2 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 e2 gamma gamma + 1 e3 gamma
+Stack: neg 14 e3 e2 e0
+-----------------------------------------------------
+Appling Rule 3
+Control: e0 e2 gamma gamma + 1 e3
+Stack: -14 e3 e2 e0
+-----------------------------------------------------
+Appling Rule 5
+Control: e0 e2 gamma gamma + 1
+Stack: -14 e2 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 e2 gamma gamma +
+Stack: 1 -14 e2 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 e2 gamma gamma
+Stack: + 1 -14 e2 e0
+-----------------------------------------------------
+Appling Rule 3
+Control: e0 e2 gamma
+Stack: (+1) -14 e2 e0
+-----------------------------------------------------
+Appling Rule 3
+Control: e0 e2
+Stack: -13 e2 e0
+-----------------------------------------------------
+Appling Rule 5
+Control: e0
+Stack: -13 e0
+-----------------------------------------------------
+Appling Rule 5
+Control: 
+Stack: -13
+-----------------------------------------------------

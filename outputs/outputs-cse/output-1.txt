@@ -1,2 +1,61 @@
-gamma gamma * gamma lambda <INT:4> <INT:2>
-gamma gamma - <ID:x> <INT:1>
+e0 gamma gamma * gamma lambda|x|1 4 2
+gamma gamma - x 1
+Control: e0 gamma gamma * gamma lambda|x|1 4 2
+Stack: e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma gamma * gamma lambda|x|1 4
+Stack: 2 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma gamma * gamma lambda|x|1
+Stack: 4 2 e0
+-----------------------------------------------------
+Appling Rule 2
+Control: e0 gamma gamma * gamma
+Stack: lambda|x|1 4 2 e0
+-----------------------------------------------------
+Appling Rule 4
+Control: e0 gamma gamma * e1 gamma gamma - x 1
+Stack: e1 2 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma gamma * e1 gamma gamma - x
+Stack: 1 e1 2 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma gamma * e1 gamma gamma -
+Stack: 4 1 e1 2 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma gamma * e1 gamma gamma
+Stack: - 4 1 e1 2 e0
+-----------------------------------------------------
+Appling Rule 3
+Control: e0 gamma gamma * e1 gamma
+Stack: (-4) 1 e1 2 e0
+-----------------------------------------------------
+Appling Rule 3
+Control: e0 gamma gamma * e1
+Stack: 3 e1 2 e0
+-----------------------------------------------------
+Appling Rule 5
+Control: e0 gamma gamma *
+Stack: 3 2 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma gamma
+Stack: * 3 2 e0
+-----------------------------------------------------
+Appling Rule 3
+Control: e0 gamma
+Stack: (*3) 2 e0
+-----------------------------------------------------
+Appling Rule 3
+Control: e0
+Stack: 6 e0
+-----------------------------------------------------
+Appling Rule 5
+Control: 
+Stack: 6
+-----------------------------------------------------
