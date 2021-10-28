@@ -50,4 +50,9 @@ public class Environment extends Symbol {
              return new Symbol(token);
          }
      }
+
+     @Override
+     public String toString() {
+         return this.token + this.index ;
+     }
 }

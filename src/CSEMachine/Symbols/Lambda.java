@@ -20,4 +20,9 @@ public class Lambda extends Symbol{
     public void setRightChild(Node rightChild) {
         this.rightChild = rightChild;
     }
+
+    @Override
+    public String toString() {
+        return this.token + this.x.getToken() + this.index;
+    }
 }
