@@ -36,6 +36,11 @@ public class CSEMachineWrapperTest {
         RunTest("3");
     }
 
+    @Test
+    void test4() {
+        RunTest("4");
+    }
+
     private void RunTest(String testName) {
         String absolutePath = "D:/Semester 05/06 - Programming Languages/Labs/ast-interpreter/";
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();

@@ -20,7 +20,7 @@ public class CSEMachine implements IVisitor {
     AbstractRule cseRules;
 
     public CSEMachine(Node root){
-        this.symbolFactory = new SymbolFactory();
+        this.symbolFactory = new SymbolFactory(this);
         this.cseRules = getRules();
         this.envs = configEnvironment();
         this.control = cofigControl();
@@ -40,11 +40,14 @@ public class CSEMachine implements IVisitor {
     }
 
     private AbstractRule getRules() {
-        AbstractRule rules = new CSERule1();
+        AbstractRule rules = new CSERule8();
         rules.setSuccessor(new CSERule2())
-        .setSuccessor(new CSERule3())
+        // .setSuccessor(new CSERule3())
         .setSuccessor(new CSERule4())
-        .setSuccessor(new CSERule5());
+        .setSuccessor(new CSERule5())
+        .setSuccessor(new CSERule6())
+        .setSuccessor(new CSERule7())
+        .setSuccessor(new CSERule1());
         return rules;
     }
 
@@ -80,9 +83,12 @@ public class CSEMachine implements IVisitor {
 
     public void run(){
         this.printStatus();
-        while (!this.control.isEmpty()) {
+        int i = 0;
+        while (i<30) {
+        // while (!this.control.isEmpty()) {
             this.cseRules.applyRule(this.control, this.stack, this.envs, this.deltas);
             this.printStatus();
+            i++;
         }
     }
 
@@ -112,18 +118,29 @@ public class CSEMachine implements IVisitor {
                 System.out.print(symbol);
                 System.out.print(" ");
             }
-            System.out.println(list.get(list.size() - 1).getToken());
+            System.out.println(list.get(list.size() - 1));
         }
     }
 
     @Override
     public void visit(IVisitable iVisitable) {
         Node node = (Node) iVisitable;
-        Symbol symbol = this.symbolFactory.getSymbol(node, this.lambdaIndex);
-        this.currentControl.add(symbol);
-        if (symbol instanceof Lambda) {
-            this.lambdaIndex++;
-            this.lambdasFound.add((Lambda) symbol);
+        if (node.getToken().equals("->")) {
+            this.currentControl.add(this.symbolFactory.getDelta(node.getChildren().get(1)));
+            this.currentControl.add(this.symbolFactory.getDelta(node.getChildren().get(2)));
+            this.currentControl.add(this.symbolFactory.getBeta(node.getChildren().get(2)));
+            B b = this.symbolFactory.getB(node.getChildren().get(0));
+            this.currentControl.add(b);
+        } else {
+            Symbol symbol = this.symbolFactory.getSymbol(node);
+            this.currentControl.add(symbol);
         }
+    }
+
+    public Lambda addLambda(Lambda lambda) {
+        this.lambdasFound.add(lambda);
+        lambda.setIndex(this.lambdaIndex);
+        this.lambdaIndex++;
+        return lambda;
     }
 }

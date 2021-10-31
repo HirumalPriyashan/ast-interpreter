@@ -3,6 +3,7 @@ import FileReader.FileReader;
 import FileReader.TextFileReader;
 import Node.Node;
 import Standardizer.Standardizer;
+import CSEMachine.CSEMachine;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,11 @@ public class ASTInterpreter {
 
         // standardize
         Standardizer standardizer = new ASTStandardizer();
-        standardizer.standardize(root);
+        // standardizer.standardize(root);
         root.printNode();
+
+        CSEMachine cseMachine =  new CSEMachine(root);
+        cseMachine.printDeltas();
+        cseMachine.run();
     }
 }
