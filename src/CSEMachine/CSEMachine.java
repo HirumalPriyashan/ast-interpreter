@@ -1,146 +1,27 @@
 package CSEMachine;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import CSEMachine.CSERules.*;
 import CSEMachine.Symbols.*;
 import Node.Node;
-import Visitor.*;
 
-public class CSEMachine implements IVisitor {
-    List<Symbol> control;
-    List<Symbol> currentControl;
-    int lambdaIndex = 1;
-    List<Symbol> stack;
-    List<Lambda> lambdasFound;
-    List<List<Symbol>> deltas;
-    List<Environment> envs;
+public class CSEMachine {
+    List<Delta> deltas;
     SymbolFactory symbolFactory;
-    AbstractRule cseRules;
 
     public CSEMachine(Node root){
-        this.symbolFactory = new SymbolFactory(this);
-        this.cseRules = getRules();
-        this.envs = configEnvironment();
-        this.control = cofigControl();
-        this.currentControl = this.control;
-        this.stack = configStack();
-        this.lambdasFound = new ArrayList<Lambda>();
-        root.accept(this);
-        deltas = new ArrayList<List<Symbol>>();
-        deltas.add(currentControl);
-        while (this.lambdasFound.size() > 0){
-            currentControl = new ArrayList<Symbol>();
-            Lambda lambda = this.popFromLambdasFound();
-            Node node = lambda.getRightChild();
-            node.accept(this);
-            deltas.add(currentControl);
-        }
-    }
-
-    private AbstractRule getRules() {
-        AbstractRule rules = new CSERule8();
-        rules.setSuccessor(new CSERule2())
-        // .setSuccessor(new CSERule3())
-        .setSuccessor(new CSERule4())
-        .setSuccessor(new CSERule5())
-        .setSuccessor(new CSERule6())
-        .setSuccessor(new CSERule7())
-        .setSuccessor(new CSERule1());
-        return rules;
-    }
-
-    private List<Symbol> cofigControl() {
-        List<Symbol> control = new ArrayList<Symbol>();
-        control.add(this.envs.get(0));
-        return  control;
-    }
-
-    private List<Symbol> configStack() {
-        List<Symbol> stack = new ArrayList<Symbol>();
-        stack.add(this.envs.get(0));
-        return  stack;
-    }
-
-    private List<Environment> configEnvironment() {
-        List<Environment> environments = new ArrayList<Environment>();
-        environments.add(new Environment(0));
-        return  environments;
-    }
-
-    public Symbol popFromControl(){
-        return this.control.remove(this.control.size() - 1);
-    }
-
-    public Lambda popFromLambdasFound(){
-        return this.lambdasFound.remove(0);
-    }
-
-    public Symbol popFromStack(){
-        return this.stack.remove(this.stack.size() - 1);
-    }
-
-    public void run(){
-        this.printStatus();
-        int i = 0;
-        while (i<30) {
-        // while (!this.control.isEmpty()) {
-            this.cseRules.applyRule(this.control, this.stack, this.envs, this.deltas);
-            this.printStatus();
-            i++;
-        }
-    }
-
-    private void printStatus() {
-        System.out.print("Control: ");
-        if (this.control.size() > 0){
-            for (Symbol symbol : control.subList(0, control.size() - 1)) {
-                System.out.print(symbol);
-                System.out.print(" ");
-            }
-            System.out.println(control.get(control.size() - 1));
-        } else{
-            System.out.println();
-        }
-        System.out.print("Stack: ");
-        for (Symbol symbol : stack.subList(0, stack.size() - 1)) {
-            System.out.print(symbol);
-            System.out.print(" ");
-        }
-        System.out.println(stack.get(stack.size() - 1));
-        System.out.println("-----------------------------------------------------");
+        this.symbolFactory = new SymbolFactory(root);
+        this.deltas = symbolFactory.getDeltas();
     }
 
     public void printDeltas(){
-        for (List<Symbol> list: deltas) {
+        for (Delta delta: deltas) {
+            List<Symbol> list  = delta.getSymbols();
             for (Symbol symbol : list.subList(0, list.size() - 1)) {
                 System.out.print(symbol);
                 System.out.print(" ");
             }
             System.out.println(list.get(list.size() - 1));
         }
-    }
-
-    @Override
-    public void visit(IVisitable iVisitable) {
-        Node node = (Node) iVisitable;
-        if (node.getToken().equals("->")) {
-            this.currentControl.add(this.symbolFactory.getDelta(node.getChildren().get(1)));
-            this.currentControl.add(this.symbolFactory.getDelta(node.getChildren().get(2)));
-            this.currentControl.add(this.symbolFactory.getBeta(node.getChildren().get(2)));
-            B b = this.symbolFactory.getB(node.getChildren().get(0));
-            this.currentControl.add(b);
-        } else {
-            Symbol symbol = this.symbolFactory.getSymbol(node);
-            this.currentControl.add(symbol);
-        }
-    }
-
-    public Lambda addLambda(Lambda lambda) {
-        this.lambdasFound.add(lambda);
-        lambda.setIndex(this.lambdaIndex);
-        this.lambdaIndex++;
-        return lambda;
     }
 }

@@ -1,9 +1,21 @@
 package CSEMachine.Symbols;
 
-public class Tuple extends Symbol{
+import java.util.List;
 
-    public Tuple(String token) {
-        super(token);
+public class Tuple extends Symbol{
+    
+    private List<Symbol> symbols;
+
+    public Tuple() {
+        super("tuple");
+    }
+
+    public List<Symbol> getSymbols() {
+        return this.symbols;
+    }
+
+    public void setSymbols(List<Symbol> symbols) {
+        this.symbols = symbols;
     }
     
 }

@@ -6,57 +6,53 @@ public class Environment extends Symbol {
     private int index;
     private Environment parent;
     private boolean isRemoved = false;
-    public HashMap<String,Symbol> values;
-
+    public HashMap<Id,Symbol> values;
+    
     public Environment(int i) {
         super("e");
         this.setIndex(i);
-        this.values = new HashMap<String,Symbol>();
+        this.values = new HashMap<Id,Symbol>();
     }
-
+    
     public void setIndex(int i) {
         this.index = i;
     }
-
+    
     public int getIndex() {
         return this.index;
     }
-
+    
     public void setParent(Environment e) {
         this.parent = e;
     }
-
+    
     public Environment getParent() {
         return this.parent;
     }
-
+    
     public void setIsRemoved(boolean isRemoved) {
         this.isRemoved = isRemoved;
     }
-
+    
     public boolean getIsRemoved() {
         return this.isRemoved;
     }
-
-    public void addValue(String id, Symbol symbol) {
-        this.values.put(id, symbol);
-    }
-
-    public Symbol lookup(String token){
-        for (String key: this.values.keySet()) {
-            if (key.equals(token)){
+    
+    public Symbol lookup(Id id){
+        for (Id key: this.values.keySet()) {
+            if (key.getToken().equals(id.getToken())){
                 return this.values.get(key);
             }
         }
         if (this.parent != null) {
-            return this.parent.lookup(token);
+            return this.parent.lookup(id);
         } else {
-            return new Symbol(token);
+            return new Symbol(id.getToken());
         }
     }
 
-     @Override
-     public String toString() {
-         return this.token + this.index ;
-     }
+    @Override
+    public String toString() {
+        return getToken() + this.index;
+    }
 }

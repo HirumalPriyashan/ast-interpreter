@@ -38,7 +38,7 @@ public class CSERule4 extends AbstractRule{
             newEnvironment.setParent(environments.get(0));
             environments.add(0, newEnvironment);
             Lambda lambda =(Lambda) stack.get(0);
-            newEnvironment.addValue(lambda.getX().getToken(), stack.get(1));
+            // newEnvironment.addValue(lambda.getX().getToken(), stack.get(1));
             control.add(newEnvironment);
             stack.remove(0);
             stack.remove(0);

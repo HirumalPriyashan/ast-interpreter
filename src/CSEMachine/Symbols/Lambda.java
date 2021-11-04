@@ -1,29 +1,48 @@
 package CSEMachine.Symbols;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import Node.Node;
 
 public class Lambda extends Symbol{
-    int index;
-    List<Id> identifiers;
-    Node rightChild;
-    int environment;
-
-    public Lambda(String token, Id leftChild, Node rightChild){
-        super(token);
+    private static int i = 1;
+    private int index;
+    private int environment;
+    public ArrayList<Id> identifiers;
+    private Node rightChild;
+    private Node lambdaNode;
+    private Delta delta;
+    
+    public Lambda(Node node) {
+        super("lambda");
+        this.index = i++;
         this.identifiers = new ArrayList<Id>();
-        this.identifiers.add(leftChild);
-        this.rightChild = rightChild;
+        this.rightChild = node.getChildren().get(1);
+        this.lambdaNode = node;
+    }
+    
+    public int getIndex() {
+        return this.index;
+    }
+    
+    public void setEnvironment(int n) {
+        this.environment = n;
     }
     
     public int getEnvironment() {
         return this.environment;
     }
+    
+    public void setDelta(Delta delta) {
+        this.delta = delta;
+    }
+    
+    public Delta getDelta() {
+        return this.delta;
+    }
 
-    public void setEnvironment(int environment) {
-        this.environment = environment;
+    public void addIdentifier(Id id){
+        this.identifiers.add(id);
     }
 
     public Node getRightChild() {
@@ -34,28 +53,20 @@ public class Lambda extends Symbol{
         this.rightChild = rightChild;
     }
 
-    public Id getX() {
-        return this.identifiers.get(0);
+    public Node getLambdaNode() {
+        return lambdaNode;
     }
-
-    public void setX(Id x) {
-        this.identifiers.add(0, x);;
-    }
-
-    public int getIndex() {
-        return this.index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
+    
     @Override
     public String toString() {
-        String str = "";
+        String str = "lambda|";
         for (Id id : identifiers) {
             str += id.getToken() + "|";
         }
-        return this.token + "|" + str + this.index;
+        return str + this.index;
+    }
+
+    public Symbol getX() {
+        return null;
     }
 }

@@ -1,13 +1,14 @@
 package CSEMachine.Symbols;
 
 public class Symbol {
-    String token;
-    public Symbol(String token){
+    private String token;
+
+    public Symbol(String token) {
         this.token = token;
     }
 
     public String getToken() {
-        return token;
+        return this.token;
     }
 
     public void setToken(String token) {
@@ -16,6 +17,7 @@ public class Symbol {
 
     @Override
     public String toString() {
-        return this.token ;
+        return  getToken();
     }
+
 }

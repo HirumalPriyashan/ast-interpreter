@@ -127,7 +127,6 @@ public class Node implements IVisitable {
 
     @Override
     public void accept(IVisitor visitor) {
-        System.out.println(this);
         visitor.visit(this);
         if (!this.getToken().equals("lambda") && !this.getToken().equals("->")) {
             for (Iterator<Node> it = this.children.iterator(); it.hasNext(); )
