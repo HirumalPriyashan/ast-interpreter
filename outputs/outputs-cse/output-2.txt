@@ -1,6 +1,9 @@
-e0 gamma gamma lambda|x|1 5 6
-lambda|w|2
-gamma gamma + x w
+-----------------------
+Control structures:
+   delta0 = e0 gamma gamma lambda|x|1 5 6
+   delta1 = lambda|w|2
+   delta2 = gamma gamma + x w
+-----------------------
 Control: e0 gamma gamma lambda|x|1 5 6
 Stack: e0
 -----------------------------------------------------

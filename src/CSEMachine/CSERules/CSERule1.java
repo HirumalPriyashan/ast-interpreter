@@ -32,7 +32,7 @@ public class CSERule1 extends AbstractRule{
             control.get(control.size() - 1) instanceof Id //check last symbol is a id
         ){
             System.out.println("Appling Rule 1");
-            Symbol Ob = environments.get(0).lookup((Id) control.get(control.size()));
+            Symbol Ob = environments.get(0).lookup((Id) control.get(control.size() - 1));
             control.remove(control.size()-1);
             stack.add(0, Ob);
             return true;
@@ -42,7 +42,7 @@ public class CSERule1 extends AbstractRule{
         ){
             System.out.println("Appling Rule 1");
             stack.add(0, control.get(control.size() - 1));
-            control.remove(control.size()-1);
+            control.remove(control.size() - 1);
             return true;
         }
         return false;

@@ -1,5 +1,8 @@
-e0 gamma gamma * gamma lambda|x|1 4 2
-gamma gamma - x 1
+-----------------------
+Control structures:
+   delta0 = e0 gamma gamma * gamma lambda|x|1 4 2
+   delta1 = gamma gamma - x 1
+-----------------------
 Control: e0 gamma gamma * gamma lambda|x|1 4 2
 Stack: e0
 -----------------------------------------------------
