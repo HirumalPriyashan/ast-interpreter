@@ -1,5 +1,6 @@
 package CSEMachine.CSERules;
 
+import CSEMachine.Symbols.Delta;
 import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Id;
 import CSEMachine.Symbols.Rand;
@@ -25,7 +26,7 @@ public class CSERule1 extends AbstractRule{
         List<Symbol> control, 
         List<Symbol> stack, 
         List<Environment> environments, 
-        List<List<Symbol>> deltas
+        List<Delta> deltas
     ) {
         if (
             control.get(control.size() - 1) instanceof Id //check last symbol is a id

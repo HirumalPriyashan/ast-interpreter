@@ -1,5 +1,6 @@
 package CSEMachine.CSERules;
 
+import CSEMachine.Symbols.Delta;
 import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Symbol;
 
@@ -13,9 +14,9 @@ public abstract class AbstractRule {
         return this.successor;
     }
 
-    protected abstract boolean applyRuleImplementation(List<Symbol> control, List<Symbol> stack, List<Environment> environments, List<List<Symbol>> deltas);
+    protected abstract boolean applyRuleImplementation(List<Symbol> control, List<Symbol> stack, List<Environment> environments, List<Delta> deltas);
 
-    public final void applyRule(List<Symbol> control, List<Symbol> stack, List<Environment> environments, List<List<Symbol>> deltas) {
+    public final void applyRule(List<Symbol> control, List<Symbol> stack, List<Environment> environments, List<Delta> deltas) {
         boolean handledByThis = this.applyRuleImplementation(control, stack, environments, deltas);
         if (successor != null && !handledByThis) {
             successor.applyRule(control, stack, environments, deltas);

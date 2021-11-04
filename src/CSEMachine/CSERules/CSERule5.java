@@ -2,6 +2,7 @@ package CSEMachine.CSERules;
 
 import java.util.List;
 
+import CSEMachine.Symbols.Delta;
 import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Symbol;
 
@@ -22,7 +23,7 @@ public class CSERule5 extends AbstractRule{
         List<Symbol> control, 
         List<Symbol> stack, 
         List<Environment> environments, 
-        List<List<Symbol>> deltas
+        List<Delta> deltas
     ) {
         if (control.get(control.size() - 1)  instanceof Environment) {
             System.out.println("Appling Rule 5");              

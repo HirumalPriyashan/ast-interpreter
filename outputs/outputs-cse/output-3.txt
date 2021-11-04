@@ -1,7 +1,10 @@
-e0 gamma lambda|x|1 gamma lambda|z|2 7
-gamma gamma + 1 gamma lambda|w|3 x
-gamma gamma * 2 z
-gamma neg w
+-----------------------
+Control structures:
+   delta0 = e0 gamma lambda|x|1 gamma lambda|z|2 7
+   delta1 = gamma gamma + 1 gamma lambda|w|3 x
+   delta2 = gamma gamma * 2 z
+   delta3 = gamma neg w
+-----------------------
 Control: e0 gamma lambda|x|1 gamma lambda|z|2 7
 Stack: e0
 -----------------------------------------------------

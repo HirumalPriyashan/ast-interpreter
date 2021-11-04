@@ -99,6 +99,10 @@ public class SymbolFactory implements IVisitor{
         return this.stack;
     }
 
+    public List<Environment> getEnvironment() {
+        return this.envs;
+    }
+
     public Symbol getSymbol(Node node) {
         String token = node.getToken();
         List<String> UOps = new ArrayList<String>(Arrays.asList("not", "neg"));

@@ -24,6 +24,6 @@ public class CSEMachineWrapper {
 
         CSEMachine cseMachine =  new CSEMachine(root);
         cseMachine.printDeltas();
-        // cseMachine.run();
+        cseMachine.run();
     }
 }

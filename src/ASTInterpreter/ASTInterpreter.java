@@ -27,6 +27,6 @@ public class ASTInterpreter {
 
         CSEMachine cseMachine =  new CSEMachine(root);
         cseMachine.printDeltas();
-        // cseMachine.run();
+        cseMachine.run();
     }
 }

@@ -1,6 +1,7 @@
 package CSEMachine.Symbols;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Node.Node;
 
@@ -8,7 +9,7 @@ public class Lambda extends Symbol{
     private static int i = 1;
     private int index;
     private int environment;
-    public ArrayList<Id> identifiers;
+    public List<Id> identifiers;
     private Node rightChild;
     private Node lambdaNode;
     private Delta delta;
@@ -66,7 +67,7 @@ public class Lambda extends Symbol{
         return str + this.index;
     }
 
-    public Symbol getX() {
-        return null;
+    public Id getX() {
+        return this.identifiers.get(0);
     }
 }

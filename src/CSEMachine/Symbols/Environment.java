@@ -51,6 +51,10 @@ public class Environment extends Symbol {
         }
     }
 
+    public void addValue(Id id, Symbol symbol) {
+        this.values.put(id, symbol);
+    }
+
     @Override
     public String toString() {
         return getToken() + this.index;

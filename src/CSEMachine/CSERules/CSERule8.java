@@ -28,7 +28,7 @@ public class CSERule8 extends AbstractRule{
         List<Symbol> control, 
         List<Symbol> stack, 
         List<Environment> environments, 
-        List<List<Symbol>> deltas
+        List<Delta> deltas
     ) {
         if (
             control.get(control.size() - 1) instanceof Beta

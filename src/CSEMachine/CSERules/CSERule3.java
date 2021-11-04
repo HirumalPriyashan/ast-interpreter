@@ -2,6 +2,7 @@ package CSEMachine.CSERules;
 
 import java.util.List;
 
+import CSEMachine.Symbols.Delta;
 import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Gamma;
 import CSEMachine.Symbols.Rand;
@@ -25,7 +26,7 @@ public class CSERule3 extends AbstractRule{
         List<Symbol> control, 
         List<Symbol> stack, 
         List<Environment> environments, 
-        List<List<Symbol>> deltas
+        List<Delta> deltas
     ) {
         if (
             control.get(control.size() - 1) instanceof Gamma //check last symbol is a gamma
