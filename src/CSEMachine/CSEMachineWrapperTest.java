@@ -42,6 +42,11 @@ public class CSEMachineWrapperTest {
     }
 
     @Test
+    void test5() {
+        RunTest("5");
+    }
+
+    @Test
     void testRec() {
         RunTest("rec");
     }

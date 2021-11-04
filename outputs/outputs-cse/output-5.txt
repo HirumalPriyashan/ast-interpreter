@@ -1,0 +1,48 @@
+-----------------------
+Control structures:
+   delta0 = e0 gamma lambda|x|y|1 tau 5 6
+   delta1 = + x y
+-----------------------
+Control: e0 gamma lambda|x|y|1 tau 5 6
+Stack: e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma lambda|x|y|1 tau 5
+Stack: 6 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma lambda|x|y|1 tau
+Stack: 5 6 e0
+-----------------------------------------------------
+Appling Rule 9
+Control: e0 gamma lambda|x|y|1
+Stack: tuple e0
+-----------------------------------------------------
+Appling Rule 2
+Control: e0 gamma
+Stack: lambda|x|y|1 tuple e0
+-----------------------------------------------------
+Appling Rule 11
+Control: e0 e1 + x y
+Stack: e1 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 e1 + x
+Stack: 6 e1 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 e1 +
+Stack: 5 6 e1 e0
+-----------------------------------------------------
+Appling Rule 6
+Control: e0 e1
+Stack: 11 e1 e0
+-----------------------------------------------------
+Appling Rule 5
+Control: e0
+Stack: 11 e0
+-----------------------------------------------------
+Appling Rule 5
+Control: 
+Stack: 11
+-----------------------------------------------------

@@ -9,7 +9,7 @@ public class Lambda extends Symbol{
     private static int i = 1;
     private int index;
     private int environment;
-    public List<Id> identifiers;
+    private List<Id> identifiers;
     private Node rightChild;
     private Node lambdaNode;
     private Delta delta;
@@ -70,4 +70,9 @@ public class Lambda extends Symbol{
     public Id getX() {
         return this.identifiers.get(0);
     }
+
+    public List<Id> getIdentifiers() {
+        return this.identifiers;
+    }
+
 }

@@ -37,10 +37,10 @@ public class SymbolFactory implements IVisitor{
                             Node node = lambda.getLambdaNode();
                             if (",".equals(node.getChildren().get(0).getToken())) {
                                 for (Node identifier: node.getChildren().get(0).getChildren()) {
-                                    lambda.identifiers.add(new Id(identifier.getToken().substring(4, node.getToken().length()-1)));
+                                    lambda.addIdentifier(new Id(identifier.getToken().substring(4, node.getToken().length()-1)));
                                 }
                             } else {
-                                lambda.identifiers.add(new Id(node.getChildren().get(0).getToken().substring(4, node.getChildren().get(0).getToken().length()-1)));
+                                lambda.addIdentifier(new Id(node.getChildren().get(0).getToken().substring(4, node.getChildren().get(0).getToken().length()-1)));
                             }
                             lambda.getRightChild().accept(this);
                             newDelta.setSymbols(this.symbols);

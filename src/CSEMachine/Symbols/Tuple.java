@@ -1,5 +1,6 @@
 package CSEMachine.Symbols;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tuple extends Symbol{
@@ -8,6 +9,7 @@ public class Tuple extends Symbol{
 
     public Tuple() {
         super("tuple");
+        symbols = new ArrayList<Symbol>();
     }
 
     public List<Symbol> getSymbols() {
@@ -18,4 +20,11 @@ public class Tuple extends Symbol{
         this.symbols = symbols;
     }
     
+    public void addSymbol(Symbol symbol){
+        this.symbols.add(symbol);
+    }
+
+    public Symbol getSymbol(int i) {
+        return this.symbols.get(i);
+    }
 }

@@ -56,6 +56,9 @@ public class CSEMachine {
         .setSuccessor(new CSERule5())
         .setSuccessor(new CSERule6())
         .setSuccessor(new CSERule7())
+        .setSuccessor(new CSERule9())
+        .setSuccessor(new CSERule10())
+        .setSuccessor(new CSERule11())
         .setSuccessor(new CSERule1());
         return rules;
     }
