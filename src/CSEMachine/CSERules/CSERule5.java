@@ -30,6 +30,7 @@ public class CSERule5 extends AbstractRule{
             environments.get(((Environment) control.get(control.size() - 1)).getIndex()).setIsRemoved(true);
             stack.remove(1);
             control.remove(control.size() - 1);
+            return true;
         }            
         return false;
     }

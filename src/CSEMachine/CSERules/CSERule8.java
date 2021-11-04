@@ -36,6 +36,7 @@ public class CSERule8 extends AbstractRule{
             && control.get(control.size() - 3) instanceof Delta
             && stack.get(0) instanceof Bool
         ){
+            System.out.println("Appling Rule 8");
             Bool bool = (Bool) stack.get(0);
             stack.remove(0);
             List<Symbol> nextDelta;
@@ -45,8 +46,8 @@ public class CSERule8 extends AbstractRule{
                 nextDelta = ((Delta) control.get(control.size() - 2)).getSymbols();
             }
             control.remove(control.size() - 1);
-            control.remove(control.size() - 2);
-            control.remove(control.size() - 3);
+            control.remove(control.size() - 1);
+            control.remove(control.size() - 1);
             for (Symbol symbol : nextDelta) {
                 control.add(symbol);
             }

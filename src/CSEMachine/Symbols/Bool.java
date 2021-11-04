@@ -7,7 +7,7 @@ public class Bool extends Symbol{
     }
 
     public boolean isTrue() {
-        return false;
+        return getToken().equals("true");
     }
     
 }

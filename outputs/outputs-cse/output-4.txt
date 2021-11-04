@@ -1,7 +1,58 @@
 -----------------------
 Control structures:
    delta0 = e0 gamma lambda|n|1 neg 3
-   delta1 = delta2 delta3 beta > n 0
+   delta1 = delta2 delta3 beta < n 0
    delta2 = neg n
    delta3 = n
 -----------------------
+Control: e0 gamma lambda|n|1 neg 3
+Stack: e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 gamma lambda|n|1 neg
+Stack: 3 e0
+-----------------------------------------------------
+Appling Rule 7
+Control: e0 gamma lambda|n|1
+Stack: -3 e0
+-----------------------------------------------------
+Appling Rule 2
+Control: e0 gamma
+Stack: lambda|n|1 -3 e0
+-----------------------------------------------------
+Appling Rule 4
+Control: e0 e1 delta2 delta3 beta < n 0
+Stack: e1 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 e1 delta2 delta3 beta < n
+Stack: 0 e1 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 e1 delta2 delta3 beta <
+Stack: -3 0 e1 e0
+-----------------------------------------------------
+Appling Rule 6
+Control: e0 e1 delta2 delta3 beta
+Stack: true e1 e0
+-----------------------------------------------------
+Appling Rule 8
+Control: e0 e1 neg n
+Stack: e1 e0
+-----------------------------------------------------
+Appling Rule 1
+Control: e0 e1 neg
+Stack: -3 e1 e0
+-----------------------------------------------------
+Appling Rule 7
+Control: e0 e1
+Stack: 3 e1 e0
+-----------------------------------------------------
+Appling Rule 5
+Control: e0
+Stack: 3 e0
+-----------------------------------------------------
+Appling Rule 5
+Control: 
+Stack: 3
+-----------------------------------------------------

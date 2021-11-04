@@ -2,7 +2,7 @@ gamma
 .lambda
 ..<ID:n>
 ..->
-...>
+...<
 ....<ID:n>
 ....<INT:0>
 ...neg

@@ -49,11 +49,14 @@ public class CSEMachine {
     }
 
     private AbstractRule getRules() {
-        AbstractRule rules = new CSERule1();
+        AbstractRule rules = new CSERule8();
         rules.setSuccessor(new CSERule2())
         .setSuccessor(new CSERule3())
         .setSuccessor(new CSERule4())
-        .setSuccessor(new CSERule5());
+        .setSuccessor(new CSERule5())
+        .setSuccessor(new CSERule6())
+        .setSuccessor(new CSERule7())
+        .setSuccessor(new CSERule1());
         return rules;
     }
 
