@@ -45,5 +45,17 @@ public class Delta extends Symbol{
     public void setIsPassed(boolean isPassed) {
         this.isPassed = isPassed;
     }
+
+    public void removeSymbol(Symbol symbol){
+        this.symbols.remove(symbol);
+    }
+
+    public void addSymbol(int index, Symbol symbol){
+        this.symbols.add(index, symbol);
+    }
+    @Override
+    public String toString() {
+        return getToken() + this.index;
+    }
     
 }

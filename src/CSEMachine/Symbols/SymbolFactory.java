@@ -33,6 +33,7 @@ public class SymbolFactory implements IVisitor{
                         if (symbol instanceof Lambda) {
                             this.symbols = new ArrayList<Symbol>();
                             Lambda lambda = (Lambda) symbol;
+                            Delta newDelta = new Delta(null);
                             Node node = lambda.getLambdaNode();
                             if (",".equals(node.getChildren().get(0).getToken())) {
                                 for (Node identifier: node.getChildren().get(0).getChildren()) {
@@ -42,7 +43,6 @@ public class SymbolFactory implements IVisitor{
                                 lambda.identifiers.add(new Id(node.getChildren().get(0).getToken().substring(4, node.getChildren().get(0).getToken().length()-1)));
                             }
                             lambda.getRightChild().accept(this);
-                            Delta newDelta = new Delta(null);
                             newDelta.setSymbols(this.symbols);
                             newDeltas.add(newDelta);
                         } else if (symbol instanceof B){
@@ -50,18 +50,15 @@ public class SymbolFactory implements IVisitor{
                             B b = (B) symbol;
                             Node node = b.getNode();
                             node.accept(this);
-                            Delta newDelta = new Delta(null);
-                            newDelta.setSymbols(this.symbols);
-                            newDeltas.add(newDelta);
+                            b.setSymbols(this.symbols);
                         } else if (symbol instanceof Delta){
                             Delta delt = (Delta) symbol;
                             if (delt.getNode() != null){
                                 this.symbols = new ArrayList<Symbol>();
                                 Node node  = delt.getNode();
                                 node.accept(this);
-                                Delta newDelta = new Delta(null);
-                                newDelta.setSymbols(this.symbols);
-                                newDeltas.add(newDelta);
+                                delt.setSymbols(this.symbols);
+                                newDeltas.add(delt);
                             }
                         }
                     }
@@ -70,6 +67,26 @@ public class SymbolFactory implements IVisitor{
             }
             for (Delta delt : newDeltas) {
                 this.deltas.add(delt);
+            }
+        }
+        this.replaceB();
+    }
+
+    private void replaceB() {
+        for (Delta delta : deltas) {
+            int index = -1;
+            for (Symbol symbol : delta.getSymbols()) {
+                if (symbol instanceof B) {
+                    index = delta.getSymbols().indexOf(symbol);
+                }
+            }
+            if(index != -1){
+                B b = (B) delta.getSymbols().get(index);
+                delta.removeSymbol(b);
+                List<Symbol> symbolList = b.getSymbols();
+                for (int i = symbolList.size() - 1; i >= 0 ; i--) {
+                    delta.addSymbol(index, symbolList.get(i));
+                }
             }
         }
     }
@@ -85,7 +102,7 @@ public class SymbolFactory implements IVisitor{
     public Symbol getSymbol(Node node) {
         String token = node.getToken();
         List<String> UOps = new ArrayList<String>(Arrays.asList("not", "neg"));
-        List<String> Ops = new ArrayList<String>(Arrays.asList("aug", "or", "&", "+", "-", "*", "/", "**", "eq","ne", "ls", "le","gr", "ge"));
+        List<String> Ops = new ArrayList<String>(Arrays.asList("aug", "or", "&", "+", "-", "*", "/", "**", "eq","ne", "ls", "le","gr", "ge", "<", ">", "<=", ">="));
         if (token.equals("lambda")){
             return new Lambda(node);
         } else if (token.equals("gamma")){
@@ -124,7 +141,7 @@ public class SymbolFactory implements IVisitor{
             this.symbols.add(new Delta(node.getChildren().get(1)));
             this.symbols.add(new Delta(node.getChildren().get(2)));
             this.symbols.add(new Beta());
-            this.symbols.add(new B(node));
+            this.symbols.add(new B(node.getChildren().get(0)));
         } else {
             this.symbols.add(this.getSymbol(node));
         }
@@ -146,6 +163,5 @@ public class SymbolFactory implements IVisitor{
         List<Symbol> stack = new ArrayList<Symbol>();
         stack.add(this.envs.get(0));
         return  stack;
-    }
-    
+    }    
 }

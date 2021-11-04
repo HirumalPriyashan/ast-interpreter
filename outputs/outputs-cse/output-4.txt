@@ -1,1 +1,7 @@
-gamma
+-----------------------
+Control structures:
+   delta0 = e0 gamma lambda|n|1 neg 3
+   delta1 = delta2 delta3 beta > n 0
+   delta2 = neg n
+   delta3 = n
+-----------------------
