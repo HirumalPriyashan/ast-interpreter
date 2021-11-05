@@ -4,7 +4,6 @@ import CSEMachine.Symbols.Delta;
 import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Id;
 import CSEMachine.Symbols.Rand;
-import CSEMachine.Symbols.Rator;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.YStar;
 
