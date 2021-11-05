@@ -1,0 +1,13 @@
+let
+.=
+..<ID:Inc>
+..lambda
+...<ID:x>
+...+
+....<ID:x>
+....<INT:1>
+.gamma
+..<ID:Print>
+..gamma
+...<ID:Inc>
+...<INT:3>
