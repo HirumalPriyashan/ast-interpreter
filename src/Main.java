@@ -9,10 +9,11 @@ public class Main {
             filename = args[0];
         }
         else{
-            filename = "inputs/inputs/pairs2.txt";
+            filename = "inputs/inputs/add.txt";
         }
         Logger.disableLogger();
         ASTInterpreter.interpret(filename);
+        Logger.enableLogger();
         String answer = CSEMachineWrapper.execute(filename);
         Logger.enableLogger();
         Logger.log(answer);

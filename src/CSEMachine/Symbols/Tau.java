@@ -11,4 +11,9 @@ public class Tau extends Symbol{
     public int getN () {
         return this.n;
     }
+    
+    @Override
+    public String toString() {
+        return "tau|" + this.n;
+    }
 }

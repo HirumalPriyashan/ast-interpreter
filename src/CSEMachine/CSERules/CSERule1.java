@@ -3,6 +3,7 @@ package CSEMachine.CSERules;
 import CSEMachine.Symbols.Delta;
 import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Id;
+import CSEMachine.Symbols.Lambda;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.YStar;
@@ -37,7 +38,10 @@ public class CSERule1 extends AbstractRule{
             stack.add(0, Ob);
             return 1;
         } else if (
-            control.get(control.size() - 1 ) instanceof Rand
+            (
+                control.get(control.size() - 1 ) instanceof Rand
+                && !(control.get(control.size() - 1 ) instanceof Lambda)
+            )
             // || control.get(control.size() - 1 ) instanceof Rator
             || control.get(control.size() - 1 ) instanceof YStar
         ){

@@ -42,4 +42,8 @@ public class Eta extends Rand{
         return this.lambda;
     }
     
+    @Override
+    public String toString() {
+        return this.environment + "|eta|" + this.index;
+    }
 }

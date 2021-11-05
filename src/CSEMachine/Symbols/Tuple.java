@@ -3,7 +3,7 @@ package CSEMachine.Symbols;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tuple extends Symbol{
+public class Tuple extends Rand{
     
     private List<Symbol> symbols;
 
