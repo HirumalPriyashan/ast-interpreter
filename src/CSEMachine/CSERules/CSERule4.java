@@ -8,6 +8,7 @@ import CSEMachine.Symbols.Gamma;
 import CSEMachine.Symbols.Lambda;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
+import Logger.Logger;
 
 public class CSERule4 extends AbstractRule{
     /**
@@ -45,6 +46,8 @@ public class CSERule4 extends AbstractRule{
             stack.remove(0);
             stack.remove(0);
             stack.add(0, newEnvironment);
+            Logger.log("Creating new environmet");
+            newEnvironment.printEnvironment();
             List<Symbol> delta = deltas.get(lambda.getIndex()).getSymbols();
             for (Symbol symbol : delta) {
                 if (symbol instanceof Lambda) {

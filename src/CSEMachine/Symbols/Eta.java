@@ -44,6 +44,6 @@ public class Eta extends Rand{
     
     @Override
     public String toString() {
-        return this.environment + "|eta|" + this.index;
+        return this.environment + "|eta|"+ this.identifier + "|"  + this.index;
     }
 }

@@ -1,6 +1,9 @@
 package CSEMachine.Symbols;
 
 import java.util.HashMap;
+import java.util.Map;
+
+import Logger.Logger;
 
 public class Environment extends Symbol {
     private int index;
@@ -58,5 +61,16 @@ public class Environment extends Symbol {
     @Override
     public String toString() {
         return getToken() + this.index;
+    }
+
+    public void printEnvironment() {
+        String str = toString()  + " = ";
+        for (Map.Entry<Id, Symbol> entry : values.entrySet()) {
+            Id key = entry.getKey();
+            Symbol value = entry.getValue();
+            str += "[ '" + value.toString() + "' / '" + key.toString() + "' ] ";
+        }
+        str += this.getParent().toString();
+        Logger.log(str);
     }
 }
