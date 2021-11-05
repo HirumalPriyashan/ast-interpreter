@@ -8,6 +8,7 @@ import CSEMachine.Symbols.Gamma;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Rator;
 import CSEMachine.Symbols.Symbol;
+import Logger.Logger;
 
 public class CSERule3 extends AbstractRule{
     /**
@@ -34,7 +35,7 @@ public class CSERule3 extends AbstractRule{
             && stack.get(0) instanceof Rator 
             && stack.get(1) instanceof Rand
         ){
-            System.out.println("Applying Rule 3");
+            Logger.log("Applying Rule 3");
             control.remove(control.size()-1);
             Rand rand =(Rand) stack.get(1);
             Rator rator =(Rator) stack.get(0);

@@ -8,6 +8,7 @@ import CSEMachine.Symbols.Gamma;
 import CSEMachine.Symbols.Int;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.Tuple;
+import Logger.Logger;
 
 public class CSERule10 extends AbstractRule{
     /**
@@ -36,7 +37,7 @@ public class CSERule10 extends AbstractRule{
             && stack.get(0) instanceof Tuple 
             && stack.get(1) instanceof Int
         ) {
-            System.out.println("Applying Rule 10");
+            Logger.log("Applying Rule 10");
             control.remove(control.size() - 1);
             Tuple tuple = (Tuple) stack.get(0);
             stack.remove(0);

@@ -6,6 +6,7 @@ import CSEMachine.Symbols.Delta;
 import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Lambda;
 import CSEMachine.Symbols.Symbol;
+import Logger.Logger;
 
 public class CSERule2 extends AbstractRule{
     /**
@@ -30,7 +31,7 @@ public class CSERule2 extends AbstractRule{
         if (
             control.get(control.size() - 1) instanceof Lambda //check last symbol is a lambda
         ){
-            System.out.println("Applying Rule 2");
+            Logger.log("Applying Rule 2");
             Lambda lambda = (Lambda) control.get(control.size() - 1);
             control.remove(control.size()-1);
             lambda.setEnvironment(getCurrentEnvironment(control, environments).getIndex());

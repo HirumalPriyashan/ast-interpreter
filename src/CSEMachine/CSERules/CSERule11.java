@@ -9,6 +9,7 @@ import CSEMachine.Symbols.Id;
 import CSEMachine.Symbols.Lambda;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.Tuple;
+import Logger.Logger;
 
 public class CSERule11 extends AbstractRule{
     /**
@@ -38,7 +39,7 @@ public class CSERule11 extends AbstractRule{
             && stack.get(1) instanceof Tuple
         ) {
             // TODO:
-            System.out.println("Applying Rule 11");
+            Logger.log("Applying Rule 11");
             control.remove(control.size()-1);
             Environment newEnvironment =new Environment(environments.size());
             newEnvironment.setParent(getCurrentEnvironment(control, environments));

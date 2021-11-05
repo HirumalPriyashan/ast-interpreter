@@ -8,6 +8,7 @@ import CSEMachine.Symbols.Eta;
 import CSEMachine.Symbols.Gamma;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
+import Logger.Logger;
 
 public class CSERule13 extends AbstractRule{
     /**
@@ -36,7 +37,7 @@ public class CSERule13 extends AbstractRule{
             && stack.get(0) instanceof Eta
             && stack.get(1) instanceof Rand
         ) {
-            System.out.println("Applying Rule 13");
+            Logger.log("Applying Rule 13");
             control.add(new Gamma());
             Eta eta = (Eta) stack.get(0);
             stack.add(0, eta.getLambda());

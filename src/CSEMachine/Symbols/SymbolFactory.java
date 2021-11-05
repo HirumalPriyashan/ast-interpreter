@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import Logger.Logger;
 import Node.Node;
 import Visitor.*;
 
@@ -132,7 +133,7 @@ public class SymbolFactory implements IVisitor{
         } else if (token.startsWith("<false>")) {                    
             return new Bool("false");
         } else {
-            System.out.println("Err node: " + token);
+            Logger.log("Err node: " + token);
             return new Error(token);
         } 
     }

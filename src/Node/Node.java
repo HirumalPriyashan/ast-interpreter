@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import Logger.Logger;
+
 public class Node implements IVisitable {
     private String token;
     private List<Node> children;
@@ -111,7 +113,7 @@ public class Node implements IVisitable {
     }
 
     public void printNode() {
-        System.out.println(this);
+        Logger.log(this);
         for (Node node : this.children) {
             node.printNode();
         }

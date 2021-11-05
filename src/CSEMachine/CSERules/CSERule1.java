@@ -6,6 +6,7 @@ import CSEMachine.Symbols.Id;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.YStar;
+import Logger.Logger;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class CSERule1 extends AbstractRule{
         if (
             control.get(control.size() - 1) instanceof Id //check last symbol is a id
         ){
-            System.out.println("Applying Rule 1");
+            Logger.log("Applying Rule 1");
             Symbol Ob = getCurrentEnvironment(control, environments).lookup((Id) control.get(control.size() - 1));
             control.remove(control.size()-1);
             stack.add(0, Ob);
@@ -42,7 +43,7 @@ public class CSERule1 extends AbstractRule{
             // || control.get(control.size() - 1 ) instanceof Rator
             || control.get(control.size() - 1 ) instanceof YStar
         ){
-            System.out.println("Applying Rule 1");
+            Logger.log("Applying Rule 1");
             stack.add(0, control.get(control.size() - 1));
             control.remove(control.size() - 1);
             return true;

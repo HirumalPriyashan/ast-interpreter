@@ -4,6 +4,7 @@ import java.util.List;
 
 import CSEMachine.CSERules.*;
 import CSEMachine.Symbols.*;
+import Logger.Logger;
 import Node.Node;
 
 public class CSEMachine {
@@ -24,20 +25,20 @@ public class CSEMachine {
     }
     
     public void printDeltas(){
-        System.out.println("-----------------------");
-        System.out.println("Control structures:");
+        Logger.log("-----------------------");
+        Logger.log("Control structures:");
         for (Delta delta: deltas) {
             List<Symbol> list  = delta.getSymbols();
-            System.out.print("   ");
-            System.out.print(delta);
-            System.out.print(" = ");
+            Logger.logInLine("   ");
+            Logger.logInLine(delta);
+            Logger.logInLine(" = ");
             for (Symbol symbol : list.subList(0, list.size() - 1)) {
-                System.out.print(symbol);
-                System.out.print(" ");
+                Logger.logInLine(symbol);
+                Logger.logInLine(" ");
             }
-            System.out.println(list.get(list.size() - 1));
+            Logger.log(list.get(list.size() - 1));
         }
-        System.out.println("-----------------------");
+        Logger.log("-----------------------");
     }
 
     public void run(){
@@ -66,22 +67,22 @@ public class CSEMachine {
     }
 
     private void printStatus() {
-        System.out.print("Control: ");
+        Logger.logInLine("Control: ");
         if (this.control.size() > 0){
             for (Symbol symbol : control.subList(0, control.size() - 1)) {
-                System.out.print(symbol);
-                System.out.print(" ");
+                Logger.logInLine(symbol);
+                Logger.logInLine(" ");
             }
-            System.out.println(control.get(control.size() - 1));
+            Logger.log(control.get(control.size() - 1));
         } else{
-            System.out.println();
+            Logger.logNewLine();
         }
-        System.out.print("Stack: ");
+        Logger.logInLine("Stack: ");
         for (Symbol symbol : stack.subList(0, stack.size() - 1)) {
-            System.out.print(symbol);
-            System.out.print(" ");
+            Logger.logInLine(symbol);
+            Logger.logInLine(" ");
         }
-        System.out.println(stack.get(stack.size() - 1));
-        System.out.println("-----------------------------------------------------");
+        Logger.log(stack.get(stack.size() - 1));
+        Logger.log("-----------------------------------------------------");
     }
 }

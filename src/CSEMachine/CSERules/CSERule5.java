@@ -5,6 +5,7 @@ import java.util.List;
 import CSEMachine.Symbols.Delta;
 import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Symbol;
+import Logger.Logger;
 
 public class CSERule5 extends AbstractRule{
     /**
@@ -27,7 +28,7 @@ public class CSERule5 extends AbstractRule{
         List<Delta> deltas
     ) {
         if (control.get(control.size() - 1)  instanceof Environment) {
-            System.out.println("Applying Rule 5");              
+            Logger.log("Applying Rule 5");              
             environments.get(((Environment) control.get(control.size() - 1)).getIndex()).setIsRemoved(true);
             stack.remove(1);
             control.remove(control.size() - 1);

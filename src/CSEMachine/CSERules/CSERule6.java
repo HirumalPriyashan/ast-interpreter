@@ -7,6 +7,7 @@ import CSEMachine.Symbols.BOp;
 import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
+import Logger.Logger;
 
 public class CSERule6 extends AbstractRule{
     /**
@@ -33,7 +34,7 @@ public class CSERule6 extends AbstractRule{
             && stack.get(0) instanceof Rand
             && stack.get(1) instanceof Rand
         ){
-            System.out.println("Applying Rule 6");
+            Logger.log("Applying Rule 6");
             Rand rand1 =(Rand) stack.get(0);
             Rand rand2 =(Rand) stack.get(1);
             BOp bOp = (BOp) control.get(control.size() - 1);

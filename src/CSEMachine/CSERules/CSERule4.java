@@ -8,6 +8,7 @@ import CSEMachine.Symbols.Gamma;
 import CSEMachine.Symbols.Lambda;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
+import Logger.Logger;
 
 public class CSERule4 extends AbstractRule{
     /**
@@ -35,7 +36,7 @@ public class CSERule4 extends AbstractRule{
             && stack.get(1) instanceof Rand
             && ((Lambda) stack.get(0)).getIdentifiers().size() == 1
         ){
-            System.out.println("Applying Rule 4");
+            Logger.log("Applying Rule 4");
             control.remove(control.size() - 1);
             Lambda lambda =(Lambda) stack.get(0);
             Environment newEnvironment =new Environment(environments.size());

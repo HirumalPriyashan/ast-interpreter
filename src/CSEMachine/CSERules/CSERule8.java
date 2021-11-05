@@ -8,6 +8,7 @@ import CSEMachine.Symbols.Delta;
 import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Lambda;
 import CSEMachine.Symbols.Symbol;
+import Logger.Logger;
 
 public class CSERule8 extends AbstractRule{
     /**
@@ -38,7 +39,7 @@ public class CSERule8 extends AbstractRule{
             && control.get(control.size() - 3) instanceof Delta
             && stack.get(0) instanceof Bool
         ){
-            System.out.println("Applying Rule 8");
+            Logger.log("Applying Rule 8");
             Bool bool = (Bool) stack.get(0);
             stack.remove(0);
             List<Symbol> nextDelta;

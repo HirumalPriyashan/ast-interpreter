@@ -9,6 +9,7 @@ import CSEMachine.Symbols.Gamma;
 import CSEMachine.Symbols.Lambda;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.YStar;
+import Logger.Logger;
 
 public class CSERule12 extends AbstractRule{
     /**
@@ -37,7 +38,7 @@ public class CSERule12 extends AbstractRule{
             && stack.get(0) instanceof YStar 
             && stack.get(1) instanceof Lambda
         ) {
-            System.out.println("Applying Rule 12");
+            Logger.log("Applying Rule 12");
             control.remove(control.size() - 1);
             stack.remove(0);
             Lambda lambda = (Lambda) stack.get(0);
