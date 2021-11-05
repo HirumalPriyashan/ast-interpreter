@@ -6,7 +6,6 @@ import CSEMachine.Symbols.Id;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.YStar;
-import Logger.Logger;
 
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class CSERule1 extends AbstractRule{
     * @param deltas
     */
     @Override
-    protected boolean applyRuleImplementation(
+    protected int applyRuleImplementation(
         List<Symbol> control, 
         List<Symbol> stack, 
         List<Environment> environments, 
@@ -33,22 +32,20 @@ public class CSERule1 extends AbstractRule{
         if (
             control.get(control.size() - 1) instanceof Id //check last symbol is a id
         ){
-            Logger.log("Applying Rule 1");
             Symbol Ob = getCurrentEnvironment(control, environments).lookup((Id) control.get(control.size() - 1));
             control.remove(control.size()-1);
             stack.add(0, Ob);
-            return true;
+            return 1;
         } else if (
             control.get(control.size() - 1 ) instanceof Rand
             // || control.get(control.size() - 1 ) instanceof Rator
             || control.get(control.size() - 1 ) instanceof YStar
         ){
-            Logger.log("Applying Rule 1");
             stack.add(0, control.get(control.size() - 1));
             control.remove(control.size() - 1);
-            return true;
+            return 1;
         }
-        return false;
+        return 0;
     }   
     
     private Environment getCurrentEnvironment(List<Symbol> control, List<Environment> environments){

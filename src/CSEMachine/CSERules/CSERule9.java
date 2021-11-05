@@ -7,7 +7,6 @@ import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.Tau;
 import CSEMachine.Symbols.Tuple;
-import Logger.Logger;
 
 public class CSERule9 extends AbstractRule{
     /**
@@ -23,7 +22,7 @@ public class CSERule9 extends AbstractRule{
     * @param deltas
     */
     @Override
-    protected boolean applyRuleImplementation(
+    protected int applyRuleImplementation(
         List<Symbol> control, 
         List<Symbol> stack, 
         List<Environment> environments,
@@ -34,7 +33,6 @@ public class CSERule9 extends AbstractRule{
             && stack.size() > 0
             && control.get(control.size() - 1) instanceof Tau
         ) {
-            Logger.log("Applying Rule 9");
             Tau tau = (Tau) control.get(control.size() - 1);
             control.remove(control.size() - 1);
             Tuple tuple = new Tuple();
@@ -43,8 +41,8 @@ public class CSERule9 extends AbstractRule{
                 stack.remove(0);
             }
             stack.add(0, tuple);
-            return true;
+            return 9;
         }
-        return false;
+        return 0;
     }
 }

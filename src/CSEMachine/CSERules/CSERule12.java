@@ -9,7 +9,6 @@ import CSEMachine.Symbols.Gamma;
 import CSEMachine.Symbols.Lambda;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.YStar;
-import Logger.Logger;
 
 public class CSERule12 extends AbstractRule{
     /**
@@ -25,7 +24,7 @@ public class CSERule12 extends AbstractRule{
     * @param deltas
     */
     @Override
-    protected boolean applyRuleImplementation(
+    protected int applyRuleImplementation(
         List<Symbol> control, 
         List<Symbol> stack, 
         List<Environment> environments,
@@ -38,7 +37,6 @@ public class CSERule12 extends AbstractRule{
             && stack.get(0) instanceof YStar 
             && stack.get(1) instanceof Lambda
         ) {
-            Logger.log("Applying Rule 12");
             control.remove(control.size() - 1);
             stack.remove(0);
             Lambda lambda = (Lambda) stack.get(0);
@@ -49,9 +47,9 @@ public class CSERule12 extends AbstractRule{
             eta.setIdentifier(lambda.getIdentifiers().get(0));
             eta.setLambda(lambda);
             stack.add(0, eta);
-            return true;
+            return 12;
         }
-        return false;
+        return 0;
     }    
     
 }

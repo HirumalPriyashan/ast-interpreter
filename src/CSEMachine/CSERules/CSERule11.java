@@ -9,7 +9,6 @@ import CSEMachine.Symbols.Id;
 import CSEMachine.Symbols.Lambda;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.Tuple;
-import Logger.Logger;
 
 public class CSERule11 extends AbstractRule{
     /**
@@ -25,7 +24,7 @@ public class CSERule11 extends AbstractRule{
     * @param deltas
     */
     @Override
-    protected boolean applyRuleImplementation(
+    protected int applyRuleImplementation(
         List<Symbol> control, 
         List<Symbol> stack, 
         List<Environment> environments,
@@ -39,7 +38,6 @@ public class CSERule11 extends AbstractRule{
             && stack.get(1) instanceof Tuple
         ) {
             // TODO:
-            Logger.log("Applying Rule 11");
             control.remove(control.size()-1);
             Environment newEnvironment =new Environment(environments.size());
             newEnvironment.setParent(getCurrentEnvironment(control, environments));
@@ -61,9 +59,9 @@ public class CSERule11 extends AbstractRule{
                 }
                 control.add(symbol);
             }
-            return true;
+            return 11;
         }
-        return false;
+        return 0;
     }    
     
     private Environment getCurrentEnvironment(List<Symbol> control, List<Environment> environments){

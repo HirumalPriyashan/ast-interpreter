@@ -7,7 +7,6 @@ import CSEMachine.Symbols.BOp;
 import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
-import Logger.Logger;
 
 public class CSERule6 extends AbstractRule{
     /**
@@ -23,7 +22,7 @@ public class CSERule6 extends AbstractRule{
     * @param deltas
     */
     @Override
-    protected boolean applyRuleImplementation(
+    protected int applyRuleImplementation(
         List<Symbol> control, 
         List<Symbol> stack, 
         List<Environment> environments, 
@@ -34,7 +33,6 @@ public class CSERule6 extends AbstractRule{
             && stack.get(0) instanceof Rand
             && stack.get(1) instanceof Rand
         ){
-            Logger.log("Applying Rule 6");
             Rand rand1 =(Rand) stack.get(0);
             Rand rand2 =(Rand) stack.get(1);
             BOp bOp = (BOp) control.get(control.size() - 1);
@@ -43,8 +41,8 @@ public class CSERule6 extends AbstractRule{
             stack.remove(0);
             stack.remove(0);
             stack.add(0, result);
-            return true;
+            return 6;
         }
-        return false;
+        return 0;
     }
 }

@@ -8,7 +8,6 @@ import CSEMachine.Symbols.Eta;
 import CSEMachine.Symbols.Gamma;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
-import Logger.Logger;
 
 public class CSERule13 extends AbstractRule{
     /**
@@ -24,7 +23,7 @@ public class CSERule13 extends AbstractRule{
     * @param deltas
     */
     @Override
-    protected boolean applyRuleImplementation(
+    protected int applyRuleImplementation(
         List<Symbol> control, 
         List<Symbol> stack, 
         List<Environment> environments,
@@ -37,13 +36,12 @@ public class CSERule13 extends AbstractRule{
             && stack.get(0) instanceof Eta
             && stack.get(1) instanceof Rand
         ) {
-            Logger.log("Applying Rule 13");
             control.add(new Gamma());
             Eta eta = (Eta) stack.get(0);
             stack.add(0, eta.getLambda());
-    return true;
+            return 13;
         }
-        return false;
+        return 0;
     }    
     
 }

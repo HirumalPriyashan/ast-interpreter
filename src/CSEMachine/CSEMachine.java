@@ -29,12 +29,9 @@ public class CSEMachine {
         Logger.log("Control structures:");
         for (Delta delta: deltas) {
             List<Symbol> list  = delta.getSymbols();
-            Logger.logInLine("   ");
-            Logger.logInLine(delta);
-            Logger.logInLine(" = ");
+            Logger.logInLine("   " + delta + " = ");
             for (Symbol symbol : list.subList(0, list.size() - 1)) {
-                Logger.logInLine(symbol);
-                Logger.logInLine(" ");
+                Logger.logInLine(symbol + " ");
             }
             Logger.log(list.get(list.size() - 1));
         }
@@ -43,8 +40,10 @@ public class CSEMachine {
 
     public void run(){
         this.printStatus();
-        while (!this.control.isEmpty()) {
-            this.cseRules.applyRule(this.control, this.stack, this.envs, this.deltas);
+        int ruleNumber = 1;
+        while (!this.control.isEmpty() && ruleNumber > 0) {
+            ruleNumber = this.cseRules.applyRule(this.control, this.stack, this.envs, this.deltas);
+            Logger.log("Applying Rule " + ruleNumber);
             this.printStatus();
         }
     }
