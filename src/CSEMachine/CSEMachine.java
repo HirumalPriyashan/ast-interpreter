@@ -43,16 +43,17 @@ public class CSEMachine {
         int ruleNumber = 1;
         while (!this.control.isEmpty() && ruleNumber > 0) {
             ruleNumber = this.cseRules.applyRule(this.control, this.stack, this.envs, this.deltas);
-            Logger.log("Applying Rule " + ruleNumber);
+            if (ruleNumber == 14) {
+                Logger.log("Applying Builtin functions ");                
+            } else {
+                Logger.log("Applying Rule " + ruleNumber);
+            }
             this.printStatus();
         }
     }
 
     public String getAnswer() {
-        if (stack.get(0) instanceof Tuple) {
-            return this.getTupleValue((Tuple) stack.get(0));
-        }
-        return stack.get(0).getToken();
+        return stack.get(0).toString();
     }
 
     private AbstractRule getRules() {
@@ -91,18 +92,5 @@ public class CSEMachine {
         }
         Logger.log(stack.get(stack.size() - 1));
         Logger.log("-----------------------------------------------------");
-    }
-
-    public String getTupleValue(Tuple tup) {
-        String temp = "(";
-        for (Symbol symbol: tup.getSymbols()) {
-            if (symbol instanceof Tuple) {
-                temp = temp + this.getTupleValue((Tuple) symbol) + ", ";
-            } else {
-                temp = temp + symbol.getToken() + ", ";
-            }            
-        }
-        temp = temp.substring(0, temp.length()-2) + ")";
-        return temp;
     }
 }

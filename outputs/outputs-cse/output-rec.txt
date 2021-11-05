@@ -20,12 +20,14 @@ Stack: YStar 0|lambda|f|2 e0
 -----------------------------------------------------
 Applying Rule 12
 Control: e0 gamma lambda|f|1
-Stack: eta e0
+Stack: 0|eta|f|2 e0
 -----------------------------------------------------
 Applying Rule 2
 Control: e0 gamma
-Stack: 0|lambda|f|1 eta e0
+Stack: 0|lambda|f|1 0|eta|f|2 e0
 -----------------------------------------------------
+Creating new environmet
+e1 = [ '0|eta|f|2' / 'f' ] e0
 Applying Rule 4
 Control: e0 e1 gamma f 3
 Stack: e1 e0
@@ -36,12 +38,14 @@ Stack: 3 e1 e0
 -----------------------------------------------------
 Applying Rule 1
 Control: e0 e1 gamma
-Stack: eta 3 e1 e0
+Stack: 0|eta|f|2 3 e1 e0
 -----------------------------------------------------
 Applying Rule 13
 Control: e0 e1 gamma gamma
-Stack: 0|lambda|f|2 eta 3 e1 e0
+Stack: 0|lambda|f|2 0|eta|f|2 3 e1 e0
 -----------------------------------------------------
+Creating new environmet
+e2 = [ '0|eta|f|2' / 'f' ] e0
 Applying Rule 4
 Control: e0 e1 gamma e2 lambda|n|3
 Stack: e2 3 e1 e0
@@ -54,6 +58,8 @@ Applying Rule 5
 Control: e0 e1 gamma
 Stack: 2|lambda|n|3 3 e1 e0
 -----------------------------------------------------
+Creating new environmet
+e3 = [ '3' / 'n' ] e2
 Applying Rule 4
 Control: e0 e1 e3 delta4 delta5 beta eq n 1
 Stack: e3 e1 e0
@@ -88,12 +94,14 @@ Stack: 2 e3 e1 e0
 -----------------------------------------------------
 Applying Rule 1
 Control: e0 e1 e3 * n gamma
-Stack: eta 2 e3 e1 e0
+Stack: 0|eta|f|2 2 e3 e1 e0
 -----------------------------------------------------
 Applying Rule 13
 Control: e0 e1 e3 * n gamma gamma
-Stack: 0|lambda|f|2 eta 2 e3 e1 e0
+Stack: 0|lambda|f|2 0|eta|f|2 2 e3 e1 e0
 -----------------------------------------------------
+Creating new environmet
+e4 = [ '0|eta|f|2' / 'f' ] e0
 Applying Rule 4
 Control: e0 e1 e3 * n gamma e4 lambda|n|3
 Stack: e4 2 e3 e1 e0
@@ -106,6 +114,8 @@ Applying Rule 5
 Control: e0 e1 e3 * n gamma
 Stack: 4|lambda|n|3 2 e3 e1 e0
 -----------------------------------------------------
+Creating new environmet
+e5 = [ '2' / 'n' ] e4
 Applying Rule 4
 Control: e0 e1 e3 * n e5 delta4 delta5 beta eq n 1
 Stack: e5 e3 e1 e0
@@ -140,12 +150,14 @@ Stack: 1 e5 e3 e1 e0
 -----------------------------------------------------
 Applying Rule 1
 Control: e0 e1 e3 * n e5 * n gamma
-Stack: eta 1 e5 e3 e1 e0
+Stack: 0|eta|f|2 1 e5 e3 e1 e0
 -----------------------------------------------------
 Applying Rule 13
 Control: e0 e1 e3 * n e5 * n gamma gamma
-Stack: 0|lambda|f|2 eta 1 e5 e3 e1 e0
+Stack: 0|lambda|f|2 0|eta|f|2 1 e5 e3 e1 e0
 -----------------------------------------------------
+Creating new environmet
+e6 = [ '0|eta|f|2' / 'f' ] e0
 Applying Rule 4
 Control: e0 e1 e3 * n e5 * n gamma e6 lambda|n|3
 Stack: e6 1 e5 e3 e1 e0
@@ -158,6 +170,8 @@ Applying Rule 5
 Control: e0 e1 e3 * n e5 * n gamma
 Stack: 6|lambda|n|3 1 e5 e3 e1 e0
 -----------------------------------------------------
+Creating new environmet
+e7 = [ '1' / 'n' ] e6
 Applying Rule 4
 Control: e0 e1 e3 * n e5 * n e7 delta4 delta5 beta eq n 1
 Stack: e7 e5 e3 e1 e0

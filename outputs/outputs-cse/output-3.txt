@@ -16,6 +16,8 @@ Applying Rule 2
 Control: e0 gamma lambda|x|1 gamma
 Stack: 0|lambda|z|2 7 e0
 -----------------------------------------------------
+Creating new environmet
+e1 = [ '7' / 'z' ] e0
 Applying Rule 4
 Control: e0 gamma lambda|x|1 e1 * 2 z
 Stack: e1 e0
@@ -40,6 +42,8 @@ Applying Rule 2
 Control: e0 gamma
 Stack: 0|lambda|x|1 14 e0
 -----------------------------------------------------
+Creating new environmet
+e2 = [ '14' / 'x' ] e0
 Applying Rule 4
 Control: e0 e2 + 1 gamma lambda|w|3 x
 Stack: e2 e0
@@ -52,6 +56,8 @@ Applying Rule 2
 Control: e0 e2 + 1 gamma
 Stack: 2|lambda|w|3 14 e2 e0
 -----------------------------------------------------
+Creating new environmet
+e3 = [ '14' / 'w' ] e2
 Applying Rule 4
 Control: e0 e2 + 1 e3 neg w
 Stack: e3 e2 e0

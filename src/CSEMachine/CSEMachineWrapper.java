@@ -21,7 +21,6 @@ public class CSEMachineWrapper {
         // standardize
         Standardizer standardizer = new CSEStandardizer();
         standardizer.standardize(root);
-        root.printNode();
 
         CSEMachine cseMachine =  new CSEMachine(root);
         cseMachine.printDeltas();

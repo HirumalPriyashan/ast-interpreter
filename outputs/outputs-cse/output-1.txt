@@ -18,6 +18,8 @@ Applying Rule 2
 Control: e0 * gamma
 Stack: 0|lambda|x|1 4 2 e0
 -----------------------------------------------------
+Creating new environmet
+e1 = [ '4' / 'x' ] e0
 Applying Rule 4
 Control: e0 * e1 - x 1
 Stack: e1 2 e0

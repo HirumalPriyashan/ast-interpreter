@@ -9,7 +9,7 @@ public class Main {
             filename = args[0];
         }
         else{
-            filename = "inputs/inputs/add.txt";
+            filename = "inputs/inputs/ast3.txt";
         }
         Logger.disableLogger();
         ASTInterpreter.interpret(filename);

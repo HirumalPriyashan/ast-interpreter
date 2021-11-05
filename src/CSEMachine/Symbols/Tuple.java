@@ -27,4 +27,12 @@ public class Tuple extends Rand{
     public Symbol getSymbol(int i) {
         return this.symbols.get(i);
     }
+
+    public String toString(){
+        String str = "( ";
+        for (Symbol symbol : symbols) {
+            str += symbol.toString() + ", ";
+        }
+        return str.substring(0, str.length() - 2) + " )";
+    }
 }
