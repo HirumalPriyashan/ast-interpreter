@@ -1,60 +1,44 @@
 -----------------------
 Control structures:
-   delta0 = e0 gamma gamma * gamma lambda|x|1 4 2
-   delta1 = gamma gamma - x 1
+   delta0 = e0 * gamma lambda|x|1 4 2
+   delta1 = - x 1
 -----------------------
-Control: e0 gamma gamma * gamma lambda|x|1 4 2
+Control: e0 * gamma lambda|x|1 4 2
 Stack: e0
 -----------------------------------------------------
 Appling Rule 1
-Control: e0 gamma gamma * gamma lambda|x|1 4
+Control: e0 * gamma lambda|x|1 4
 Stack: 2 e0
 -----------------------------------------------------
 Appling Rule 1
-Control: e0 gamma gamma * gamma lambda|x|1
+Control: e0 * gamma lambda|x|1
 Stack: 4 2 e0
 -----------------------------------------------------
 Appling Rule 2
-Control: e0 gamma gamma * gamma
+Control: e0 * gamma
 Stack: lambda|x|1 4 2 e0
 -----------------------------------------------------
 Appling Rule 4
-Control: e0 gamma gamma * e1 gamma gamma - x 1
+Control: e0 * e1 - x 1
 Stack: e1 2 e0
 -----------------------------------------------------
 Appling Rule 1
-Control: e0 gamma gamma * e1 gamma gamma - x
+Control: e0 * e1 - x
 Stack: 1 e1 2 e0
 -----------------------------------------------------
 Appling Rule 1
-Control: e0 gamma gamma * e1 gamma gamma -
+Control: e0 * e1 -
 Stack: 4 1 e1 2 e0
 -----------------------------------------------------
-Appling Rule 1
-Control: e0 gamma gamma * e1 gamma gamma
-Stack: - 4 1 e1 2 e0
------------------------------------------------------
-Appling Rule 3
-Control: e0 gamma gamma * e1 gamma
-Stack: (-4) 1 e1 2 e0
------------------------------------------------------
-Appling Rule 3
-Control: e0 gamma gamma * e1
+Appling Rule 6
+Control: e0 * e1
 Stack: 3 e1 2 e0
 -----------------------------------------------------
 Appling Rule 5
-Control: e0 gamma gamma *
+Control: e0 *
 Stack: 3 2 e0
 -----------------------------------------------------
-Appling Rule 1
-Control: e0 gamma gamma
-Stack: * 3 2 e0
------------------------------------------------------
-Appling Rule 3
-Control: e0 gamma
-Stack: (*3) 2 e0
------------------------------------------------------
-Appling Rule 3
+Appling Rule 6
 Control: e0
 Stack: 6 e0
 -----------------------------------------------------

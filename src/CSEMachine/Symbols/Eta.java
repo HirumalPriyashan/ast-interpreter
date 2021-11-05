@@ -1,6 +1,6 @@
 package CSEMachine.Symbols;
 
-public class Eta extends Symbol{
+public class Eta extends Rand{
     private int index;
     private int environment;
     private Id identifier;

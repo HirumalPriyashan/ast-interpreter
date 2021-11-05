@@ -6,6 +6,7 @@ import CSEMachine.Symbols.Id;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Rator;
 import CSEMachine.Symbols.Symbol;
+import CSEMachine.Symbols.YStar;
 
 import java.util.List;
 
@@ -38,7 +39,8 @@ public class CSERule1 extends AbstractRule{
             return true;
         } else if (
             control.get(control.size() - 1 ) instanceof Rand
-            || control.get(control.size() - 1 ) instanceof Rator
+            // || control.get(control.size() - 1 ) instanceof Rator
+            || control.get(control.size() - 1 ) instanceof YStar
         ){
             System.out.println("Appling Rule 1");
             stack.add(0, control.get(control.size() - 1));

@@ -7,7 +7,7 @@ public class Main {
             filename = args[0];
         }
         else{
-            filename = "inputs/inputs-cse/input-4.txt";
+            filename = "inputs/inputs-cse/input-rec.txt";
         }
         ASTInterpreter.interpret(filename);
     }

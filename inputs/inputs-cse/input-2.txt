@@ -4,10 +4,8 @@ gamma
 ...<ID:x>
 ...lambda
 ....<ID:w>
-....gamma
-.....gamma
-......+
-......<ID:x>
+....+
+.....<ID:x>
 .....<ID:w>
 ..<INT:5>
 .<INT:6>

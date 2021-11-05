@@ -21,12 +21,12 @@ public class ASTInterpreter {
         Node root = astGenerator.generateAST(fileContent);
 
         // standardize
-        Standardizer standardizer = new ASTStandardizer();
+        Standardizer standardizer = new CSEStandardizer();
         standardizer.standardize(root);
         root.printNode();
 
-        // CSEMachine cseMachine =  new CSEMachine(root);
-        // cseMachine.printDeltas();
-        // cseMachine.run();
+        CSEMachine cseMachine =  new CSEMachine(root);
+        cseMachine.printDeltas();
+        cseMachine.run();
     }
 }
