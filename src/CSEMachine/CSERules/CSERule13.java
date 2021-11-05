@@ -36,7 +36,7 @@ public class CSERule13 extends AbstractRule{
             && stack.get(0) instanceof Eta
             && stack.get(1) instanceof Rand
         ) {
-            System.out.println("Appling Rule 13");
+            System.out.println("Applying Rule 13");
             control.add(new Gamma());
             Eta eta = (Eta) stack.get(0);
             stack.add(0, eta.getLambda());

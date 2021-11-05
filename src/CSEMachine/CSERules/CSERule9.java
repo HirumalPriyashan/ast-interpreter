@@ -33,7 +33,7 @@ public class CSERule9 extends AbstractRule{
             && stack.size() > 0
             && control.get(control.size() - 1) instanceof Tau
         ) {
-            System.out.println("Appling Rule 9");
+            System.out.println("Applying Rule 9");
             Tau tau = (Tau) control.get(control.size() - 1);
             control.remove(control.size() - 1);
             Tuple tuple = new Tuple();

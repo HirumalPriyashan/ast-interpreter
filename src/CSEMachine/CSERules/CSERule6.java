@@ -10,7 +10,7 @@ import CSEMachine.Symbols.Symbol;
 
 public class CSERule6 extends AbstractRule{
     /**
-    * Modify the control and stack according to CSE Rule 3
+    * Modify the control and stack according to CSE Rule 6
     *                  Control                Stack      Env
     *                 ├------------------------------├
     * CSE Rule 6      │....binop        Rand Rand....│ 
@@ -19,6 +19,7 @@ public class CSERule6 extends AbstractRule{
     * @param control
     * @param stack
     * @param environment
+    * @param deltas
     */
     @Override
     protected boolean applyRuleImplementation(
@@ -32,7 +33,7 @@ public class CSERule6 extends AbstractRule{
             && stack.get(0) instanceof Rand
             && stack.get(1) instanceof Rand
         ){
-            System.out.println("Appling Rule 6");
+            System.out.println("Applying Rule 6");
             Rand rand1 =(Rand) stack.get(0);
             Rand rand2 =(Rand) stack.get(1);
             BOp bOp = (BOp) control.get(control.size() - 1);

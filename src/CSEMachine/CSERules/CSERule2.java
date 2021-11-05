@@ -18,6 +18,7 @@ public class CSERule2 extends AbstractRule{
     * @param control
     * @param stack
     * @param environment
+    * @param deltas
     */
     @Override
     protected boolean applyRuleImplementation(
@@ -29,7 +30,7 @@ public class CSERule2 extends AbstractRule{
         if (
             control.get(control.size() - 1) instanceof Lambda //check last symbol is a lambda
         ){
-            System.out.println("Appling Rule 2");
+            System.out.println("Applying Rule 2");
             Lambda lambda = (Lambda) control.get(control.size() - 1);
             control.remove(control.size()-1);
             lambda.setEnvironment(environments.get(0).getIndex());

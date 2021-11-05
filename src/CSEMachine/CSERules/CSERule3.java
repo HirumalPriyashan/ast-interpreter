@@ -20,6 +20,7 @@ public class CSERule3 extends AbstractRule{
     * @param control
     * @param stack
     * @param environment
+    * @param deltas
     */
     @Override
     protected boolean applyRuleImplementation(
@@ -33,7 +34,7 @@ public class CSERule3 extends AbstractRule{
             && stack.get(0) instanceof Rator 
             && stack.get(1) instanceof Rand
         ){
-            System.out.println("Appling Rule 3");
+            System.out.println("Applying Rule 3");
             control.remove(control.size()-1);
             Rand rand =(Rand) stack.get(1);
             Rator rator =(Rator) stack.get(0);

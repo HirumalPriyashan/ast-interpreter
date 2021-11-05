@@ -10,15 +10,16 @@ import CSEMachine.Symbols.UOp;
 
 public class CSERule7 extends AbstractRule{
     /**
-    * Modify the control and stack according to CSE Rule 3
+    * Modify the control and stack according to CSE Rule 7
     *                  Control                Stack      Env
     *                 ├------------------------------├
-    * CSE Rule 6      │....unop         Rand Rand....│ 
+    * CSE Rule 7      │....unop         Rand Rand....│ 
     * (unop)          │....                Result....│ Result = Apply(unop,Rand)    
     *                 └╴-----------------------------├
     * @param control
     * @param stack
     * @param environment
+    * @param deltas
     */
     @Override
     protected boolean applyRuleImplementation(
@@ -31,7 +32,7 @@ public class CSERule7 extends AbstractRule{
             control.get(control.size() - 1) instanceof UOp
             && stack.get(0) instanceof Rand
         ){
-            System.out.println("Appling Rule 7");
+            System.out.println("Applying Rule 7");
             Rand rand =(Rand) stack.get(0);
             UOp uOp = (UOp) control.get(control.size() - 1);
             control.remove(control.size()-1);

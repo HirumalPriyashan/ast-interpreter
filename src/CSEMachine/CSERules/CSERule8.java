@@ -10,7 +10,7 @@ import CSEMachine.Symbols.Symbol;
 
 public class CSERule8 extends AbstractRule{
     /**
-    * Modify the control and stack according to CSE Rule 3
+    * Modify the control and stack according to CSE Rule 8
     *                  Control                                 Stack      Env
     *                 ├-----------------------------------------------├
     * CSE Rule 8      │....delta_then delta_else beta         true....│ 
@@ -22,6 +22,7 @@ public class CSERule8 extends AbstractRule{
     * @param control
     * @param stack
     * @param environment
+    * @param deltas
     */
     @Override
     protected boolean applyRuleImplementation(
@@ -36,7 +37,7 @@ public class CSERule8 extends AbstractRule{
             && control.get(control.size() - 3) instanceof Delta
             && stack.get(0) instanceof Bool
         ){
-            System.out.println("Appling Rule 8");
+            System.out.println("Applying Rule 8");
             Bool bool = (Bool) stack.get(0);
             stack.remove(0);
             List<Symbol> nextDelta;

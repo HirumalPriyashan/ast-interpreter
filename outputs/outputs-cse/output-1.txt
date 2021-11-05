@@ -6,43 +6,43 @@ Control structures:
 Control: e0 * gamma lambda|x|1 4 2
 Stack: e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 * gamma lambda|x|1 4
 Stack: 2 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 * gamma lambda|x|1
 Stack: 4 2 e0
 -----------------------------------------------------
-Appling Rule 2
+Applying Rule 2
 Control: e0 * gamma
 Stack: lambda|x|1 4 2 e0
 -----------------------------------------------------
-Appling Rule 4
+Applying Rule 4
 Control: e0 * e1 - x 1
 Stack: e1 2 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 * e1 - x
 Stack: 1 e1 2 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 * e1 -
 Stack: 4 1 e1 2 e0
 -----------------------------------------------------
-Appling Rule 6
+Applying Rule 6
 Control: e0 * e1
 Stack: 3 e1 2 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: e0 *
 Stack: 3 2 e0
 -----------------------------------------------------
-Appling Rule 6
+Applying Rule 6
 Control: e0
 Stack: 6 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: 
 Stack: 6
 -----------------------------------------------------

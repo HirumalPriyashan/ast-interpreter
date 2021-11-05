@@ -10,211 +10,211 @@ Control structures:
 Control: e0 gamma lambda|f|1 gamma YStar lambda|f|2
 Stack: e0
 -----------------------------------------------------
-Appling Rule 2
+Applying Rule 2
 Control: e0 gamma lambda|f|1 gamma YStar
 Stack: lambda|f|2 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 gamma lambda|f|1 gamma
 Stack: YStar lambda|f|2 e0
 -----------------------------------------------------
-Appling Rule 12
+Applying Rule 12
 Control: e0 gamma lambda|f|1
 Stack: eta e0
 -----------------------------------------------------
-Appling Rule 2
+Applying Rule 2
 Control: e0 gamma
 Stack: lambda|f|1 eta e0
 -----------------------------------------------------
-Appling Rule 4
+Applying Rule 4
 Control: e0 e1 gamma f 3
 Stack: e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 gamma f
 Stack: 3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 gamma
 Stack: eta 3 e1 e0
 -----------------------------------------------------
-Appling Rule 13
+Applying Rule 13
 Control: e0 e1 gamma gamma
 Stack: lambda|f|2 eta 3 e1 e0
 -----------------------------------------------------
-Appling Rule 4
+Applying Rule 4
 Control: e0 e1 gamma e2 lambda|n|3
 Stack: e2 3 e1 e0
 -----------------------------------------------------
-Appling Rule 2
+Applying Rule 2
 Control: e0 e1 gamma e2
 Stack: lambda|n|3 e2 3 e1 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: e0 e1 gamma
 Stack: lambda|n|3 3 e1 e0
 -----------------------------------------------------
-Appling Rule 4
+Applying Rule 4
 Control: e0 e1 e3 delta4 delta5 beta eq n 1
 Stack: e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 delta4 delta5 beta eq n
 Stack: 1 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 delta4 delta5 beta eq
 Stack: 3 1 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 6
+Applying Rule 6
 Control: e0 e1 e3 delta4 delta5 beta
 Stack: false e3 e1 e0
 -----------------------------------------------------
-Appling Rule 8
+Applying Rule 8
 Control: e0 e1 e3 * n gamma f - n 1
 Stack: e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 * n gamma f - n
 Stack: 1 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 * n gamma f -
 Stack: 3 1 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 6
+Applying Rule 6
 Control: e0 e1 e3 * n gamma f
 Stack: 2 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 * n gamma
 Stack: eta 2 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 13
+Applying Rule 13
 Control: e0 e1 e3 * n gamma gamma
 Stack: lambda|f|2 eta 2 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 4
+Applying Rule 4
 Control: e0 e1 e3 * n gamma e4 lambda|n|3
 Stack: e4 2 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 2
+Applying Rule 2
 Control: e0 e1 e3 * n gamma e4
 Stack: lambda|n|3 e4 2 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: e0 e1 e3 * n gamma
 Stack: lambda|n|3 2 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 4
+Applying Rule 4
 Control: e0 e1 e3 * n e5 delta4 delta5 beta eq n 1
 Stack: e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 * n e5 delta4 delta5 beta eq n
 Stack: 1 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 * n e5 delta4 delta5 beta eq
 Stack: 2 1 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 6
+Applying Rule 6
 Control: e0 e1 e3 * n e5 delta4 delta5 beta
 Stack: false e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 8
+Applying Rule 8
 Control: e0 e1 e3 * n e5 * n gamma f - n 1
 Stack: e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 * n e5 * n gamma f - n
 Stack: 1 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 * n e5 * n gamma f -
 Stack: 2 1 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 6
+Applying Rule 6
 Control: e0 e1 e3 * n e5 * n gamma f
 Stack: 1 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 * n e5 * n gamma
 Stack: eta 1 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 13
+Applying Rule 13
 Control: e0 e1 e3 * n e5 * n gamma gamma
 Stack: lambda|f|2 eta 1 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 4
+Applying Rule 4
 Control: e0 e1 e3 * n e5 * n gamma e6 lambda|n|3
 Stack: e6 1 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 2
+Applying Rule 2
 Control: e0 e1 e3 * n e5 * n gamma e6
 Stack: lambda|n|3 e6 1 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: e0 e1 e3 * n e5 * n gamma
 Stack: lambda|n|3 1 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 4
+Applying Rule 4
 Control: e0 e1 e3 * n e5 * n e7 delta4 delta5 beta eq n 1
 Stack: e7 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 * n e5 * n e7 delta4 delta5 beta eq n
 Stack: 1 e7 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 * n e5 * n e7 delta4 delta5 beta eq
 Stack: 1 1 e7 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 6
+Applying Rule 6
 Control: e0 e1 e3 * n e5 * n e7 delta4 delta5 beta
 Stack: true e7 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 8
+Applying Rule 8
 Control: e0 e1 e3 * n e5 * n e7 1
 Stack: e7 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 * n e5 * n e7
 Stack: 1 e7 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: e0 e1 e3 * n e5 * n
 Stack: 1 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 * n e5 *
 Stack: 2 1 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 6
+Applying Rule 6
 Control: e0 e1 e3 * n e5
 Stack: 2 e5 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: e0 e1 e3 * n
 Stack: 2 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e1 e3 *
 Stack: 3 1 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 6
+Applying Rule 6
 Control: e0 e1 e3
 Stack: 6 e3 e1 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: e0 e1
 Stack: 6 e1 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: e0
 Stack: 6 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: 
 Stack: 6
 -----------------------------------------------------

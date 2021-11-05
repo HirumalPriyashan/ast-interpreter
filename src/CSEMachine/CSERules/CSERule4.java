@@ -20,6 +20,7 @@ public class CSERule4 extends AbstractRule{
     * @param control
     * @param stack
     * @param environment
+    * @param deltas
     */
     @Override
     protected boolean applyRuleImplementation(
@@ -34,7 +35,7 @@ public class CSERule4 extends AbstractRule{
             && stack.get(1) instanceof Rand
             && ((Lambda) stack.get(0)).getIdentifiers().size() == 1
         ){
-            System.out.println("Appling Rule 4");
+            System.out.println("Applying Rule 4");
             control.remove(control.size()-1);
             Environment newEnvironment =new Environment(environments.size());
             newEnvironment.setParent(environments.get(0));

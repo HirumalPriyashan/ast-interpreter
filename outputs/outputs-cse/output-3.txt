@@ -8,79 +8,79 @@ Control structures:
 Control: e0 gamma lambda|x|1 gamma lambda|z|2 7
 Stack: e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 gamma lambda|x|1 gamma lambda|z|2
 Stack: 7 e0
 -----------------------------------------------------
-Appling Rule 2
+Applying Rule 2
 Control: e0 gamma lambda|x|1 gamma
 Stack: lambda|z|2 7 e0
 -----------------------------------------------------
-Appling Rule 4
+Applying Rule 4
 Control: e0 gamma lambda|x|1 e1 * 2 z
 Stack: e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 gamma lambda|x|1 e1 * 2
 Stack: 7 e1 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 gamma lambda|x|1 e1 *
 Stack: 2 7 e1 e0
 -----------------------------------------------------
-Appling Rule 6
+Applying Rule 6
 Control: e0 gamma lambda|x|1 e1
 Stack: 14 e1 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: e0 gamma lambda|x|1
 Stack: 14 e0
 -----------------------------------------------------
-Appling Rule 2
+Applying Rule 2
 Control: e0 gamma
 Stack: lambda|x|1 14 e0
 -----------------------------------------------------
-Appling Rule 4
+Applying Rule 4
 Control: e0 e2 + 1 gamma lambda|w|3 x
 Stack: e2 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e2 + 1 gamma lambda|w|3
 Stack: 14 e2 e0
 -----------------------------------------------------
-Appling Rule 2
+Applying Rule 2
 Control: e0 e2 + 1 gamma
 Stack: lambda|w|3 14 e2 e0
 -----------------------------------------------------
-Appling Rule 4
+Applying Rule 4
 Control: e0 e2 + 1 e3 neg w
 Stack: e3 e2 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e2 + 1 e3 neg
 Stack: 14 e3 e2 e0
 -----------------------------------------------------
-Appling Rule 7
+Applying Rule 7
 Control: e0 e2 + 1 e3
 Stack: -14 e3 e2 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: e0 e2 + 1
 Stack: -14 e2 e0
 -----------------------------------------------------
-Appling Rule 1
+Applying Rule 1
 Control: e0 e2 +
 Stack: 1 -14 e2 e0
 -----------------------------------------------------
-Appling Rule 6
+Applying Rule 6
 Control: e0 e2
 Stack: -13 e2 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: e0
 Stack: -13 e0
 -----------------------------------------------------
-Appling Rule 5
+Applying Rule 5
 Control: 
 Stack: -13
 -----------------------------------------------------
