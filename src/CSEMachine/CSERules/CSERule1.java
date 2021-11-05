@@ -33,7 +33,7 @@ public class CSERule1 extends AbstractRule{
             control.get(control.size() - 1) instanceof Id //check last symbol is a id
         ){
             System.out.println("Applying Rule 1");
-            Symbol Ob = environments.get(0).lookup((Id) control.get(control.size() - 1));
+            Symbol Ob = getCurrentEnvironment(control, environments).lookup((Id) control.get(control.size() - 1));
             control.remove(control.size()-1);
             stack.add(0, Ob);
             return true;
@@ -48,5 +48,14 @@ public class CSERule1 extends AbstractRule{
             return true;
         }
         return false;
+    }   
+    
+    private Environment getCurrentEnvironment(List<Symbol> control, List<Environment> environments){
+        for (int i = control.size() - 1; i >= 0; i--) {
+            if (control.get(i) instanceof Environment) {
+                return (Environment) control.get(i);
+            }
+        }
+        return environments.get(0);
     }
 }

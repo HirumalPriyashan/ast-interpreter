@@ -36,11 +36,11 @@ public class CSERule4 extends AbstractRule{
             && ((Lambda) stack.get(0)).getIdentifiers().size() == 1
         ){
             System.out.println("Applying Rule 4");
-            control.remove(control.size()-1);
-            Environment newEnvironment =new Environment(environments.size());
-            newEnvironment.setParent(environments.get(0));
-            environments.add(0, newEnvironment);
+            control.remove(control.size() - 1);
             Lambda lambda =(Lambda) stack.get(0);
+            Environment newEnvironment =new Environment(environments.size());
+            newEnvironment.setParent(getEnvironmentByLambdaIndex(lambda.getEnvironment(), environments));
+            environments.add(0, newEnvironment);
             newEnvironment.addValue(lambda.getX(), stack.get(1));
             control.add(newEnvironment);
             stack.remove(0);
@@ -53,5 +53,14 @@ public class CSERule4 extends AbstractRule{
             return true;
         }
         return false;
+    } 
+
+    private Environment getEnvironmentByLambdaIndex(int index,List<Environment> environments){
+        for (Environment environment : environments) {
+            if (environment.getIndex() == index) {
+                return environment;
+            }
+        }
+        return environments.get(0);
     }
 }

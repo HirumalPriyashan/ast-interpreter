@@ -20,6 +20,7 @@ public class Lambda extends Symbol{
         this.identifiers = new ArrayList<Id>();
         this.rightChild = node.getChildren().get(1);
         this.lambdaNode = node;
+        this.environment = -1;
     }
     
     public int getIndex() {
@@ -61,6 +62,9 @@ public class Lambda extends Symbol{
     @Override
     public String toString() {
         String str = "lambda|";
+        // if (this.environment > 0) {
+        //     str = this.environment + "|" + str;
+        // }
         for (Id id : identifiers) {
             str += id.getToken() + "|";
         }

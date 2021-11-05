@@ -33,10 +33,19 @@ public class CSERule2 extends AbstractRule{
             System.out.println("Applying Rule 2");
             Lambda lambda = (Lambda) control.get(control.size() - 1);
             control.remove(control.size()-1);
-            lambda.setEnvironment(environments.get(0).getIndex());
+            lambda.setEnvironment(getCurrentEnvironment(control, environments).getIndex());
             stack.add(0, lambda);
             return true;
         }
         return false;
+    }  
+    
+    private Environment getCurrentEnvironment(List<Symbol> control, List<Environment> environments){
+        for (int i = control.size() - 1; i >= 0; i--) {
+            if (control.get(i) instanceof Environment) {
+                return (Environment) control.get(i);
+            }
+        }
+        return environments.get(0);
     }
 }
