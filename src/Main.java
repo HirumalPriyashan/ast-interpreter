@@ -1,4 +1,6 @@
 import ASTInterpreter.ASTInterpreter;
+import CSEMachine.CSEMachineWrapper;
+import Logger.Logger;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,8 +9,12 @@ public class Main {
             filename = args[0];
         }
         else{
-            filename = "inputs/inputs-cse/input-2.txt";
+            filename = "inputs/inputs/pairs2.txt";
         }
+        Logger.disableLogger();
         ASTInterpreter.interpret(filename);
+        String answer = CSEMachineWrapper.execute(filename);
+        Logger.enableLogger();
+        Logger.log(answer);
     }
 }

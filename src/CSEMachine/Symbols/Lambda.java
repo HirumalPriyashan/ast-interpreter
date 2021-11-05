@@ -5,7 +5,7 @@ import java.util.List;
 
 import Node.Node;
 
-public class Lambda extends Symbol{
+public class Lambda extends Rand{
     private static int i = 1;
     private int index;
     private int environment;

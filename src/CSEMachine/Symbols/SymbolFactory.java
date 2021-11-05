@@ -128,10 +128,12 @@ public class SymbolFactory implements IVisitor{
             return new Int(token.substring(6, token.length() - 2));
         } else if (token.startsWith("<nil")) {                    
             return new Tuple();
-        } else if (token.startsWith("<true>")) {                    
+        } else if (token.equals("<true>")) {                    
             return new Bool("true");
-        } else if (token.startsWith("<false>")) {                    
+        } else if (token.equals("<false>")) {                    
             return new Bool("false");
+        } else if (token.equals("<dummy>")) {                    
+            return new Dummy();
         } else {
             Logger.log("Err node: " + token);
             return new Error(token);

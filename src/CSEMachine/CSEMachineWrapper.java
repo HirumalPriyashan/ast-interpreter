@@ -10,7 +10,7 @@ import ASTTreeGenerator.ASTGenerator;
 import Standardizer.Standardizer;
 
 public class CSEMachineWrapper {
-    public static void flatten(String filename) {
+    public static String execute(String filename) {
         // get ast content from file
         FileReader fileReader = new TextFileReader(filename);
         ArrayList<String> fileContent= fileReader.getData();
@@ -25,5 +25,6 @@ public class CSEMachineWrapper {
         CSEMachine cseMachine =  new CSEMachine(root);
         cseMachine.printDeltas();
         cseMachine.run();
+        return cseMachine.getAnswer();
     }
 }

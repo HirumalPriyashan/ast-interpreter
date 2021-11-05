@@ -48,6 +48,13 @@ public class CSEMachine {
         }
     }
 
+    public String getAnswer() {
+        if (stack.get(0) instanceof Tuple) {
+            return this.getTupleValue((Tuple) stack.get(0));
+        }
+        return stack.get(0).getToken();
+    }
+
     private AbstractRule getRules() {
         AbstractRule rules = new CSERule1();
         rules.setSuccessor(new CSERule2())
@@ -61,7 +68,8 @@ public class CSEMachine {
         .setSuccessor(new CSERule10())
         .setSuccessor(new CSERule11())
         .setSuccessor(new CSERule12())
-        .setSuccessor(new CSERule13());
+        .setSuccessor(new CSERule13())
+        .setSuccessor(new BuiltInFunctions());
         return rules;
     }
 
@@ -83,5 +91,18 @@ public class CSEMachine {
         }
         Logger.log(stack.get(stack.size() - 1));
         Logger.log("-----------------------------------------------------");
+    }
+
+    public String getTupleValue(Tuple tup) {
+        String temp = "(";
+        for (Symbol symbol: tup.getSymbols()) {
+            if (symbol instanceof Tuple) {
+                temp = temp + this.getTupleValue((Tuple) symbol) + ", ";
+            } else {
+                temp = temp + symbol.getToken() + ", ";
+            }            
+        }
+        temp = temp.substring(0, temp.length()-2) + ")";
+        return temp;
     }
 }

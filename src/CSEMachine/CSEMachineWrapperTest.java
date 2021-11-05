@@ -56,7 +56,7 @@ public class CSEMachineWrapperTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         String expectedOutput = getExpectedOutput(absolutePath + "outputs/outputs-cse/output-" + testName + ".txt");
-        CSEMachineWrapper.flatten(absolutePath + "inputs/inputs-cse/input-" + testName + ".txt");
+        CSEMachineWrapper.execute(absolutePath + "inputs/inputs-cse/input-" + testName + ".txt");
         assertEquals(expectedOutput, outContent.toString());
     }
 
