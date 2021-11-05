@@ -16,7 +16,7 @@ Stack: 4 2 e0
 -----------------------------------------------------
 Applying Rule 2
 Control: e0 * gamma
-Stack: lambda|x|1 4 2 e0
+Stack: 0|lambda|x|1 4 2 e0
 -----------------------------------------------------
 Applying Rule 4
 Control: e0 * e1 - x 1

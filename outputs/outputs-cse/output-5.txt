@@ -20,7 +20,7 @@ Stack: tuple e0
 -----------------------------------------------------
 Applying Rule 2
 Control: e0 gamma
-Stack: lambda|x|y|1 tuple e0
+Stack: 0|lambda|x|y|1 tuple e0
 -----------------------------------------------------
 Applying Rule 11
 Control: e0 e1 + x y

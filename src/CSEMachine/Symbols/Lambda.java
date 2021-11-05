@@ -62,9 +62,9 @@ public class Lambda extends Symbol{
     @Override
     public String toString() {
         String str = "lambda|";
-        // if (this.environment > 0) {
-        //     str = this.environment + "|" + str;
-        // }
+        if (this.environment >= 0) {
+            str = this.environment + "|" + str;
+        }
         for (Id id : identifiers) {
             str += id.getToken() + "|";
         }

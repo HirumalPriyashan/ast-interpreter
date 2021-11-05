@@ -6,6 +6,7 @@ import CSEMachine.Symbols.Beta;
 import CSEMachine.Symbols.Bool;
 import CSEMachine.Symbols.Delta;
 import CSEMachine.Symbols.Environment;
+import CSEMachine.Symbols.Lambda;
 import CSEMachine.Symbols.Symbol;
 
 public class CSERule8 extends AbstractRule{
@@ -50,6 +51,9 @@ public class CSERule8 extends AbstractRule{
             control.remove(control.size() - 1);
             control.remove(control.size() - 1);
             for (Symbol symbol : nextDelta) {
+                if (symbol instanceof Lambda) {
+                    ((Lambda) symbol).setEnvironment(-1);
+                }
                 control.add(symbol);
             }
             return true;

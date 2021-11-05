@@ -17,7 +17,7 @@ Stack: 5 6 e0
 -----------------------------------------------------
 Applying Rule 2
 Control: e0 gamma gamma
-Stack: lambda|x|1 5 6 e0
+Stack: 0|lambda|x|1 5 6 e0
 -----------------------------------------------------
 Applying Rule 4
 Control: e0 gamma e1 lambda|w|2
@@ -25,11 +25,11 @@ Stack: e1 6 e0
 -----------------------------------------------------
 Applying Rule 2
 Control: e0 gamma e1
-Stack: lambda|w|2 e1 6 e0
+Stack: 1|lambda|w|2 e1 6 e0
 -----------------------------------------------------
 Applying Rule 5
 Control: e0 gamma
-Stack: lambda|w|2 6 e0
+Stack: 1|lambda|w|2 6 e0
 -----------------------------------------------------
 Applying Rule 4
 Control: e0 e2 + x w

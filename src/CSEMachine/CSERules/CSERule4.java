@@ -48,6 +48,9 @@ public class CSERule4 extends AbstractRule{
             stack.add(0, newEnvironment);
             List<Symbol> delta = deltas.get(lambda.getIndex()).getSymbols();
             for (Symbol symbol : delta) {
+                if (symbol instanceof Lambda) {
+                    ((Lambda) symbol).setEnvironment(-1);
+                }
                 control.add(symbol);
             }
             return true;

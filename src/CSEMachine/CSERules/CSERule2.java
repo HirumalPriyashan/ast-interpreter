@@ -12,8 +12,8 @@ public class CSERule2 extends AbstractRule{
     * Modify the control and stack according to CSE Rule 2
     *                  Control                Stack      Env
     *                 ├------------------------------├
-    * CSE Rule 2      │....lambda x k            ....│ 
-    * (Stack lambda)  │....          c lambda x k....│ Ec : current environment    
+    * CSE Rule 2      │....lambda_x_k            ....│ 
+    * (Stack lambda)  │....          c-lambda_x_k....│ Ec : current environment    
     *                 └╴-----------------------------├
     * @param control
     * @param stack
