@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Test script for for ASTInterpreter class which standardize the Abstract 
  * Syntax Tree
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */

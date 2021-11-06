@@ -8,7 +8,7 @@ import Logger.Logger;
 /**
  * Class representation for Environment symbols in CSE machine
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */

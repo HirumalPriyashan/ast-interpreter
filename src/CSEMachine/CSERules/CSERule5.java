@@ -9,7 +9,7 @@ import CSEMachine.Symbols.Symbol;
 /**
  * Class for CSE Rule 5
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashannn
  * @version 1.0
  * @since 1.0
  */

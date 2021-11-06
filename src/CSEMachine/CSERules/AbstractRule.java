@@ -7,9 +7,9 @@ import CSEMachine.Symbols.Symbol;
 import java.util.List;
 
 /**
- * AbstractRule is the base abstract class cse rules 
+ * AbstractRule is the base abstract class for cse rules 
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  * @see https://sourcemaking.com/design_patterns/chain_of_responsibility
@@ -36,7 +36,8 @@ public abstract class AbstractRule {
     * @param stack - current stack
     * @param environment - list of available environments
     * @param deltas - list of delta nodes
-    * @return
+    * @return   handler number if handled by one of the handlers
+    *           otherwise 0 
     */
     protected abstract int applyRuleImplementation(
         List<Symbol> control, List<Symbol> stack, 

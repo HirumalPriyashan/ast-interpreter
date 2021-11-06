@@ -14,7 +14,7 @@ import Standardizer.Standardizer;
  * It provides the functionality to read content from the specified file and
  * standardize the AST with gamma applied for CSE machine and get the result
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */

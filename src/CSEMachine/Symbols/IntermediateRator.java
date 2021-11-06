@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Class representation for IntermediateRator symbols in control stack
  * No need for this class with CSE Rule 6 & 7 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */

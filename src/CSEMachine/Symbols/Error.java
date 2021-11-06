@@ -3,7 +3,7 @@ package CSEMachine.Symbols;
 /**
  * Class representation for Error symbols
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */

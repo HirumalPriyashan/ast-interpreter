@@ -11,7 +11,7 @@ import CSEMachine.Symbols.Tuple;
 /**
  * Class for CSE Rule 9
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashann
  * @version 1.0
  * @since 1.0
  */

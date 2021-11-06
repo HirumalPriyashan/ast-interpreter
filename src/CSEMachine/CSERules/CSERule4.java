@@ -13,7 +13,7 @@ import Logger.Logger;
 /**
  * Class for CSE Rule 4
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashann
  * @version 1.0
  * @since 1.0
  */

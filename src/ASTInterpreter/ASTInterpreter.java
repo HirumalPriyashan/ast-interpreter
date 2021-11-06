@@ -13,7 +13,7 @@ import ASTTreeGenerator.ASTGenerator;
  * It provides the functionality to read content from the specified file and
  * standardize the AST.
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */

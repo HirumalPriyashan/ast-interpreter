@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Test script for for CSEMachineWrapperTest class which execute the 
  * CSE machine
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */

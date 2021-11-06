@@ -3,7 +3,7 @@ package MyExeptions;
 /**
  * Class representation for ASTNotGeneratedException
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */public class ASTNotGeneratedException extends Exception {

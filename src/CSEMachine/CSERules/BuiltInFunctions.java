@@ -16,7 +16,7 @@ import CSEMachine.Symbols.Tuple;
 /**
  * Class for Built in functions
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */

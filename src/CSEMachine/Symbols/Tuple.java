@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Class representation for Tuple symbols in control stack
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */

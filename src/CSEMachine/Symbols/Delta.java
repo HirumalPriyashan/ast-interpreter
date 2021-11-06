@@ -7,7 +7,7 @@ import Node.Node;
 /**
  * Class representation for Delta symbols in control stack
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */

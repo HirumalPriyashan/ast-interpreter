@@ -8,7 +8,7 @@ import Standardizer.*;
  * It provides the functionality to standardize a given AST and produce
  * desugared node
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */

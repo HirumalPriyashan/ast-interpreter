@@ -3,7 +3,7 @@ package Visitor;
 /**
  * Abstraction for visitor in the Visitor design pattern 
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  * @see https://sourcemaking.com/design_patterns/visitor

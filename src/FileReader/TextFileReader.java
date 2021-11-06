@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 /**
  * TextFileReader reads from a given file and returns content
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */

@@ -7,6 +7,13 @@ import CSEMachine.Symbols.*;
 import Logger.Logger;
 import Node.Node;
 
+/**
+ * CSEMachine is responsible for execute the CSE machine
+ * 
+ * @author Hirumal Priyashan
+ * @version 1.0
+ * @since 1.0
+ */
 public class CSEMachine {
     private List<Delta> deltas;
     private SymbolFactory symbolFactory;

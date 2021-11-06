@@ -12,7 +12,7 @@ import Visitor.*;
  * Class representation for SymbolFactory to create deltas from
  * the ST
  * 
- * @author Hirumal Priyshan
+ * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
  */
