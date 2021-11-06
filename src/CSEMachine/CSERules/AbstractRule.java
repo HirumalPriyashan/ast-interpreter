@@ -12,6 +12,7 @@ import java.util.List;
  * @author Hirumal Priyshan
  * @version 1.0
  * @since 1.0
+ * @see https://sourcemaking.com/design_patterns/chain_of_responsibility
  */
 public abstract class AbstractRule {
     // next handler in the chain
