@@ -31,8 +31,11 @@ public class RecStandardizer extends AbstractStandardizer{
     @Override
     protected boolean standardizeImplementation(Node node) {
         if (
-            node.getToken().equals("rec")) {
-            // TODO check child is = and = have 2 children
+            node.getToken().equals("rec")
+            && node.getChildren().size() == 1
+            && node.getChildren().get(0).getToken().equals("=")
+            && node.getChildren().get(0).getChildren().size() == 2
+        ) {
             Node equal = node.getChildren().get(0);
             Node X = equal.getChildren().get(0);
             Node XCopy = new Node(X.getToken());
