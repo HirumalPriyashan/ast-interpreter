@@ -24,11 +24,18 @@ public class Tuple extends Rand{
         this.symbols.add(symbol);
     }
 
+    public void addAllSymbols(List<Symbol> symbols){
+        this.symbols.addAll(symbols);
+    }
+
     public Symbol getSymbol(int i) {
         return this.symbols.get(i);
     }
 
     public String toString(){
+        if (symbols.size() == 0) {
+            return "()";
+        }
         String str = "( ";
         for (Symbol symbol : symbols) {
             str += symbol.toString() + ", ";

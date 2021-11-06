@@ -60,11 +60,11 @@ public class BOp extends Rator{
             int val2 = Integer.parseInt(rand2.getToken());
             return new Bool(Boolean.toString(val1 >= val2));
         } else if ("aug".equals(getToken())) {  
-            // if (rand2 instanceof Tuple) {
-            //     ((Tuple) rand1).symbols.addAll(((Tuple) rand2).symbols);
-            // } else {
-            //     ((Tuple) rand1).symbols.add(rand2);
-            // }
+            if (rand2 instanceof Tuple) {
+                ((Tuple) rand1).addAllSymbols(((Tuple) rand2).getSymbols());
+            } else {
+                ((Tuple) rand1).addSymbol(rand2);
+            }
             return rand1;
         } else {
             return new Error("");

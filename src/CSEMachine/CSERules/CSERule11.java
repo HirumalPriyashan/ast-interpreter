@@ -55,7 +55,7 @@ public class CSERule11 extends AbstractRule{
             stack.add(0, newEnvironment);
             Logger.log("Creating new environmet");
             newEnvironment.printEnvironment();
-            List<Symbol> delta = deltas.get(lambda.getIndex()).getSymbols();
+            List<Symbol> delta = lambda.getDelta().getSymbols();
             for (Symbol symbol : delta) {
                 if (symbol instanceof Lambda) {
                     ((Lambda) symbol).setEnvironment(-1);

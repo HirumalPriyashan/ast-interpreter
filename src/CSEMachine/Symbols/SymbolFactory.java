@@ -38,13 +38,14 @@ public class SymbolFactory implements IVisitor{
                             Node node = lambda.getLambdaNode();
                             if (",".equals(node.getChildren().get(0).getToken())) {
                                 for (Node identifier: node.getChildren().get(0).getChildren()) {
-                                    lambda.addIdentifier(new Id(identifier.getToken().substring(4, node.getToken().length()-1)));
+                                    lambda.addIdentifier(new Id(identifier.getToken().substring(4, identifier.getToken().length()-1)));
                                 }
                             } else {
                                 lambda.addIdentifier(new Id(node.getChildren().get(0).getToken().substring(4, node.getChildren().get(0).getToken().length()-1)));
                             }
                             lambda.getRightChild().accept(this);
                             newDelta.setSymbols(this.symbols);
+                            lambda.setDelta(newDelta);
                             newDeltas.add(newDelta);
                         } else if (symbol instanceof B){
                             this.symbols = new ArrayList<Symbol>();
