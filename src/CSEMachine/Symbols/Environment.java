@@ -5,42 +5,71 @@ import java.util.Map;
 
 import Logger.Logger;
 
+/**
+ * Class representation for Environment symbols in CSE machine
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class Environment extends Symbol {
     private int index;
     private Environment parent;
-    private boolean isRemoved = false;
     public HashMap<Id,Symbol> values;
     
+    /**
+     * Class constructor.
+     * 
+     * @param n number of children
+     */
     public Environment(int i) {
         super("e");
         this.setIndex(i);
         this.values = new HashMap<Id,Symbol>();
     }
     
+    /**
+     * Setter for index
+     * 
+     * @param i index of the Environment symbol
+     */
     public void setIndex(int i) {
         this.index = i;
     }
     
+    /**
+     * Getter for index
+     * 
+     * @return the index of the Environment symbol
+     */
     public int getIndex() {
         return this.index;
     }
     
-    public void setParent(Environment e) {
-        this.parent = e;
+    /**
+     * Setter for parent
+     * 
+     * @param environment Environment symbol to be set as parent
+     */
+    public void setParent(Environment environment) {
+        this.parent = environment;
     }
     
+    /**
+     * Getter for parent
+     * 
+     * @return parent environment of the Environment symbol
+     */
     public Environment getParent() {
         return this.parent;
     }
     
-    public void setIsRemoved(boolean isRemoved) {
-        this.isRemoved = isRemoved;
-    }
-    
-    public boolean getIsRemoved() {
-        return this.isRemoved;
-    }
-    
+    /**
+     * Look up for the value for given id in the environment
+     * 
+     * @param id Id to lookup
+     * @return value mapped to the Id
+     */
     public Symbol lookup(Id id){
         for (Id key: this.values.keySet()) {
             if (key.getToken().equals(id.getToken())){
@@ -54,15 +83,19 @@ public class Environment extends Symbol {
         }
     }
 
+    /**
+     * Add new value to the values in the environment
+     * 
+     * @param id id which will use as key for hashmap
+     * @param symbol symbol to map for Id
+     */
     public void addValue(Id id, Symbol symbol) {
         this.values.put(id, symbol);
     }
 
-    @Override
-    public String toString() {
-        return getToken() + this.index;
-    }
-
+    /**
+     * Prints environment with its values
+     */
     public void printEnvironment() {
         String str = toString()  + " = ";
         for (Map.Entry<Id, Symbol> entry : values.entrySet()) {
@@ -72,5 +105,10 @@ public class Environment extends Symbol {
         }
         str += this.getParent().toString();
         Logger.log(str);
+    }
+
+    @Override
+    public String toString() {
+        return getToken() + this.index;
     }
 }

@@ -8,22 +8,37 @@ import Logger.Logger;
 import Node.Node;
 import Visitor.*;
 
+/**
+ * Class representation for SymbolFactory to create deltas from
+ * the ST
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class SymbolFactory implements IVisitor{
     private List<Delta> deltas;
     private List<Symbol> symbols;
     private List<Environment> envs;
     private List<Symbol> stack;
     
+    /**
+     * Class constructor.
+     * 
+     * @param root root of the ST
+     */
     public SymbolFactory(Node root) {
         this.envs = configEnvironment();
         this.symbols = configControl();
         this.stack = configStack();
         this.deltas = new ArrayList<Delta>();
+        // create delta_0
         Delta initialDelta = new Delta(null);
         root.accept(this);
         initialDelta.setSymbols(this.symbols);
         this.deltas.add(initialDelta);
         boolean isDone = false;
+        // create deltas for Lambdas, and Deltas 
         while (!isDone) {
             isDone = true;
             List<Delta> newDeltas = new ArrayList<Delta>();         
@@ -73,7 +88,51 @@ public class SymbolFactory implements IVisitor{
         }
         this.replaceB();
     }
+    
+    /**
+     * Getter for deltas
+     * 
+     * @return list of deltas
+     */
+    public List<Delta> getDeltas() {
+        return this.deltas;
+    }
+    
+    /**
+     * Getter for stack
+     * 
+     * @return initial stack
+     */
+    public List<Symbol> getStack() {
+        return this.stack;
+    }
+    
+    /**
+     * Getter for envs
+     * 
+     * @return list of environments
+     */
+    public List<Environment> getEnvironment() {
+        return this.envs;
+    }
 
+    @Override
+    public void visit(IVisitable iVisitable) {
+        Node node = (Node) iVisitable;
+        String token = node.getToken();
+        if (token.equals("->")) {
+            this.symbols.add(new Delta(node.getChildren().get(1)));
+            this.symbols.add(new Delta(node.getChildren().get(2)));
+            this.symbols.add(new Beta());
+            this.symbols.add(new B(node.getChildren().get(0)));
+        } else {
+            this.symbols.add(this.getSymbol(node));
+        }
+    }
+
+    /**
+     * Repalce B node in the delta with B's symbols
+     */
     private void replaceB() {
         for (Delta delta : deltas) {
             int index = -1;
@@ -92,20 +151,14 @@ public class SymbolFactory implements IVisitor{
             }
         }
     }
-
-    public List<Delta> getDeltas() {
-        return this.deltas;
-    }
-
-    public List<Symbol> getStack() {
-        return this.stack;
-    }
-
-    public List<Environment> getEnvironment() {
-        return this.envs;
-    }
-
-    public Symbol getSymbol(Node node) {
+    
+    /**
+     * Gererate mapped symbol for given node
+     * 
+     * @param node node which eed to map for a symbol
+     * @return mapped symbol for the node
+     */
+    private Symbol getSymbol(Node node) {
         String token = node.getToken();
         List<String> UOps = new ArrayList<String>(Arrays.asList("not", "neg"));
         List<String> Ops = new ArrayList<String>(Arrays.asList("aug", "or", "&", "+", "-", "*", "/", "**", "eq","ne", "ls", "le","gr", "ge", "<", ">", "<=", ">="));
@@ -140,33 +193,34 @@ public class SymbolFactory implements IVisitor{
             return new Error(token);
         } 
     }
-
-    @Override
-    public void visit(IVisitable iVisitable) {
-        Node node = (Node) iVisitable;
-        String token = node.getToken();
-        if (token.equals("->")) {
-            this.symbols.add(new Delta(node.getChildren().get(1)));
-            this.symbols.add(new Delta(node.getChildren().get(2)));
-            this.symbols.add(new Beta());
-            this.symbols.add(new B(node.getChildren().get(0)));
-        } else {
-            this.symbols.add(this.getSymbol(node));
-        }
-    }
     
+    /**
+     * Configure initial environment
+     * 
+     * @return list of environments
+     */
     private List<Environment> configEnvironment() {
         List<Environment> environments = new ArrayList<Environment>();
         environments.add(new Environment(0));
-        return  environments;
+        return environments;
     }
     
+    /**
+     * Configure initial control
+     * 
+     * @return initial control
+     */
     private List<Symbol> configControl() {
         List<Symbol> control = new ArrayList<Symbol>();
         control.add(this.envs.get(0));
-        return  control;
+        return control;
     }
     
+    /**
+     * Configure initial stack
+     * 
+     * @return initial stack
+     */
     private List<Symbol> configStack() {
         List<Symbol> stack = new ArrayList<Symbol>();
         stack.add(this.envs.get(0));

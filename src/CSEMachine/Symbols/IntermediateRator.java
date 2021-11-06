@@ -4,12 +4,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Class representation for IntermediateRator symbols in control stack
+ * No need for this class with CSE Rule 6 & 7 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class IntermediateRator extends Rator{
     List<String> mathOps = new ArrayList<String>(Arrays.asList( "+", "-", "*", "/", "**"));
 
+    /**
+     * Class constructor.
+     * 
+     * @param token token for the symbol
+     */
     public IntermediateRator(String token) {
         super(token);
     }
+
     @Override
     public Symbol apply(Rand rand) {
         if (getToken().substring(1, 2).equals("+")) {
