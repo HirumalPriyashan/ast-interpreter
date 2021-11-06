@@ -8,6 +8,13 @@ import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.UOp;
 
+/**
+ * Class for CSE Rule 7
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class CSERule7 extends AbstractRule{
     /**
     * Modify the control and stack according to CSE Rule 7
@@ -16,10 +23,13 @@ public class CSERule7 extends AbstractRule{
     * CSE Rule 7      │....unop         Rand Rand....│ 
     * (unop)          │....                Result....│ Result = Apply(unop,Rand)    
     *                 └╴-----------------------------├
-    * @param control
-    * @param stack
-    * @param environment
-    * @param deltas
+    * 
+    * @param control - current control
+    * @param stack - current stack
+    * @param environment - list of available environments
+    * @param deltas - list of delta nodes
+    * @return   7 if can handled by this method
+    *           otherwise 0
     */
     @Override
     protected int applyRuleImplementation(
@@ -29,7 +39,9 @@ public class CSERule7 extends AbstractRule{
         List<Delta> deltas
     ) {
         if (
-            control.get(control.size() - 1) instanceof UOp
+            control.size() > 0
+            && stack.size() > 0
+            && control.get(control.size() - 1) instanceof UOp
             && stack.get(0) instanceof Rand
         ){
             Rand rand =(Rand) stack.get(0);

@@ -11,6 +11,14 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test script for for ASTInterpreter class which standardize the Abstract 
+ * Syntax Tree
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 class ASTInterpreterTest {
 
     @BeforeEach

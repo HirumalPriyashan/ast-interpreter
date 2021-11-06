@@ -10,6 +10,13 @@ import CSEMachine.Symbols.YStar;
 
 import java.util.List;
 
+/**
+ * Class for CSE Rule 1
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class CSERule1 extends AbstractRule{
     /**
     * Modify the control and stack according to CSE Rule 1
@@ -18,10 +25,13 @@ public class CSERule1 extends AbstractRule{
     * CSE Rule 1      │....Name                  ....│ Ob = Lookup(Name, Ec)
     * (Stack a name)  │....                    Ob....│ Ec : current environment    
     *                 └╴-----------------------------├
-    * @param control
-    * @param stack
-    * @param environment
-    * @param deltas
+    *  
+    * @param control - current control
+    * @param stack - current stack
+    * @param environment - list of available environments
+    * @param deltas - list of delta nodes
+    * @return   1 if can handled by this method
+    *           otherwise 0
     */
     @Override
     protected int applyRuleImplementation(
@@ -31,7 +41,8 @@ public class CSERule1 extends AbstractRule{
         List<Delta> deltas
     ) {
         if (
-            control.get(control.size() - 1) instanceof Id //check last symbol is a id
+            control.size() > 0
+            && control.get(control.size() - 1) instanceof Id 
         ){
             Symbol Ob = getCurrentEnvironment(control, environments).lookup((Id) control.get(control.size() - 1));
             control.remove(control.size()-1);

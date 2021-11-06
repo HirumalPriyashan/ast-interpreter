@@ -10,6 +10,13 @@ import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
 import Logger.Logger;
 
+/**
+ * Class for CSE Rule 4
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class CSERule4 extends AbstractRule{
     /**
     * Modify the control and stack according to CSE Rule 4
@@ -18,10 +25,13 @@ public class CSERule4 extends AbstractRule{
     * CSE Rule 4      │....gamma      c lambda x k Rand....│ 
     * (apply lambda)  │....En delta k                En....│ En = [Rand/x]Ec   
     *                 └╴-----------------------------------├
-    * @param control
-    * @param stack
-    * @param environment
-    * @param deltas
+    * 
+    * @param control - current control
+    * @param stack - current stack
+    * @param environment - list of available environments
+    * @param deltas - list of delta nodes
+    * @return   4 if can handled by this method
+    *           otherwise 0
     */
     @Override
     protected int applyRuleImplementation(
@@ -31,7 +41,9 @@ public class CSERule4 extends AbstractRule{
         List<Delta> deltas
     ) {
         if (
-            control.get(control.size() - 1) instanceof Gamma //check last symbol is a gamma
+            control.size() > 0
+            && stack.size() > 1
+            && control.get(control.size() - 1) instanceof Gamma 
             && stack.get(0) instanceof Lambda 
             && stack.get(1) instanceof Rand
             && ((Lambda) stack.get(0)).getIdentifiers().size() == 1

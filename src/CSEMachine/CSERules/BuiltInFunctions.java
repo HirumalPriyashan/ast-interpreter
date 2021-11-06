@@ -13,7 +13,24 @@ import CSEMachine.Symbols.StringSymbol;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.Tuple;
 
+/**
+ * Class for Built in functions
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class BuiltInFunctions extends AbstractRule{
+    /**
+    * Modify the control and stack by appling built in functions
+
+    * @param control - current control
+    * @param stack - current stack
+    * @param environment - list of available environments
+    * @param deltas - list of delta nodes
+    * @return   14 if can handled by this method
+    *           otherwise 0
+    */
     @Override
     protected int applyRuleImplementation(
         List<Symbol> control, 

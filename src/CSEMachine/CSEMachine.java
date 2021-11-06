@@ -15,6 +15,11 @@ public class CSEMachine {
     private List<Symbol> stack;
     private List<Environment> envs;
 
+    /**
+    * Class constructor specifying the root node.
+    * 
+    * @param root root node of ST
+    */
     public CSEMachine(Node root){
         this.symbolFactory = new SymbolFactory(root);
         this.deltas = symbolFactory.getDeltas();
@@ -24,6 +29,9 @@ public class CSEMachine {
         this.cseRules = getRules();
     }
     
+    /**
+     * Prints deltas for the given ST
+     */
     public void printDeltas(){
         Logger.log("-----------------------");
         Logger.log("Control structures:");
@@ -38,6 +46,10 @@ public class CSEMachine {
         Logger.log("-----------------------");
     }
 
+    /**
+     * Executes and applies CSE rules to the control and modify
+     * the control and stack
+     */
     public void run(){
         this.printStatus();
         int ruleNumber = 1;
@@ -52,10 +64,19 @@ public class CSEMachine {
         }
     }
 
+    /**
+     * Get the result after execution
+     * 
+     * @return result as a string
+     */
     public String getAnswer() {
         return stack.get(0).toString();
     }
 
+    /**
+     * Get CSE rule list
+     * @return first handler in the cse rule list
+     */
     private AbstractRule getRules() {
         AbstractRule rules = new CSERule1();
         rules.setSuccessor(new CSERule2())
@@ -74,6 +95,9 @@ public class CSEMachine {
         return rules;
     }
 
+    /**
+     * Prints the current state of the control and stack
+     */
     private void printStatus() {
         Logger.logInLine("Control: ");
         if (this.control.size() > 0){

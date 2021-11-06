@@ -8,6 +8,13 @@ import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
 
+/**
+ * Class for CSE Rule 6
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class CSERule6 extends AbstractRule{
     /**
     * Modify the control and stack according to CSE Rule 6
@@ -16,10 +23,13 @@ public class CSERule6 extends AbstractRule{
     * CSE Rule 6      │....binop        Rand Rand....│ 
     * (binop)         │....                Result....│ Result = Apply(binop,Rand, Rand)    
     *                 └╴-----------------------------├
-    * @param control
-    * @param stack
-    * @param environment
-    * @param deltas
+    * 
+    * @param control - current control
+    * @param stack - current stack
+    * @param environment - list of available environments
+    * @param deltas - list of delta nodes
+    * @return   6 if can handled by this method
+    *           otherwise 0
     */
     @Override
     protected int applyRuleImplementation(
@@ -29,7 +39,9 @@ public class CSERule6 extends AbstractRule{
         List<Delta> deltas
     ) {
         if (
-            control.get(control.size() - 1) instanceof BOp //check last symbol is a gamma
+            control.size() > 0
+            && stack.size() > 1
+            && control.get(control.size() - 1) instanceof BOp
             && stack.get(0) instanceof Rand
             && stack.get(1) instanceof Rand
         ){

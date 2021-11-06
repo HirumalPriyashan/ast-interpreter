@@ -7,6 +7,13 @@ import CSEMachine.Symbols.Environment;
 import CSEMachine.Symbols.Lambda;
 import CSEMachine.Symbols.Symbol;
 
+/**
+ * Class for CSE Rule 2
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class CSERule2 extends AbstractRule{
     /**
     * Modify the control and stack according to CSE Rule 2
@@ -15,10 +22,13 @@ public class CSERule2 extends AbstractRule{
     * CSE Rule 2      │....lambda_x_k            ....│ 
     * (Stack lambda)  │....          c-lambda_x_k....│ Ec : current environment    
     *                 └╴-----------------------------├
-    * @param control
-    * @param stack
-    * @param environment
-    * @param deltas
+    * 
+    * @param control - current control
+    * @param stack - current stack
+    * @param environment - list of available environments
+    * @param deltas - list of delta nodes
+    * @return   2 if can handled by this method
+    *           otherwise 0
     */
     @Override
     protected int applyRuleImplementation(
@@ -28,7 +38,8 @@ public class CSERule2 extends AbstractRule{
         List<Delta> deltas
     ) {
         if (
-            control.get(control.size() - 1) instanceof Lambda //check last symbol is a lambda
+            control.size() > 0
+            && control.get(control.size() - 1) instanceof Lambda 
         ){
             Lambda lambda = (Lambda) control.get(control.size() - 1);
             control.remove(control.size()-1);

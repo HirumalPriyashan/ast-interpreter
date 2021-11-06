@@ -11,6 +11,14 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test script for for CSEMachineWrapperTest class which execute the 
+ * CSE machine
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class CSEMachineWrapperTest {
 
     @BeforeEach

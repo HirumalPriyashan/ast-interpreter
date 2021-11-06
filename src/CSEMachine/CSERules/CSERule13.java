@@ -9,6 +9,13 @@ import CSEMachine.Symbols.Gamma;
 import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Symbol;
 
+/**
+ * Class for CSE Rule 13
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class CSERule13 extends AbstractRule{
     /**
     * Modify the control and stack according to CSE Rule 13
@@ -17,10 +24,13 @@ public class CSERule13 extends AbstractRule{
     * CSE Rule 13    │....gamma                         c_eta_V_i Rand....│ 
     * (applying f.p) │....gamma gamma      c_lambda_V_i c_eta_V_i Rand....│ 
     *                └╴---------------------------------------------------├
-    * @param control
-    * @param stack
-    * @param environment
-    * @param deltas
+    * 
+    * @param control - current control
+    * @param stack - current stack
+    * @param environment - list of available environments
+    * @param deltas - list of delta nodes
+    * @return   13 if can handled by this method
+    *           otherwise 0
     */
     @Override
     protected int applyRuleImplementation(

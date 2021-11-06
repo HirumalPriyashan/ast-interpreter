@@ -13,7 +13,7 @@ public class Main {
         }
         Logger.disableLogger();
         ASTInterpreter.interpret(filename);
-        Logger.enableLogger();
+        // Logger.enableLogger();
         String answer = CSEMachineWrapper.execute(filename);
         Logger.enableLogger();
         Logger.log(answer);

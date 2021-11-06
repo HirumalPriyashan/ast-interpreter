@@ -11,6 +11,13 @@ import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.Tuple;
 import Logger.Logger;
 
+/**
+ * Class for CSE Rule 11
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class CSERule11 extends AbstractRule{
     /**
     * Modify the control and stack according to CSE Rule 11
@@ -19,10 +26,13 @@ public class CSERule11 extends AbstractRule{
     * CSE Rule 11         │....gamma      c_lambda_V1...Vn_k Rand....│ 
     * (n-ary function)    │....Em delta_k                      Em....│  Em = [Rand1/V1]...[Randn/Vn]Ec
     *                     └╴-----------------------------------------├
-    * @param control
-    * @param stack
-    * @param environment
-    * @param deltas
+    * 
+    * @param control - current control
+    * @param stack - current stack
+    * @param environment - list of available environments
+    * @param deltas - list of delta nodes
+    * @return   11 if can handled by this method
+    *           otherwise 0
     */
     @Override
     protected int applyRuleImplementation(
@@ -38,7 +48,6 @@ public class CSERule11 extends AbstractRule{
             && stack.get(0) instanceof Lambda 
             && stack.get(1) instanceof Tuple
         ) {
-            // TODO:
             control.remove(control.size()-1);
             Environment newEnvironment =new Environment(environments.size());
             newEnvironment.setParent(getCurrentEnvironment(control, environments));

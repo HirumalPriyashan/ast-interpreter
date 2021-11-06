@@ -9,6 +9,13 @@ import CSEMachine.Symbols.Int;
 import CSEMachine.Symbols.Symbol;
 import CSEMachine.Symbols.Tuple;
 
+/**
+ * Class for CSE Rule 10
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class CSERule10 extends AbstractRule{
     /**
     * Modify the control and stack according to CSE Rule 10
@@ -17,10 +24,13 @@ public class CSERule10 extends AbstractRule{
     * CSE Rule 10         │....gamma      (V1,...,Vn) I....│ 
     * (tuple selection)   │....                      Vi....│
     *                     └╴-------------------------------├
-    * @param control
-    * @param stack
-    * @param environment
-    * @param deltas
+    *
+    * @param control - current control
+    * @param stack - current stack
+    * @param environment - list of available environments
+    * @param deltas - list of delta nodes
+    * @return   10 if can handled by this method
+    *           otherwise 0
     */
     @Override
     protected int applyRuleImplementation(

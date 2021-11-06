@@ -3,9 +3,22 @@ package ASTInterpreter;
 import Node.Node;
 import Standardizer.*;
 
+/**
+ * ASTStandardizer is the class for standardizing Abstract Syntax Tree
+ * It provides the functionality to standardize a given AST and produce
+ * desugared node
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class ASTStandardizer implements  Standardizer{
+    // Fisrt standadardizer to desugar the AST
     private AbstractStandardizer standardizer;
 
+    /** 
+    * Class constructor.
+    */
     public ASTStandardizer() {
         this.standardizer = new LetStandardizer(this);
         this.standardizer
@@ -22,6 +35,7 @@ public class ASTStandardizer implements  Standardizer{
                 .setSuccessor(new RecStandardizer());
     }
 
+    @Override
     public void standardize(Node node) {
         if (!node.getIsStandardized()) {
             for (Node child : node.getChildren()) {

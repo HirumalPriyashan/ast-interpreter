@@ -9,6 +9,13 @@ import CSEMachine.Symbols.Rand;
 import CSEMachine.Symbols.Rator;
 import CSEMachine.Symbols.Symbol;
 
+/**
+ * Class for CSE Rule 3
+ * 
+ * @author Hirumal Priyshan
+ * @version 1.0
+ * @since 1.0
+ */
 public class CSERule3 extends AbstractRule{
     /**
     * Modify the control and stack according to CSE Rule 3
@@ -17,10 +24,13 @@ public class CSERule3 extends AbstractRule{
     * CSE Rule 3      │....gamma       Rator Rand....│ 
     * (apply rator)   │....                Result....│ Result = Apply(Rator, Rand)    
     *                 └╴-----------------------------├
-    * @param control
-    * @param stack
-    * @param environment
-    * @param deltas
+    * 
+    * @param control - current control
+    * @param stack - current stack
+    * @param environment - list of available environments
+    * @param deltas - list of delta nodes
+    * @return   3 if can handled by this method
+    *           otherwise 0
     */
     @Override
     protected int applyRuleImplementation(
@@ -30,7 +40,9 @@ public class CSERule3 extends AbstractRule{
         List<Delta> deltas
     ) {
         if (
-            control.get(control.size() - 1) instanceof Gamma //check last symbol is a gamma
+            control.size() > 0
+            && stack.size() > 1
+            && control.get(control.size() - 1) instanceof Gamma 
             && stack.get(0) instanceof Rator 
             && stack.get(1) instanceof Rand
         ){
