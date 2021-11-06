@@ -6,11 +6,33 @@ import java.util.List;
 
 import Node.Node;
 
+/**
+ * Standardizer for '@' operations
+ * 
+ * @author Hirumal Priyashan
+ * @version 1.0
+ * @since 1.0
+ */
 public class AtStandardizer extends AbstractStandardizer{
+    /**
+     * Applies the standardizing the '@' Operator gamma
+     * 
+     *      @      =>   gamma
+     *    / | \          / \
+     *   E1 N E2      gamma E2
+     *                 / \
+     *                N  E1
+     * 
+     * @param node node to be standardize 
+     * @return  <b>true</b> if handled by one of the handlers
+     *          otherwise <b>false</b>
+     */
     @Override
     protected boolean standardizeImplementation(Node node) {
-        if (node.getToken().equals("@")) {
-            // TODO: check number of children = 3
+        if (
+            node.getToken().equals("@")
+            && node.getChildren().size() == 3
+        ) {
             List<Node> children = node.getChildren();
             Node E1 = children.get(0);
             Node N = children.get(1);

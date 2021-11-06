@@ -6,13 +6,40 @@ import java.util.List;
 
 import Node.Node;
 
+/**
+ * Standardizer for Unary and Binary Operators
+ * 
+ * @author Hirumal Priyashan
+ * @version 1.0
+ * @since 1.0
+ */
 public class OpStandardizer extends AbstractStandardizer{
+    /**
+     * Applies the standardizing the Unary and Binary Operators gamma
+     * 
+     *      Uop    =>    gamma
+     *       |           /  \
+     *       E          Uop  E 
+     *
+     *       Op    =>    gamma
+     *      / \          /  \
+     *     E1  E2     gamma  E2
+     *                 / \
+     *                Op  E1
+     *
+     * 
+     * @param node node to be standardize 
+     * @return  <b>true</b> if handled by one of the handlers
+     *          otherwise <b>false</b>
+     */
     @Override
     protected boolean standardizeImplementation(Node node) {
         List<String> Uops = new ArrayList<String>(Arrays.asList("not", "neg"));
-        // TODO:add other operations
-        List<String> Ops = new ArrayList<String>(Arrays.asList("aug", "or", "&", "+", "-", "/", "**", "gr", "eq"));
-        if (Ops.contains(node.getToken())) {
+        List<String> Ops = new ArrayList<String>(Arrays.asList("aug", "or", "&", "+", "-", "*", "/", "**", "eq","ne", "ls", "le","gr", "ge", "<", ">", "<=", ">="));
+        if (
+            Ops.contains(node.getToken())
+            && node.getChildren().size() == 2
+        ) {
             List<Node> children = node.getChildren();
             Node E1 = children.get(0);
             Node E2 = children.get(1);
@@ -27,7 +54,10 @@ public class OpStandardizer extends AbstractStandardizer{
             node.setDepth(gamma1.getDepth());
             node.setChildren(gamma1.getChildren());
             return true;
-        } else if(Uops.contains(node.getToken())) {
+        } else if(
+            Uops.contains(node.getToken())
+            && node.getChildren().size() == 1
+        ) {
             Node gamma = new Node("gamma");
             gamma.setDepth(node.getDepth());
             Node Uop = new Node(node.getToken());

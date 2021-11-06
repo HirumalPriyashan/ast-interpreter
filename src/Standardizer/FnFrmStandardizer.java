@@ -6,10 +6,33 @@ import java.util.List;
 
 import Node.Node;
 
+/**
+ * Standardizer for 'fcn_form'
+ * 
+ * @author Hirumal Priyashan
+ * @version 1.0
+ * @since 1.0
+ */
 public class FnFrmStandardizer extends AbstractStandardizer {
+    /**
+     * Applies the standardizing the 'fcn_form' gamma
+     * 
+     *      fcn_form             =
+     *        / | \             / \
+     *       P  V+ E     =>    P +lambda
+     *                             / \
+     *                            V  .E 
+     * 
+     * @param node node to be standardize 
+     * @return  <b>true</b> if handled by one of the handlers
+     *          otherwise <b>false</b>
+     */
     @Override
     protected boolean standardizeImplementation(Node node) {
-        if (node.getToken().equals("function_form")) {
+        if (
+            node.getToken().equals("function_form")
+            && node.getChildren().size() > 1
+        ) {
             Node P = node.getChildren().get(0);
             List<Node> Vs = node.getChildren().subList(1, node.getChildren().size() - 1);
             Node E = node.getChildren().get(node.getChildren().size() - 1);

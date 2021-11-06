@@ -5,7 +5,27 @@ import java.util.Arrays;
 
 import Node.Node;
 
+/**
+ * Standardizer for where
+ * 
+ * @author Hirumal Priyashan
+ * @version 1.0
+ * @since 1.0
+ */
 public class WhereStandatdizer extends AbstractStandardizer {
+    /**
+     * Applies the standardizing the 'where' gamma
+     * 
+     *      where              gamma
+     *       / \               /  \ 
+     *      P   =       =>   lambda E 
+     *         / \            / \ 
+     *        X   E          X   P 
+     * 
+     * @param node node to be standardize 
+     * @return  <b>true</b> if handled by one of the handlers
+     *          otherwise <b>false</b>
+     */
     @Override
     protected boolean standardizeImplementation(Node node) {
         if (node.getToken().equals("where")) {

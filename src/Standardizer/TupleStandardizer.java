@@ -6,10 +6,33 @@ import java.util.List;
 
 import Node.Node;
 
+/**
+ * Standardizer for Tuples
+ * 
+ * @author Hirumal Priyashan
+ * @version 1.0
+ * @since 1.0
+ */
 public class TupleStandardizer extends AbstractStandardizer {
+    /**
+     * Applies the standardizing Tuple gamma
+     * 
+     *           tau     =>     ++gamma
+     *            |              /   \
+     *           E++           gamma  E
+     *                          / \
+     *                        aug .nil 
+     *
+     * @param node node to be standardize 
+     * @return  <b>true</b> if handled by one of the handlers
+     *          otherwise <b>false</b>
+     */
     @Override
     protected boolean standardizeImplementation(Node node) {
-        if (node.getToken().equals("tau")) {
+        if (
+            node.getToken().equals("tau")
+            && node.getChildren().size() > 1
+        ) {
             int curretDepth = node.getDepth();
             List<Node> Es = node.getChildren();
             // restructure
