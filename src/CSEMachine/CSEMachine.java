@@ -58,6 +58,7 @@ public class CSEMachine {
      * the control and stack
      */
     public void run(){
+        Logger.log("Initial Configuration "); 
         this.printStatus();
         int ruleNumber = 1;
         while (!this.control.isEmpty() && ruleNumber > 0) {

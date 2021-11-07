@@ -5,6 +5,7 @@ Control structures:
    delta2 = neg n
    delta3 = n
 -----------------------
+Initial Configuration 
 Control: e0 gamma lambda|n|1 neg 3
 Stack: e0
 -----------------------------------------------------

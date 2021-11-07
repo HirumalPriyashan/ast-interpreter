@@ -4,6 +4,7 @@ Control structures:
    delta1 = lambda|w|2
    delta2 = + x w
 -----------------------
+Initial Configuration 
 Control: e0 gamma gamma lambda|x|1 5 6
 Stack: e0
 -----------------------------------------------------

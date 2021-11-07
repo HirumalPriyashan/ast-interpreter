@@ -7,6 +7,7 @@ Control structures:
    delta4 = 1
    delta5 = * n gamma f - n 1
 -----------------------
+Initial Configuration 
 Control: e0 gamma lambda|f|1 gamma YStar lambda|f|2
 Stack: e0
 -----------------------------------------------------

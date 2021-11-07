@@ -3,6 +3,7 @@ Control structures:
    delta0 = e0 gamma lambda|x|y|1 tau|2 5 6
    delta1 = + x y
 -----------------------
+Initial Configuration 
 Control: e0 gamma lambda|x|y|1 tau|2 5 6
 Stack: e0
 -----------------------------------------------------
