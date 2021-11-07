@@ -7,7 +7,7 @@ package CSEMachine.Symbols;
  * @version 1.0
  * @since 1.0
  */
-public class Dummy extends Symbol{
+public class Dummy extends Rand{
 
     /**
      * Class constructor.
