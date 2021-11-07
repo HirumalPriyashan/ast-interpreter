@@ -36,7 +36,7 @@ public class CSEMachineWrapper {
         // standardize
         Standardizer standardizer = new CSEStandardizer();
         standardizer.standardize(root);
-        root.printNode();
+        // root.printNode();
 
         // execute
         CSEMachine cseMachine =  new CSEMachine(root);

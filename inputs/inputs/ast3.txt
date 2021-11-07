@@ -82,8 +82,8 @@ let
 ...gamma
 ....<ID:fibonacci>
 ....tau
-.....<INT:6>
-.....<INT:50>
+.....<INT:1>
+.....<INT:100>
 ...gamma
 ....<ID:fibonacci>
 ....tau

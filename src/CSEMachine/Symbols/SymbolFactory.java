@@ -179,7 +179,7 @@ public class SymbolFactory implements IVisitor{
         } else if (token.startsWith("<INT:")){
             return new Int(token.substring(5, token.length() - 1));
         } else if (token.startsWith("<STR:")){
-            return new Int(token.substring(6, token.length() - 2));
+            return new StringSymbol(token.substring(6, token.length() - 2));
         } else if (token.startsWith("<nil")) {                    
             return new Tuple();
         } else if (token.equals("<true>")) {                    

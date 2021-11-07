@@ -54,26 +54,35 @@ public class BuiltInFunctions extends AbstractRule{
                 stack.remove(0);
                 Symbol str = stack.get(0);
                 stack.remove(0);
-                str.setToken(str.getToken().substring(0, 1));
-                stack.add(0, str);
+                Symbol newStr = new StringSymbol(str.getToken());
+                if (str.getToken().length() > 0) {
+                    newStr.setToken(str.getToken().substring(0, 1));
+                }
+                stack.add(0, newStr);
                 return 14;
             } else if (token.equals("Stern")) {
                 control.remove(control.size() - 1);
                 stack.remove(0);
                 Symbol str = stack.get(0);
                 stack.remove(0);
-                str.setToken(str.getToken().substring(1));
-                stack.add(0, str);
+                Symbol newStr = new StringSymbol(str.getToken());
+                if (str.getToken().length() > 0) {
+                    newStr.setToken(str.getToken().substring(1));
+                }
+                stack.add(0, newStr);
                 return 14;
             } else if (token.equals("Conc")) {
                 control.remove(control.size() - 1);
+                if (control.get(control.size() - 1) instanceof Gamma) {
+                    control.remove(control.size() - 1);
+                }
                 stack.remove(0);
                 Symbol str1 = stack.get(0);
                 Symbol str2 = stack.get(1);
                 stack.remove(0);
                 stack.remove(0);
-                str1.setToken(str1.getToken() + str2.getToken());
-                stack.add(0, str1);                                          
+                Symbol newStr = new StringSymbol(str1.getToken() + str2.getToken());
+                stack.add(0, newStr);                                          
                 return 14;
             } else if (token.equals("Order")) {
                 control.remove(control.size() - 1);

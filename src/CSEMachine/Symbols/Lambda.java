@@ -140,9 +140,9 @@ public class Lambda extends Rand{
         if (this.environment >= 0) {
             str = this.environment + "|" + str;
         }
-        if (this.delta != null) {
-            str += "Delta=" + delta.toString() +"|";
-        }
+        // if (this.delta != null) {
+        //     str += "Delta=" + delta.toString() +"|";
+        // }
         for (Id id : identifiers) {
             str += id.getToken() + "|";
         }
