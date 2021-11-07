@@ -17,5 +17,10 @@ public class StringSymbol extends Rand{
     public StringSymbol(String token) {
         super(token);
     }
+
+    @Override
+    public String toString() {
+        return "'" + getToken() + "'";
+    }
     
 }

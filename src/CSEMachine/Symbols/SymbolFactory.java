@@ -135,18 +135,23 @@ public class SymbolFactory implements IVisitor{
      */
     private void replaceB() {
         for (Delta delta : deltas) {
-            int index = -1;
-            for (Symbol symbol : delta.getSymbols()) {
-                if (symbol instanceof B) {
-                    index = delta.getSymbols().indexOf(symbol);
+            boolean isCompleted = false;
+            while (!isCompleted) {
+                isCompleted = true;
+                int index = -1;
+                for (Symbol symbol : delta.getSymbols()) {
+                    if (symbol instanceof B) {
+                        index = delta.getSymbols().indexOf(symbol);
+                        isCompleted = false;
+                    }
                 }
-            }
-            if(index != -1){
-                B b = (B) delta.getSymbols().get(index);
-                delta.removeSymbol(b);
-                List<Symbol> symbolList = b.getSymbols();
-                for (int i = symbolList.size() - 1; i >= 0 ; i--) {
-                    delta.addSymbol(index, symbolList.get(i));
+                if(index != -1){
+                    B b = (B) delta.getSymbols().get(index);
+                    delta.removeSymbol(b);
+                    List<Symbol> symbolList = b.getSymbols();
+                    for (int i = symbolList.size() - 1; i >= 0 ; i--) {
+                        delta.addSymbol(index, symbolList.get(i));
+                    }
                 }
             }
         }
