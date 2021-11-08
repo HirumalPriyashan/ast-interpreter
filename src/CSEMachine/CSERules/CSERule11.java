@@ -49,10 +49,10 @@ public class CSERule11 extends AbstractRule{
             && stack.get(1) instanceof Tuple
         ) {
             control.remove(control.size()-1);
-            Environment newEnvironment =new Environment(environments.size());
-            newEnvironment.setParent(getCurrentEnvironment(control, environments));
-            environments.add(0, newEnvironment);
             Lambda lambda =(Lambda) stack.get(0);
+            Environment newEnvironment =new Environment(environments.size());
+            newEnvironment.setParent(getEnvironmentByLambdaIndex(lambda.getEnvironment(), environments));
+            environments.add(0, newEnvironment);
             stack.remove(0);
             Tuple tuple =(Tuple) stack.get(0);
             stack.remove(0);
@@ -76,10 +76,10 @@ public class CSERule11 extends AbstractRule{
         return 0;
     }    
     
-    private Environment getCurrentEnvironment(List<Symbol> control, List<Environment> environments){
-        for (int i = control.size() - 1; i >= 0; i--) {
-            if (control.get(i) instanceof Environment) {
-                return (Environment) control.get(i);
+    private Environment getEnvironmentByLambdaIndex(int index,List<Environment> environments){
+        for (Environment environment : environments) {
+            if (environment.getIndex() == index) {
+                return environment;
             }
         }
         return environments.get(0);

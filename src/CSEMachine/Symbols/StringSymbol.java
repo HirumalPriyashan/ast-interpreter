@@ -20,7 +20,10 @@ public class StringSymbol extends Rand{
 
     @Override
     public String toString() {
-        return "'" + getToken() + "'";
+        if (getToken() == "") {
+            return "''";
+        }
+        return getToken();
     }
     
 }

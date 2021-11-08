@@ -33,24 +33,7 @@ public class CSEMachine {
         this.control = deltas.get(0).getSymbols();
         this.stack = symbolFactory.getStack();
         this.envs = symbolFactory.getEnvironment();
-        this.cseRules = getRules();
-    }
-    
-    /**
-     * Prints deltas for the given ST
-     */
-    public void printDeltas(){
-        Logger.log("-----------------------");
-        Logger.log("Control structures:");
-        for (Delta delta: deltas) {
-            List<Symbol> list  = delta.getSymbols();
-            Logger.logInLine("   " + delta + " = ");
-            for (Symbol symbol : list.subList(0, list.size() - 1)) {
-                Logger.logInLine(symbol + " ");
-            }
-            Logger.log(list.get(list.size() - 1));
-        }
-        Logger.log("-----------------------");
+        this.cseRules = this.getRules();
     }
 
     /**
@@ -58,6 +41,7 @@ public class CSEMachine {
      * the control and stack
      */
     public void run(){
+        this.printDeltas();
         Logger.log("Initial Configuration "); 
         this.printStatus();
         int ruleNumber = 1;
@@ -101,6 +85,23 @@ public class CSEMachine {
         .setSuccessor(new CSERule13())
         .setSuccessor(new BuiltInFunctions());
         return rules;
+    }
+    
+    /**
+     * Prints deltas for the given ST
+     */
+    private void printDeltas(){
+        Logger.log("-----------------------");
+        Logger.log("Control structures:");
+        for (Delta delta: deltas) {
+            List<Symbol> list  = delta.getSymbols();
+            Logger.logInLine("   " + delta + " = ");
+            for (Symbol symbol : list.subList(0, list.size() - 1)) {
+                Logger.logInLine(symbol + " ");
+            }
+            Logger.log(list.get(list.size() - 1));
+        }
+        Logger.log("-----------------------");
     }
 
     /**

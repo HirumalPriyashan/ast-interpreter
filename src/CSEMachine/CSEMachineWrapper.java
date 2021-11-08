@@ -40,7 +40,6 @@ public class CSEMachineWrapper {
 
         // execute
         CSEMachine cseMachine =  new CSEMachine(root);
-        cseMachine.printDeltas();
         cseMachine.run();
         // get result
         return cseMachine.getAnswer();
