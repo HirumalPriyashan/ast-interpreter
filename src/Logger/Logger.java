@@ -49,7 +49,8 @@ public class Logger {
      * Log the given object in to console without addind a new line
      * 
      * @param toPrint object to be logged
-     */public static void logInLine(Object toPrint){
+     */
+    public static void logInLine(Object toPrint){
         if (isEnabled) {
             System.out.print(toPrint);
         }

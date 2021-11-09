@@ -6,7 +6,8 @@ package MyExeptions;
  * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
- */public class ASTNotGeneratedException extends Exception {
+ */
+public class ASTNotGeneratedException extends Exception {
 
     /**
      * Class constructor.

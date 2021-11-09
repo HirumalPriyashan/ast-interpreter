@@ -17,7 +17,7 @@ public class AtStandardizer extends AbstractStandardizer{
     /**
      * Applies the standardizing the '@' Operator gamma
      * 
-     *      @      =>   gamma
+     *     '@'      =>  gamma
      *    / | \          / \
      *   E1 N E2      gamma E2
      *                 / \
