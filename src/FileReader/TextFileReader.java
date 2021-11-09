@@ -56,8 +56,8 @@ public class TextFileReader implements FileReader{
             }
             scanner.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+            System.out.println("There is no file in the specified path");
+            System.exit(-1);
         }
         return this.data;
     }
