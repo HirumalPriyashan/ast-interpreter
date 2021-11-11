@@ -105,13 +105,17 @@ public class BOp extends Rator{
             return new Bool(Boolean.toString(val1 >= val2));
         } 
         // handle aug
-         else if ("aug".equals(getToken())) {  
-            if (rand2 instanceof Tuple) {
-                ((Tuple) rand1).addAllSymbols(((Tuple) rand2).getSymbols());
-            } else {
-                ((Tuple) rand1).addSymbol(rand2);
+         else if ("aug".equals(getToken())) { 
+            Tuple tuple= new Tuple();
+            if (((Tuple) rand1).getSymbols().size() != 0) {
+                tuple.setSymbols(((Tuple) rand1).getSymbols());
             }
-            return rand1;
+            if (rand2 instanceof Tuple) {
+                tuple.addAllSymbols(((Tuple) rand2).getSymbols());
+            } else {
+                tuple.addSymbol(rand2);
+            }
+            return tuple;
         } else {
             return new Error("");
         }
