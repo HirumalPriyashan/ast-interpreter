@@ -40,7 +40,7 @@ let
 ..tau
 ...gamma
 ....<ID:Is_perfect_Square>
-....<INT:4>
+....<INT:1>
 ...gamma
 ....<ID:Is_perfect_Square>
 ....<INT:64>
