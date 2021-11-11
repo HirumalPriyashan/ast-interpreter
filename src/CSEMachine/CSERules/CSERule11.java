@@ -29,7 +29,7 @@ public class CSERule11 extends AbstractRule{
     * 
     * @param control - current control
     * @param stack - current stack
-    * @param environment - list of available environments
+    * @param environments - list of available environments
     * @param deltas - list of delta nodes
     * @return   11 if can handled by this method
     *           otherwise 0

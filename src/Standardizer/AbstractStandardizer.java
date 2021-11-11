@@ -8,13 +8,13 @@ import Node.Node;
  * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
- * @see https://sourcemaking.com/design_patterns/chain_of_responsibility
+ * @see "https://sourcemaking.com/design_patterns/chain_of_responsibility"
  */
 public abstract class AbstractStandardizer {
     protected AbstractStandardizer successor;
 
     /**
-     * Sets successer for the current handler
+     * Sets successor for the current handler
      *
      * @param  successor next handler
      * @return successor  
@@ -35,9 +35,7 @@ public abstract class AbstractStandardizer {
     /**
      * Apply the standardize gamma if can be handled otherwise pass to the 
      * successor
-     * @param node node to be standardize 
-     * @return  <b>true</b> if handled by one of the handlers
-     *          otherwise <b>false</b>
+     * @param node node to be standardize
      */
     public final void standardize(Node node) {
         boolean handledByThis = this.standardizeImplementation(node);

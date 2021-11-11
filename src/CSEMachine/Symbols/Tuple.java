@@ -33,7 +33,7 @@ public class Tuple extends Rand{
     /**
      * Setter for symbols
      * 
-     * @param symbol list of symbols
+     * @param symbols list of symbols
      */
     public void setSymbols(List<Symbol> symbols) {
         this.symbols = symbols;
@@ -61,6 +61,7 @@ public class Tuple extends Rand{
      * Get a symbol from the symbols list in the specified position
      * 
      * @param index position to select the symbol
+     * @return  symbol in the specified index
      */
     public Symbol getSymbol(int index) {
         return this.symbols.get(index);

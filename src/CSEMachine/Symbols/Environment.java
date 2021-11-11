@@ -20,7 +20,7 @@ public class Environment extends Symbol {
     /**
      * Class constructor.
      * 
-     * @param n number of children
+     * @param i index for the environment
      */
     public Environment(int i) {
         super("e");

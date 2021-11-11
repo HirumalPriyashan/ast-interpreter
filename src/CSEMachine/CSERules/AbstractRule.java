@@ -12,7 +12,7 @@ import java.util.List;
  * @author Hirumal Priyashan
  * @version 1.0
  * @since 1.0
- * @see https://sourcemaking.com/design_patterns/chain_of_responsibility
+ * @see "https://sourcemaking.com/design_patterns/chain_of_responsibility"
  */
 public abstract class AbstractRule {
     // next handler in the chain
@@ -34,7 +34,7 @@ public abstract class AbstractRule {
     * 
     * @param control - current control
     * @param stack - current stack
-    * @param environment - list of available environments
+    * @param environments - list of available environments
     * @param deltas - list of delta nodes
     * @return   handler number if handled by one of the handlers
     *           otherwise 0 
@@ -50,7 +50,7 @@ public abstract class AbstractRule {
     * 
     * @param control - current control
     * @param stack - current stack
-    * @param environment - list of available environments
+    * @param environments - list of available environments
     * @param deltas - list of delta nodes
     * @return   handler number if handled by one of the handlers
     *           otherwise 0 

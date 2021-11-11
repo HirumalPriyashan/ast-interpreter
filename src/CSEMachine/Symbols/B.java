@@ -28,7 +28,7 @@ public class B extends Symbol{
     /**
      * Setter for symbols
      * 
-     * @param symbol list of symbols
+     * @param symbols list of symbols
      */
     public void setSymbols(List<Symbol> symbols) {
         this.symbols = symbols;

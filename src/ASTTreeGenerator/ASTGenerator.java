@@ -49,8 +49,6 @@ public class ASTGenerator {
     * Prints the AST in order from root node to leaf nodes
     * node is represented using a set of dots which are equls to the 
     * depth * followed by the token of the node
-    * 
-    * @throws ASTNotGeneratedException  If AST is not generated
     */
     public void printTree() {
         try {

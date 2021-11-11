@@ -22,7 +22,7 @@ public class Bool extends Rand{
      * Returns whether the symbol is a true symbol
      * 
      * @return <b>true</b> if the symbol is true symbol
-     *         <b>false</> otherwise
+     *         <b>false</b> otherwise
      */
     public boolean isTrue() {
         return getToken().equals("true");

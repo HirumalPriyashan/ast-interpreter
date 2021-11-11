@@ -47,7 +47,7 @@ public class Lambda extends Rand{
     /**
      * Setter for environment
      * 
-     * @param e index of the environment symbol
+     * @param n index of the environment symbol
      */
     public void setEnvironment(int n) {
         this.environment = n;
@@ -101,7 +101,7 @@ public class Lambda extends Rand{
     /**
      * Setter for right child of the starting node for Lambda symbol
      * 
-     * @params rightChild right child of the starting node
+     * @param rightChild right child of the starting node
      */
     public void setRightChild(Node rightChild) {
         this.rightChild = rightChild;
