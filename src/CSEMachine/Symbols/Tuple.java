@@ -71,10 +71,10 @@ public class Tuple extends Rand{
         if (symbols.size() == 0) {
             return "()";
         }
-        String str = "( ";
+        String str = "(";
         for (Symbol symbol : symbols) {
             str += symbol.toString() + ", ";
         }
-        return str.substring(0, str.length() - 2) + " )";
+        return str.substring(0, str.length() - 2) + ")";
     }
 }

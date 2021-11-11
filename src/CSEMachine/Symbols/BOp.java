@@ -110,11 +110,7 @@ public class BOp extends Rator{
             if (((Tuple) rand1).getSymbols().size() != 0) {
                 tuple.setSymbols(((Tuple) rand1).getSymbols());
             }
-            if (rand2 instanceof Tuple) {
-                tuple.addAllSymbols(((Tuple) rand2).getSymbols());
-            } else {
-                tuple.addSymbol(rand2);
-            }
+            tuple.addSymbol(rand2);
             return tuple;
         } else {
             return new Error("");

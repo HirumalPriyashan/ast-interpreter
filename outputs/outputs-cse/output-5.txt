@@ -17,11 +17,11 @@ Stack: 5 6 e0
 -----------------------------------------------------
 Applying Rule 9
 Control: e0 gamma lambda|x|y|1
-Stack: ( 5, 6 ) e0
+Stack: (5, 6) e0
 -----------------------------------------------------
 Applying Rule 2
 Control: e0 gamma
-Stack: 0|lambda|x|y|1 ( 5, 6 ) e0
+Stack: 0|lambda|x|y|1 (5, 6) e0
 -----------------------------------------------------
 Creating new environmet
 e1 = [ '5' / 'x' ] [ '6' / 'y' ] e0
