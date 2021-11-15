@@ -62,7 +62,7 @@ public class CSERule11 extends AbstractRule{
             }
             control.add(newEnvironment);
             stack.add(0, newEnvironment);
-            Logger.log("Creating new environmet");
+            Logger.log("Creating new environment");
             newEnvironment.printEnvironment();
             List<Symbol> delta = lambda.getDelta().getSymbols();
             for (Symbol symbol : delta) {

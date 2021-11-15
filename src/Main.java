@@ -41,7 +41,7 @@ public class Main {
     private static void printUsage() {
         Logger.log("Usage: java Main <input-file-path> [-a] [-c]");
         Logger.log("input-file-name         absolute or relative path to the input file");
-        Logger.log("-a                      enable logging standadized tree");
+        Logger.log("-a                      enable logging standardized tree");
         Logger.log("-c                      enable logging cse machine execution");
     }
 }
