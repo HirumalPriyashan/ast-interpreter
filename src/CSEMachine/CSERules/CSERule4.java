@@ -58,7 +58,7 @@ public class CSERule4 extends AbstractRule{
             stack.remove(0);
             stack.remove(0);
             stack.add(0, newEnvironment);
-            Logger.log("Creating new environmet");
+            Logger.log("Creating new environment");
             newEnvironment.printEnvironment();
             List<Symbol> delta = lambda.getDelta().getSymbols();
             for (Symbol symbol : delta) {
